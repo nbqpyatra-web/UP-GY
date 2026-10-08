@@ -34,6 +34,7 @@ export FRESHWORKS_API_KEY=xxxxxxxx
 claude            # run from this repo; approve the "freshworks-crm" server when asked
 ```
 
+Alternatively, put the same `KEY=value` lines in `freshworks_mcp/.env`, which is gitignored.
 Don't commit your API key. `.mcp.json` only refers to it as `${FRESHWORKS_API_KEY}`.
 
 ## 3. Check it's working

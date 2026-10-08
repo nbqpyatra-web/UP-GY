@@ -5,8 +5,8 @@
       "command": "python3",
       "args": ["freshworks_mcp/server.py"],
       "env": {
-        "FRESHWORKS_DOMAIN": "${FRESHWORKS_DOMAIN}",
-        "FRESHWORKS_API_KEY": "${FRESHWORKS_API_KEY}",
+        "FRESHWORKS_DOMAIN": "${FRESHWORKS_DOMAIN:-}",
+        "FRESHWORKS_API_KEY": "${FRESHWORKS_API_KEY:-}",
         "FRESHWORKS_BASE_URL": "${FRESHWORKS_BASE_URL:-}",
         "FRESHWORKS_READ_ONLY": "${FRESHWORKS_READ_ONLY:-}"
       }

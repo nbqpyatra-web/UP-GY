@@ -12,6 +12,9 @@ Configuration (environment variables):
   FRESHWORKS_BASE_URL   optional full API base, e.g.
                         "https://yourcompany.freshsales.io/api" for legacy accounts
   FRESHWORKS_READ_ONLY  set to "1" to disable every tool that writes data
+
+Any of these may also be put in freshworks_mcp/.env (KEY=value lines, gitignored);
+real environment variables take precedence.
 """
 
 import json
@@ -40,6 +43,21 @@ class FreshworksError(Exception):
     pass
 
 
+def load_env_file():
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.exists(path):
+        return
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key, value = key.strip().upper(), value.strip().strip("'\"")
+            if not os.environ.get(key):
+                os.environ[key] = value
+
+
 def base_url():
     explicit = os.environ.get("FRESHWORKS_BASE_URL", "").strip()
     if explicit:
@@ -50,6 +68,7 @@ def base_url():
             "FRESHWORKS_DOMAIN is not set (e.g. yourcompany.myfreshworks.com)."
         )
     domain = domain.removeprefix("https://").removeprefix("http://").rstrip("/")
+    domain = domain.split("/")[0]  # accept "x.myfreshworks.com/crm/sales" too
     return f"https://{domain}/crm/sales/api"
 
 
@@ -362,6 +381,7 @@ def send(obj):
 
 
 def main():
+    load_env_file()
     for line in sys.stdin:
         line = line.strip()
         if not line:
