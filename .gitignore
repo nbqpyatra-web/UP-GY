@@ -1,0 +1,4 @@
+freshworks_mcp/.env
+.env
+__pycache__/
+portal/.cache/

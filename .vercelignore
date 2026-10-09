@@ -1,0 +1,6 @@
+# Deploy only the portal page
+/*
+!/portal
+/portal/*
+!/portal/index.html
+!/vercel.json
