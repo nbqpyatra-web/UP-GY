@@ -1,0 +1,9 @@
+{
+  "bgm": {
+    "path": "assets/bgm.mp3",
+    "source": "host"
+  },
+  "bgm_pending": false,
+  "voices": [],
+  "sfx": []
+}

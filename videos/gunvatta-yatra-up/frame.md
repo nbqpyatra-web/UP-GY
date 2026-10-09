@@ -32,6 +32,8 @@ radii:
   circle: "50%"
 
 typography:
+  # — Devanagari (Hindi) companion: pair with any Latin role at the same size/weight —
+  hindi:   { fontFamily: "Noto Sans Devanagari", note: "use for all Devanagari text; files in assets/fonts/noto-sans-devanagari-devanagari-{500,600,700}.woff2; line-height ≥ 1.3 (matras)" }
   # — reading ramp (Inter body + Space Grotesk chrome) —
   body:    { fontFamily: "Inter", cqw: 0.85, weight: 400, lineHeight: 1.6, color: "text-muted" }
   h4-eyebrow:{ fontFamily: "Space Grotesk", cqw: 0.8, weight: 600, tracking: "0.08em", upper: true, color: "primary" }

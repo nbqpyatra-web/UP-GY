@@ -1,0 +1,9 @@
+## Video direction
+
+- palette: `frame.md` blue-professional — cream `bg` ground, cobalt `primary` the ONLY accent (route line, pins, CTA pill, eyebrows), `text` near-black headlines, `text-muted` English sub-lines, `card-tinted` for stop cards. No other hues.
+- type: Hindi lines in Noto Sans Devanagari (frame.md `hindi` token, `assets/fonts/`), English in Space Grotesk (display) / Inter (body). Hindi is the hero line; English sits beneath it, smaller, `text-muted`.
+- shared map stage (frames 02–07 — MUST be identical so the push-slides read as one continuous journey): UP outline from `assets/up-map.json` (`path`, viewBox `0 0 1000 973`), drawn as an SVG at left 150px, top 80px, width 781px, height 760px (scale 0.781). Outline: `primary` stroke 2.5px, fill `card-bg`. City pins (map-space coords in `up-map.json.cities`): Agra, Kanpur, Lucknow, Varanasi, Gorakhpur. Route = dashed cobalt polyline (stroke 4px, dash 14 10) Agra→Kanpur→Lucknow→Varanasi→Gorakhpur. Visited pins: solid cobalt dot r=12 + white center r=4 + city label (Hindi, 26px, `text`) beside it. Current pin gets a soft cobalt pulse ring. Stop card: right column x 1010–1790, vertically centered ~y 450.
+- motion grammar: long-tail eases (power3.out default), reveals paced to the beat (silent film — paced to reading time, one idea per ~1.2–1.8s), never front-load. Route segments draw with stroke-dashoffset (mask technique so the dash pattern is kept). Holds are still — no breathing, no drift.
+- rhythm: 01 kinetic open → 02 the big map build (energy peak) → 03–07 a steady repeating stop rhythm → 08 held breather/turn → 09 clean held end card.
+- negative list: no official logos or emblems, no invented numbers/dates, no photos, no gradients/bokeh, no shadows (except CTA), no slideshow front-loading, no screensaver floating.
+
