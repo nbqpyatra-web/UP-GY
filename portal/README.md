@@ -47,7 +47,7 @@ district boundaries). Only aggregate counts are taken from the CRM.
 - A CRM event is any distinct Event Name with Board = NABH, Event Type = Yatra /
   Gunvatta Mohotsav / Gunvatta Yatra, and either state field = Uttar Pradesh. Events
   whose text state names another state are dropped; `NABH_ADDITIONAL_Y` is excluded.
-- "UP GY" period = yatras on or after the circular date, 15 May 2026.
+- UP GY = the 63 planned yatras from the launch on 09 Oct 2026; earlier yatras are history.
 - Potential leads = Hot + Warm + Application in progress. Won = CRM "Won" +
   "Application submitted". Close rate = Won ÷ (Hot + AIP + Won).
 - Gap = PM-JAY universe − NABH total, floored at 0. The map colours by absolute gap.
