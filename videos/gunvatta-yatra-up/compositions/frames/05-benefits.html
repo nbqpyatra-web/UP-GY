@@ -1,0 +1,232 @@
+<template>
+  <div id="root" data-composition-id="05-benefits" data-width="1920" data-height="1080" data-start="0" data-duration="16.14">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        container-type: size;
+      }
+      .f05-bg {
+        position: absolute;
+        left: 0; top: 0;
+        width: 1920px; height: 1080px;
+        background: #fdfae7;
+      }
+      .f05-hairlines {
+        position: absolute;
+        left: 0; top: 0;
+        width: 1920px; height: 900px;
+      }
+      /* eyebrow */
+      .f05-accent-line {
+        position: absolute;
+        left: 110px; top: 118px;
+        width: 60px; height: 4px;
+        border-radius: 2px;
+        background: #1e2bfa;
+        transform-origin: 0% 50%;
+      }
+      .f05-eyebrow {
+        position: absolute;
+        left: 110px; top: 136px;
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 1.35;
+        color: #1e2bfa;
+        white-space: nowrap;
+      }
+      /* triptych slots */
+      .f05-slot {
+        position: absolute;
+        top: 270px;
+        width: 548px; height: 560px;
+        box-sizing: border-box;
+        border-radius: 14px;
+        border: 1.5px dashed rgba(30,43,250,0.15);
+      }
+      .f05-card {
+        position: absolute;
+        top: 270px;
+        width: 548px; height: 560px;
+        box-sizing: border-box;
+        border-radius: 14px;
+        background-color: rgba(30,43,250,0.04);
+        border: 1.5px solid rgba(30,43,250,0.2);
+        overflow: hidden;
+      }
+      .f05-strip-base {
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%; height: 8px;
+        background: rgba(30,43,250,0.15);
+      }
+      .f05-strip-fill {
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%; height: 8px;
+        background: #1e2bfa;
+        transform-origin: 0% 50%;
+      }
+      .f05-num {
+        position: absolute;
+        left: 52px; top: 52px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 168px;
+        line-height: 1.0;
+        letter-spacing: -0.02em;
+        color: #1e2bfa;
+        transform-origin: 0% 100%;
+      }
+      .f05-hi {
+        position: absolute;
+        left: 52px; top: 268px;
+        width: 444px;
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 1.38;
+        color: #111111;
+      }
+      .f05-en {
+        position: absolute;
+        left: 52px; top: 470px;
+        width: 444px;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 1.4;
+        color: #6b6b6b;
+      }
+      .f05-en-rule {
+        position: absolute;
+        left: 52px; top: 446px;
+        width: 48px; height: 3px;
+        border-radius: 2px;
+        background: rgba(30,43,250,0.2);
+        transform-origin: 0% 50%;
+      }
+    </style>
+
+    <div class="f05-bg clip" data-start="0" data-duration="16.14" data-track-index="0"></div>
+
+    <svg class="f05-hairlines" id="f05-hairlines" viewBox="0 0 1920 900"></svg>
+
+    <div class="f05-accent-line" id="f05-accent-line"></div>
+    <div class="f05-eyebrow" id="f05-eyebrow">मरीज़ों को क्या मिलेगा?</div>
+
+    <div class="f05-slot" id="f05-slot-0" style="left: 110px;"></div>
+    <div class="f05-slot" id="f05-slot-1" style="left: 686px;"></div>
+    <div class="f05-slot" id="f05-slot-2" style="left: 1262px;"></div>
+
+    <div class="f05-card" id="f05-card-0" style="left: 110px;">
+      <div class="f05-strip-base"></div>
+      <div class="f05-strip-fill" id="f05-strip-0"></div>
+      <div class="f05-num" id="f05-num-0">1</div>
+      <div class="f05-hi" id="f05-hi-0">स्वास्थ्य सेवाओं की गुणवत्ता में सुधार</div>
+      <div class="f05-en-rule" id="f05-rule-0"></div>
+      <div class="f05-en" id="f05-en-0">Better quality of care</div>
+    </div>
+
+    <div class="f05-card" id="f05-card-1" style="left: 686px;">
+      <div class="f05-strip-base"></div>
+      <div class="f05-strip-fill" id="f05-strip-1"></div>
+      <div class="f05-num" id="f05-num-1">2</div>
+      <div class="f05-hi" id="f05-hi-1">मानकों के अनुरूप उपचार</div>
+      <div class="f05-en-rule" id="f05-rule-1"></div>
+      <div class="f05-en" id="f05-en-1">Treatment as per standards</div>
+    </div>
+
+    <div class="f05-card" id="f05-card-2" style="left: 1262px;">
+      <div class="f05-strip-base"></div>
+      <div class="f05-strip-fill" id="f05-strip-2"></div>
+      <div class="f05-num" id="f05-num-2">3</div>
+      <div class="f05-hi" id="f05-hi-2">बेहतर एवं पारदर्शी सेवाएं</div>
+      <div class="f05-en-rule" id="f05-rule-2"></div>
+      <div class="f05-en" id="f05-en-2">Better, transparent services</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var q = function (id) { return document.getElementById(id); };
+        var NS = "http://www.w3.org/2000/svg";
+
+        // hairline grid background (built synchronously)
+        var svg = q("f05-hairlines");
+        var x, y, ln;
+        for (x = 110; x <= 1810; x += 96) {
+          ln = document.createElementNS(NS, "line");
+          ln.setAttribute("x1", x); ln.setAttribute("y1", 0);
+          ln.setAttribute("x2", x); ln.setAttribute("y2", 900);
+          ln.setAttribute("stroke", "rgba(30,43,250,0.06)");
+          ln.setAttribute("stroke-width", "1");
+          svg.appendChild(ln);
+        }
+        for (y = 30; y <= 900; y += 96) {
+          ln = document.createElementNS(NS, "line");
+          ln.setAttribute("x1", 0); ln.setAttribute("y1", y);
+          ln.setAttribute("x2", 1920); ln.setAttribute("y2", y);
+          ln.setAttribute("stroke", "rgba(30,43,250,0.06)");
+          ln.setAttribute("stroke-width", "1");
+          svg.appendChild(ln);
+        }
+
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 1 (0.0–1.4s): ground, eyebrow, empty triptych slots
+        tl.fromTo(svg, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 0);
+        tl.fromTo(q("f05-accent-line"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+        tl.fromTo(q("f05-eyebrow"), { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.1);
+        [0, 1, 2].forEach(function (i) {
+          tl.fromTo(q("f05-slot-" + i), { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.55 + i * 0.08);
+        });
+
+        // Scenes 2–4: each card rises into its slot on its spoken numeral
+        var cues = [
+          { card: 1.68, num: 1.81, hi: 2.46, en: 4.37 },   // एक … स्वास्थ्य … सुधार
+          { card: 5.62, num: 5.75, hi: 6.44, en: 9.04 },   // दो … मरीज़ों … अनुसार
+          { card: 10.37, num: 10.50, hi: 11.23, en: 13.56 } // तीन … लाभार्थियों … सेवाएं
+        ];
+        cues.forEach(function (c, i) {
+          tl.fromTo(q("f05-card-" + i), { y: 90, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, c.card);
+          tl.fromTo(q("f05-num-" + i), { scale: 0.55, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2.2)" }, c.num);
+          tl.fromTo(q("f05-hi-" + i), { y: 26, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, c.hi);
+          tl.fromTo(q("f05-rule-" + i), { scaleX: 0 },
+            { scaleX: 1, duration: 0.4, ease: "power3.out" }, c.en - 0.1);
+          tl.fromTo(q("f05-en-" + i), { y: 18, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, c.en);
+        });
+
+        // Scene 4 coda: top borders turn solid cobalt in a left-to-right sweep
+        [0, 1, 2].forEach(function (i) {
+          tl.fromTo(q("f05-strip-" + i), { scaleX: 0 },
+            { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 14.15 + i * 0.32);
+        });
+
+        // hold to full duration
+        tl.set({}, {}, 16.14);
+
+        window.__timelines["05-benefits"] = tl;
+      })();
+    </script>
+  </div>
+</template>

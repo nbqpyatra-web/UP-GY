@@ -1,0 +1,143 @@
+<template>
+  <div id="root" data-composition-id="11-every-pincode" data-start="0" data-duration="8.39" data-width="1920" data-height="1080">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      .f11-bg { position: absolute; inset: 0; background: #1e2bfa; }
+      .f11-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 600px 450px; }
+      .f11-map { position: absolute; left: 110px; top: 70px; width: 823px; height: 800px; overflow: visible; }
+      .f11-dist { fill: #fdfae7; fill-opacity: 0.55; stroke: #fdfae7; stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+      .f11-line { position: absolute; left: 170px; height: 170px; line-height: 170px; white-space: nowrap; font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 700; font-size: 130px; color: #fdfae7; transform-origin: 0% 50%; }
+      .f11-l1 { top: 145px; }
+      .f11-l2 { top: 335px; }
+      .f11-l3 { top: 525px; }
+      .f11-rule { position: absolute; left: 170px; top: 120px; width: 60px; height: 4px; border-radius: 2px; background: #fdfae7; transform-origin: 0% 50%; }
+      .f11-odo { position: absolute; left: 860px; top: 536px; width: 646px; height: 148px; }
+      .f11-cell { position: absolute; top: 0; width: 98px; height: 148px; border-radius: 12px; background: rgba(253,250,231,0.08); border: 1.5px solid rgba(253,250,231,0.35); box-sizing: border-box; overflow: hidden; }
+      .f11-strip { position: absolute; left: 0; top: 0; width: 95px; }
+      .f11-dig { display: block; width: 95px; height: 145px; line-height: 145px; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 112px; color: #fdfae7; }
+      .f11-pill { position: absolute; left: 170px; top: 752px; height: 96px; padding: 0 44px; border-radius: 100px; border: 2px solid #fdfae7; box-sizing: border-box; white-space: nowrap; display: flex; align-items: center; gap: 18px; color: #fdfae7; }
+      .f11-pill-hi { font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 600; font-size: 60px; line-height: 1.3; }
+      .f11-pill-num { display: inline-block; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 64px; line-height: 1; transform-origin: 50% 60%; }
+    </style>
+    <div class="f11-bg clip" data-start="0" data-duration="8.39" data-track-index="0"></div>
+    <div id="f11-stage" class="f11-stage">
+      <svg id="f11-map" class="f11-map" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+        <g id="f11-districts"></g>
+      </svg>
+      <div id="f11-rule" class="f11-rule"></div>
+      <div id="f11-l1" class="f11-line f11-l1">हर ज़िला</div>
+      <div id="f11-l2" class="f11-line f11-l2">हर शहर</div>
+      <div id="f11-l3" class="f11-line f11-l3">हर पिनकोड</div>
+      <div id="f11-odo" class="f11-odo"></div>
+      <div id="f11-pill" class="f11-pill">
+        <span class="f11-pill-hi">पूरे</span>
+        <span id="f11-num" class="f11-pill-num">75</span>
+        <span class="f11-pill-hi">ज़िले</span>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>
+    <script>
+      (function () {
+        var FID = "11-every-pincode";
+        var NS = "http://www.w3.org/2000/svg";
+        var data = window.UP_DISTRICTS;
+        var list = (data && data.districts) ? data.districts.slice().sort(function (a, b) { return a.order - b.order; }) : [];
+        function $(id) { return document.getElementById(id); }
+
+        // faint lit-map watermark: all 75 districts in cream
+        var gD = $("f11-districts");
+        list.forEach(function (d) {
+          var p = document.createElementNS(NS, "path");
+          p.setAttribute("d", d.d);
+          p.setAttribute("class", "f11-dist");
+          gD.appendChild(p);
+        });
+
+        // odometer: deterministic pincode-style sequence
+        var SEQ = ["273001", "243001", "274401", "244001", "273303"];
+        var FILL = 3;            // rolling filler digits between states
+        var H = 145;             // digit row height
+        var odo = $("f11-odo");
+        var strips = [];
+        var stops = [];          // per column: strip index of each state
+        for (var c = 0; c < 6; c++) {
+          var cell = document.createElement("div");
+          cell.className = "f11-cell";
+          cell.style.left = (c * 109.6) + "px";
+          var strip = document.createElement("div");
+          strip.className = "f11-strip";
+          strip.id = "f11-strip-" + c;
+          var digits = [];
+          var st = [];
+          for (var s = 0; s < SEQ.length; s++) {
+            var v = parseInt(SEQ[s].charAt(c), 10);
+            if (s > 0) {
+              var prev = parseInt(SEQ[s - 1].charAt(c), 10);
+              for (var k = 1; k <= FILL; k++) digits.push((prev + k * 3 + c) % 10);
+            }
+            st.push(digits.length);
+            digits.push(v);
+          }
+          digits.forEach(function (dg) {
+            var sp = document.createElement("span");
+            sp.className = "f11-dig";
+            sp.textContent = String(dg);
+            strip.appendChild(sp);
+          });
+          cell.appendChild(strip);
+          odo.appendChild(cell);
+          strips.push(strip);
+          stops.push(st);
+        }
+
+        var tl = gsap.timeline({ paused: true });
+
+        // watermark + quiet push-in underneath (moves once, then rests)
+        tl.fromTo("#f11-map", { opacity: 0 }, { opacity: 0.08, duration: 0.5, ease: "power2.out" }, 0);
+        tl.fromTo("#f11-stage", { scale: 1.0 }, { scale: 1.035, duration: 6.4, ease: "power2.inOut" }, 0);
+        tl.fromTo("#f11-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+
+        // Scene 1-3: slams on the voice
+        function slam(sel, t) {
+          tl.fromTo(sel,
+            { opacity: 0, scale: 1.7, x: -40, filter: "blur(14px)" },
+            { opacity: 1, scale: 1, x: 0, filter: "blur(0px)", duration: 0.38, ease: "expo.out" }, t);
+        }
+        slam("#f11-l1", 0.10);
+        slam("#f11-l2", 1.70);
+        slam("#f11-l3", 3.35);
+
+        // odometer arrives beside line 3, then rolls through states and settles
+        tl.fromTo("#f11-odo", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 3.45);
+        var T0 = 3.55, STEP = 0.32;
+        strips.forEach(function (strip, c) {
+          for (var s = 1; s < SEQ.length; s++) {
+            var last = (s === SEQ.length - 1);
+            tl.to(strip, {
+              y: -stops[c][s] * H,
+              duration: last ? 0.42 : 0.26,
+              ease: last ? "power3.out" : "power1.inOut"
+            }, T0 + (s - 1) * STEP + c * 0.03);
+          }
+        });
+
+        // Scene 4: pill rises on "पूरे", 75 pops on "पचहत्तर", then hold
+        tl.fromTo("#f11-pill", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 5.19);
+        tl.fromTo("#f11-num", { scale: 0.6 }, { scale: 1, duration: 0.5, ease: "back.out(2.4)" }, 5.66);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines[FID] = tl;
+      })();
+    </script>
+  </div>
+</template>

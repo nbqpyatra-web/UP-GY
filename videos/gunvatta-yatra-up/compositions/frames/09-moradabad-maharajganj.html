@@ -1,0 +1,253 @@
+<template>
+  <div id="root" data-composition-id="09-moradabad-maharajganj" data-start="0" data-duration="6.37" data-width="1920" data-height="1080">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; }
+
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      .f09-bg { position: absolute; inset: 0; background: #fdfae7; }
+      .f09-stage { position: absolute; inset: 0; }
+
+      .f09-map { position: absolute; left: 110px; top: 70px; width: 823px; height: 800px; overflow: visible; }
+      .f09-dist { fill: rgba(30,43,250,0.04); stroke: #1e2bfa; stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+      .f09-filled { fill: #1e2bfa; fill-opacity: 0.9; stroke: #fdfae7; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+      .f09-route { fill: none; stroke: #1e2bfa; stroke-width: 4.5; stroke-dasharray: 11 9; stroke-linecap: round; }
+      .f09-ring { fill: none; stroke: #1e2bfa; stroke-width: 3; }
+      .f09-label { font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 600; font-size: 31px; fill: #111111; paint-order: stroke; stroke: #fdfae7; stroke-width: 7px; stroke-linejoin: round; }
+      .f09-label-new { fill: #1e2bfa; font-weight: 700; font-size: 36px; }
+      .f09-badge-c { fill: #1e2bfa; stroke: #fdfae7; stroke-width: 4; }
+      .f09-badge-t { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 28px; fill: #fdfae7; }
+
+      .f09-panel { position: absolute; left: 1040px; top: 96px; width: 770px; height: 780px; }
+      .f09-head { position: absolute; left: 0; top: 0; width: 770px; height: 48px; }
+      .f09-eyebrow { position: absolute; left: 0; top: 12px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: #1e2bfa; }
+      .f09-chip { position: absolute; right: 0; top: 0; width: 230px; height: 48px; border-radius: 100px; background: rgba(30,43,250,0.08); overflow: hidden; }
+      .f09-chip-t { position: absolute; left: 0; top: 0; width: 230px; height: 48px; line-height: 48px; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; color: #1e2bfa; }
+      .f09-rule { position: absolute; left: 0; top: 74px; width: 60px; height: 4px; border-radius: 2px; background: #1e2bfa; }
+
+      .f09-count { position: absolute; left: 0; top: 120px; width: 770px; height: 190px; }
+      .f09-count-lab { position: absolute; left: 0; top: 0; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b6b; }
+      .f09-digit-box { position: absolute; left: 0; top: 34px; width: 150px; height: 150px; overflow: hidden; }
+      .f09-digit { position: absolute; left: 0; top: 0; width: 150px; height: 150px; line-height: 150px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 150px; color: #1e2bfa; }
+      .f09-total { position: absolute; left: 112px; top: 34px; height: 150px; line-height: 150px; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 84px; color: #9a9a9a; letter-spacing: -0.02em; }
+      .f09-track { position: absolute; left: 0; top: 340px; width: 770px; height: 16px; border-radius: 6px; background: rgba(30,43,250,0.08); overflow: hidden; }
+      .f09-fill { display: block; position: absolute; left: 0; top: 0; width: 770px; height: 16px; border-radius: 6px; background: #1e2bfa; transform-origin: 0 50%; }
+
+      .f09-card { position: absolute; left: 0; width: 770px; height: 150px; border-radius: 14px; background: rgba(30,43,250,0.04); border: 1.5px solid rgba(30,43,250,0.2); box-sizing: border-box; }
+      .f09-card-a { top: 410px; }
+      .f09-card-b { top: 584px; }
+      .f09-card-badge { position: absolute; left: 32px; top: 39px; width: 72px; height: 72px; border-radius: 50%; background: #1e2bfa; color: #fdfae7; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 34px; line-height: 72px; text-align: center; }
+      .f09-card-rath { position: absolute; left: 132px; top: 30px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: #1e2bfa; }
+      .f09-card-hi { position: absolute; left: 132px; top: 56px; font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 700; font-size: 46px; line-height: 1.3; color: #111111; }
+      .f09-card-num { position: absolute; right: 32px; top: 48px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 44px; line-height: 54px; color: rgba(30,43,250,0.35); }
+    </style>
+
+    <div class="f09-bg clip" data-start="0" data-duration="6.37" data-track-index="0"></div>
+
+    <div class="f09-stage">
+      <svg id="f09-map" class="f09-map" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="f09-mask-a" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200">
+            <path id="f09-mask-a-p" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round"></path>
+          </mask>
+          <mask id="f09-mask-b" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="1200">
+            <path id="f09-mask-b-p" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round"></path>
+          </mask>
+        </defs>
+        <g id="f09-districts"></g>
+        <g id="f09-fills"></g>
+        <g id="f09-routes"></g>
+        <g id="f09-rings"></g>
+        <g id="f09-labels"></g>
+        <g id="f09-badges"></g>
+      </svg>
+
+      <div class="f09-panel">
+        <div class="f09-head">
+          <div class="f09-eyebrow">Phase 1 · Rath A + Rath B</div>
+          <div class="f09-chip">
+            <div id="f09-chip-old" class="f09-chip-t">14 Oct 2026</div>
+            <div id="f09-chip-new" class="f09-chip-t">16 Oct 2026</div>
+          </div>
+        </div>
+        <div class="f09-rule"></div>
+
+        <div class="f09-count">
+          <div class="f09-count-lab">Districts</div>
+          <div class="f09-digit-box">
+            <div id="f09-d3" class="f09-digit">3</div>
+            <div id="f09-d4" class="f09-digit">4</div>
+            <div id="f09-d5" class="f09-digit">5</div>
+          </div>
+          <div class="f09-total">/ 75</div>
+        </div>
+        <div class="f09-track"><div id="f09-fill" class="f09-fill"></div></div>
+
+        <div id="f09-card-a" class="f09-card f09-card-a">
+          <div class="f09-card-badge">A</div>
+          <div class="f09-card-rath">Rath A · Moradabad</div>
+          <div class="f09-card-hi">मुरादाबाद</div>
+          <div class="f09-card-num">#4</div>
+        </div>
+        <div id="f09-card-b" class="f09-card f09-card-b">
+          <div class="f09-card-badge">B</div>
+          <div class="f09-card-rath">Rath B · Maharajganj</div>
+          <div class="f09-card-hi">महराजगंज</div>
+          <div class="f09-card-num">#5</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>
+    <script>
+      (function () {
+        var FID = "09-moradabad-maharajganj";
+        var NS = "http://www.w3.org/2000/svg";
+        var data = window.UP_DISTRICTS;
+        var list = (data && data.districts) ? data.districts.slice().sort(function (a, b) { return a.order - b.order; }) : [];
+        function $(id) { return document.getElementById(id); }
+        function el(tag, attrs, parent) {
+          var n = document.createElementNS(NS, tag);
+          for (var k in attrs) n.setAttribute(k, attrs[k]);
+          if (parent) parent.appendChild(n);
+          return n;
+        }
+
+        var gD = $("f09-districts"), gF = $("f09-fills"), gR = $("f09-routes"), gRing = $("f09-rings"), gL = $("f09-labels"), gB = $("f09-badges");
+
+        // base districts
+        list.forEach(function (d) { el("path", { d: d.d, "class": "f09-dist" }, gD); });
+
+        var G = list[0] || { cx: 831.2, cy: 557.6, hi: "गोरखपुर", d: "" };
+        var BA = list[1] || { cx: 310.9, cy: 289.6, hi: "बरेली", d: "" };
+        var KU = list[2] || { cx: 907.1, cy: 526.7, hi: "कुशीनगर", d: "" };
+        var MO = list[3] || { cx: 225.7, cy: 224.2, hi: "मुरादाबाद", d: "" };
+        var MA = list[4] || { cx: 853.8, cy: 476.5, hi: "महराजगंज", d: "" };
+
+        // pre-filled districts
+        [G, BA, KU].forEach(function (d) { el("path", { d: d.d, "class": "f09-filled" }, gF); });
+        var fillMO = el("path", { d: MO.d, "class": "f09-filled", opacity: 0 }, gF);
+        var fillMA = el("path", { d: MA.d, "class": "f09-filled", opacity: 0 }, gF);
+
+        // quadratic route geometry
+        function curve(a, b, bend) {
+          var mx = (a.cx + b.cx) / 2, my = (a.cy + b.cy) / 2;
+          var dx = b.cx - a.cx, dy = b.cy - a.cy;
+          var len = Math.sqrt(dx * dx + dy * dy) || 1;
+          var c = { x: mx - dy / len * len * bend, y: my + dx / len * len * bend };
+          var pt = function (t) {
+            var u = 1 - t;
+            return { x: u * u * a.cx + 2 * u * t * c.x + t * t * b.cx, y: u * u * a.cy + 2 * u * t * c.y + t * t * b.cy };
+          };
+          var L = 0, prev = pt(0);
+          for (var i = 1; i <= 120; i++) { var p = pt(i / 120); L += Math.hypot(p.x - prev.x, p.y - prev.y); prev = p; }
+          return { d: "M" + a.cx + " " + a.cy + " Q" + c.x + " " + c.y + " " + b.cx + " " + b.cy, pt: pt, L: L };
+        }
+        var rGB = curve(G, BA, -0.14);
+        var rGK = curve(G, KU, 0.35);
+        var rBM = curve(BA, MO, -0.25);
+        var rKM = curve(KU, MA, -0.35);
+
+        el("path", { d: rGB.d, "class": "f09-route" }, gR);
+        el("path", { d: rGK.d, "class": "f09-route" }, gR);
+        el("path", { d: rBM.d, "class": "f09-route", mask: "url(#f09-mask-a)" }, gR);
+        el("path", { d: rKM.d, "class": "f09-route", mask: "url(#f09-mask-b)" }, gR);
+        var mA = $("f09-mask-a-p"), mB = $("f09-mask-b-p");
+        var LA = rBM.L + 20, LB = rKM.L + 20;
+        mA.setAttribute("d", rBM.d); mA.setAttribute("stroke-dasharray", LA + " " + LA); mA.setAttribute("stroke-dashoffset", LA);
+        mB.setAttribute("d", rKM.d); mB.setAttribute("stroke-dasharray", LB + " " + LB); mB.setAttribute("stroke-dashoffset", LB);
+
+        // arrival rings
+        var ringMO = el("circle", { cx: MO.cx, cy: MO.cy, r: 30, "class": "f09-ring", opacity: 0 }, gRing);
+        var ringMA = el("circle", { cx: MA.cx, cy: MA.cy, r: 30, "class": "f09-ring", opacity: 0 }, gRing);
+        gsap.set(ringMO, { svgOrigin: MO.cx + " " + MO.cy });
+        gsap.set(ringMA, { svgOrigin: MA.cx + " " + MA.cy });
+
+        // labels
+        function label(d, dx, dy, anchor, extra) {
+          var t = el("text", { x: d.cx + dx, y: d.cy + dy, "text-anchor": anchor, "class": "f09-label" + (extra ? " " + extra : "") }, gL);
+          t.textContent = d.hi;
+          return t;
+        }
+        label(G, -26, 66, "end");
+        label(BA, 34, 52, "start");
+        label(KU, 18, 82, "middle");
+        var labMO = label(MO, -30, -34, "end", "f09-label-new");
+        var labMA = label(MA, 0, -46, "middle", "f09-label-new");
+        gsap.set(labMO, { svgOrigin: (MO.cx - 30) + " " + (MO.cy - 34) });
+        gsap.set(labMA, { svgOrigin: MA.cx + " " + (MA.cy - 46) });
+
+        // badges
+        function badge(letter, p) {
+          var g = el("g", { transform: "translate(" + p.x + " " + p.y + ")" }, gB);
+          el("circle", { cx: 0, cy: 0, r: 25, "class": "f09-badge-c" }, g);
+          var t = el("text", { x: 0, y: 10, "text-anchor": "middle", "class": "f09-badge-t" }, g);
+          t.textContent = letter;
+          return g;
+        }
+        var bA = badge("A", { x: BA.cx, y: BA.cy });
+        var bB = badge("B", { x: KU.cx, y: KU.cy });
+
+        function driver(maskPath, L, route, badgeG) {
+          return function () {
+            var p = this.targets()[0].p;
+            maskPath.setAttribute("stroke-dashoffset", L * (1 - p));
+            var q = route.pt(p);
+            badgeG.setAttribute("transform", "translate(" + q.x.toFixed(2) + " " + q.y.toFixed(2) + ")");
+          };
+        }
+
+        // initial panel states
+        gsap.set("#f09-chip-new", { yPercent: 100, opacity: 0 });
+        gsap.set(["#f09-d4", "#f09-d5"], { yPercent: 100, opacity: 0 });
+        gsap.set("#f09-fill", { scaleX: 3 / 75 });
+
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 1 (0.0–1.0): date chip swaps 14 -> 16 Oct (on "सोलह अक्टूबर")
+        tl.fromTo("#f09-chip-old", { yPercent: 0, opacity: 1 }, { yPercent: -100, opacity: 0, duration: 0.45, ease: "power3.inOut" }, 0.12);
+        tl.fromTo("#f09-chip-new", { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.18);
+        tl.fromTo(".f09-chip", { scale: 1 }, { scale: 1.08, duration: 0.16, ease: "power2.out" }, 0.6);
+        tl.to(".f09-chip", { scale: 1, duration: 0.3, ease: "power3.out" }, 0.76);
+
+        // Scene 2 (1.0–2.6): Rath A Bareilly -> Moradabad on "मुरादाबाद" (1.62)
+        tl.fromTo("#f09-card-a", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.55);
+        var pa = { p: 0 };
+        tl.fromTo(pa, { p: 0 }, { p: 1, duration: 0.75, ease: "power2.inOut", onUpdate: driver(mA, LA, rBM, bA) }, 1.55);
+        tl.fromTo(fillMO, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 2.28);
+        tl.fromTo(ringMO, { scale: 0.4, opacity: 0.9 }, { scale: 2.6, opacity: 0, duration: 0.9, ease: "power3.out" }, 2.28);
+        tl.fromTo(labMO, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2.2)" }, 2.32);
+        tl.fromTo("#f09-d3", { yPercent: 0, opacity: 1 }, { yPercent: -100, opacity: 0, duration: 0.35, ease: "power3.in" }, 2.3);
+        tl.fromTo("#f09-d4", { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, 2.4);
+        tl.fromTo("#f09-fill", { scaleX: 3 / 75 }, { scaleX: 4 / 75, duration: 0.5, ease: "power3.out" }, 2.32);
+
+        // Scene 3 (2.6–end): Rath B Kushinagar -> Maharajganj on "महराजगंज" (3.68)
+        tl.fromTo("#f09-card-b", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 3.4);
+        var pb = { p: 0 };
+        tl.fromTo(pb, { p: 0 }, { p: 1, duration: 0.6, ease: "power2.inOut", onUpdate: driver(mB, LB, rKM, bB) }, 3.5);
+        tl.fromTo(fillMA, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 4.08);
+        tl.fromTo(ringMA, { scale: 0.4, opacity: 0.9 }, { scale: 2.6, opacity: 0, duration: 0.9, ease: "power3.out" }, 4.08);
+        tl.fromTo(labMA, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2.2)" }, 4.12);
+        tl.fromTo("#f09-d4", { yPercent: 0, opacity: 1 }, { yPercent: -100, opacity: 0, duration: 0.35, ease: "power3.in", immediateRender: false }, 4.12);
+        tl.fromTo("#f09-d5", { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, 4.22);
+        tl.fromTo("#f09-fill", { scaleX: 4 / 75 }, { scaleX: 5 / 75, duration: 0.5, ease: "power3.out", immediateRender: false }, 4.14);
+        tl.fromTo(".f09-digit-box", { scale: 1 }, { scale: 1.1, duration: 0.18, ease: "power2.out" }, 4.22);
+        tl.to(".f09-digit-box", { scale: 1, duration: 0.4, ease: "power3.out" }, 4.4);
+
+        // hold to end
+        tl.set({}, {}, 6.37);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines[FID] = tl;
+      })();
+    </script>
+  </div>
+</template>

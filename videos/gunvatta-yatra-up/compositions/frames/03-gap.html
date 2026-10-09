@@ -1,0 +1,282 @@
+<template>
+  <div id="root" data-composition-id="03-gap" data-width="1920" data-height="1080" data-start="0" data-duration="7.69">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        container-type: size;
+      }
+      .f03-bg {
+        position: absolute;
+        left: 0; top: 0;
+        width: 1920px; height: 1080px;
+        background: #fdfae7;
+      }
+      /* left 60%: 4x3 hospital tile grid */
+      .f03-grid {
+        position: absolute;
+        left: 110px; top: 150px;
+        width: 1004px; height: 656px;
+      }
+      .f03-tile {
+        position: absolute;
+        width: 230px; height: 200px;
+        box-sizing: border-box;
+        border-radius: 14px;
+        background-color: rgba(30,43,250,0.04);
+        border: 1.5px solid rgba(30,43,250,0.2);
+      }
+      .f03-icon {
+        position: absolute;
+        left: 70px; top: 34px;
+        width: 90px; height: 90px;
+        overflow: visible;
+      }
+      .f03-bar {
+        position: absolute;
+        left: 50px;
+        height: 8px;
+        border-radius: 6px;
+        background: rgba(30,43,250,0.15);
+      }
+      .f03-bar-a { top: 142px; width: 130px; }
+      .f03-bar-b { top: 160px; width: 84px; left: 73px; background: rgba(30,43,250,0.08); }
+      .f03-badge {
+        position: absolute;
+        right: -16px; top: -16px;
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        background: #dc2626;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* magnifier */
+      .f03-lens {
+        position: absolute;
+        left: 0; top: 0;
+        width: 200px; height: 200px;
+        overflow: visible;
+      }
+      /* right column */
+      .f03-right {
+        position: absolute;
+        left: 1250px; top: 270px;
+        width: 600px;
+      }
+      .f03-word {
+        display: block;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: #111111;
+      }
+      .f03-std-wrap {
+        position: relative;
+        display: inline-block;
+        margin-top: 4px;
+      }
+      .f03-strike {
+        position: absolute;
+        left: -6px; top: 40px;
+        width: calc(100% + 12px);
+        height: 7px;
+        border-radius: 6px;
+        background: #dc2626;
+        transform-origin: 0% 50%;
+      }
+      .f03-not {
+        margin-top: 56px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .f03-not-badge {
+        width: 64px; height: 64px;
+        border-radius: 50%;
+        background: #dc2626;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+      }
+      .f03-not-text {
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 1.35;
+        color: #dc2626;
+      }
+    </style>
+
+    <div class="f03-bg clip" data-start="0" data-duration="7.69" data-track-index="0"></div>
+
+    <div class="f03-grid" id="f03-grid"></div>
+
+    <svg class="f03-lens" id="f03-lens" viewBox="0 0 200 200">
+      <circle cx="90" cy="90" r="80" fill="rgba(30,43,250,0.08)" stroke="#1e2bfa" stroke-width="7"></circle>
+      <circle cx="90" cy="90" r="64" fill="none" stroke="rgba(30,43,250,0.2)" stroke-width="2"></circle>
+      <path d="M147 147 L192 192" stroke="#1e2bfa" stroke-width="16" stroke-linecap="round"></path>
+    </svg>
+
+    <div class="f03-right">
+      <span class="f03-word" id="f03-min">minimum</span>
+      <div class="f03-std-wrap" id="f03-std-wrap">
+        <span class="f03-word" id="f03-std">standards</span>
+        <div class="f03-strike" id="f03-strike"></div>
+      </div>
+      <div class="f03-not" id="f03-not">
+        <div class="f03-not-badge" id="f03-not-badge">
+          <svg width="28" height="28" viewBox="0 0 28 28"><path d="M6 6 L22 22 M22 6 L6 22" stroke="#fdfae7" stroke-width="4.5" stroke-linecap="round"></path></svg>
+        </div>
+        <div class="f03-not-text" id="f03-not-text">पूरे नहीं</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var q = function (id) { return document.getElementById(id); };
+        var NS = "http://www.w3.org/2000/svg";
+        var grid = q("f03-grid");
+        var COLS = 4, ROWS = 3, TW = 230, TH = 200, GX = 28, GY = 28;
+        var GRID_L = 110, GRID_T = 150;
+        var tiles = [];
+
+        function centerOf(r, c) {
+          return { x: GRID_L + c * (TW + GX) + TW / 2, y: GRID_T + r * (TH + GY) + TH / 2 };
+        }
+
+        // build tiles synchronously
+        for (var r = 0; r < ROWS; r++) {
+          for (var c = 0; c < COLS; c++) {
+            var t = document.createElement("div");
+            t.className = "f03-tile";
+            t.id = "f03-tile-" + r + "-" + c;
+            t.style.left = (c * (TW + GX)) + "px";
+            t.style.top = (r * (TH + GY)) + "px";
+
+            var svg = document.createElementNS(NS, "svg");
+            svg.setAttribute("class", "f03-icon");
+            svg.setAttribute("viewBox", "0 0 90 90");
+            var g = document.createElementNS(NS, "g");
+            g.setAttribute("id", "f03-icon-" + r + "-" + c);
+            g.setAttribute("fill", "none");
+            g.setAttribute("stroke", "#1e2bfa");
+            g.setAttribute("stroke-width", "3.5");
+            g.setAttribute("stroke-linejoin", "round");
+            g.setAttribute("stroke-linecap", "round");
+            var paths = [
+              "M12 84 L12 34 L45 16 L78 34 L78 84 Z",   // building
+              "M45 30 L45 52 M34 41 L56 41",            // plus
+              "M36 84 L36 66 L54 66 L54 84",            // door
+              "M4 84 L86 84"                            // ground
+            ];
+            for (var p = 0; p < paths.length; p++) {
+              var pe = document.createElementNS(NS, "path");
+              pe.setAttribute("d", paths[p]);
+              g.appendChild(pe);
+            }
+            svg.appendChild(g);
+            t.appendChild(svg);
+
+            var ba = document.createElement("div"); ba.className = "f03-bar f03-bar-a"; t.appendChild(ba);
+            var bb = document.createElement("div"); bb.className = "f03-bar f03-bar-b"; t.appendChild(bb);
+
+            grid.appendChild(t);
+            tiles.push({ el: t, r: r, c: c });
+          }
+        }
+
+        // flagged tiles get a red x badge
+        var flagged = [[1, 2], [1, 0], [2, 3]];
+        flagged.forEach(function (rc, i) {
+          var t = q("f03-tile-" + rc[0] + "-" + rc[1]);
+          var b = document.createElement("div");
+          b.className = "f03-badge";
+          b.id = "f03-badge-" + i;
+          b.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22"><path d="M5 5 L17 17 M17 5 L5 17" stroke="#fdfae7" stroke-width="3.5" stroke-linecap="round"></path></svg>';
+          t.appendChild(b);
+        });
+
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 1 (0.0–1.6s): tile grid cascades in (diagonal stagger)
+        tiles.forEach(function (o) {
+          var at = 0.05 + (o.r + o.c) * 0.11;
+          tl.fromTo(o.el, { y: 36, scale: 0.9, opacity: 0 },
+            { y: 0, scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, at);
+        });
+        flagged.forEach(function (rc, i) {
+          gsap.set(q("f03-badge-" + i), { scale: 0, opacity: 0 });
+        });
+
+        // Scene 2: magnifier appears on "inspection" and glides tile by tile
+        var lens = q("f03-lens");
+        function lensPos(r, c) { var p = centerOf(r, c); return { x: p.x - 90, y: p.y - 90 }; }
+        var p0 = lensPos(0, 0);
+        tl.fromTo(lens, { x: p0.x, y: p0.y, scale: 0.6, opacity: 0, transformOrigin: "45% 45%" },
+          { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.8)" }, 0.57);
+        var path = [
+          { rc: [0, 1], at: 1.05, d: 0.4 },
+          { rc: [0, 3], at: 1.5, d: 0.5 },
+          { rc: [1, 2], at: 2.05, d: 0.38 },   // lands ~2.43 "कुछ"
+          { rc: [1, 0], at: 2.5, d: 0.4 },     // lands ~2.90
+          { rc: [2, 3], at: 2.95, d: 0.42 }    // lands ~3.37 "अभी"
+        ];
+        path.forEach(function (s) {
+          var p = lensPos(s.rc[0], s.rc[1]);
+          tl.to(lens, { x: p.x, y: p.y, duration: s.d, ease: "power2.inOut" }, s.at);
+        });
+
+        // Scene 3: three tiles turn negative one by one
+        var flagAt = [2.43, 2.90, 3.37];
+        flagged.forEach(function (rc, i) {
+          var t = q("f03-tile-" + rc[0] + "-" + rc[1]);
+          var g = q("f03-icon-" + rc[0] + "-" + rc[1]);
+          var at = flagAt[i];
+          tl.fromTo(t, { borderColor: "rgba(30,43,250,0.2)", backgroundColor: "rgba(30,43,250,0.04)" },
+            { borderColor: "#dc2626", backgroundColor: "rgba(220,38,38,0.06)", duration: 0.3, ease: "power2.out", immediateRender: false }, at);
+          tl.fromTo(g, { attr: { stroke: "#1e2bfa" } }, { attr: { stroke: "#dc2626" }, duration: 0.3, ease: "power2.out" }, at);
+          tl.fromTo(q("f03-badge-" + i), { scale: 0, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.42, ease: "back.out(2.6)", immediateRender: false }, at + 0.05);
+        });
+
+        // Scene 4: right column — "minimum standards", strike draws, "पूरे नहीं"
+        tl.fromTo(q("f03-min"), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 3.81);
+        tl.fromTo(q("f03-std"), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 4.22);
+        tl.fromTo(q("f03-strike"), { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 4.81);
+        tl.fromTo(q("f03-not-badge"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, 5.12);
+        tl.fromTo(q("f03-not-text"), { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 5.16);
+
+        // quiet the unflagged tiles so the red ones read (after their entrances are done)
+        var flaggedIds = flagged.map(function (rc) { return "f03-tile-" + rc[0] + "-" + rc[1]; });
+        tiles.forEach(function (o) {
+          if (flaggedIds.indexOf(o.el.id) === -1) {
+            tl.to(o.el, { opacity: 0.5, duration: 0.5, ease: "power2.out" }, 5.47);
+          }
+        });
+
+        // hold to full duration
+        tl.set({}, {}, 7.69);
+
+        window.__timelines["03-gap"] = tl;
+      })();
+    </script>
+  </div>
+</template>

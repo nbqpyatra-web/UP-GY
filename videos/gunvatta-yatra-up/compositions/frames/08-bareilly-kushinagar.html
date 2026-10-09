@@ -1,0 +1,245 @@
+<template>
+<div id="root" data-composition-id="08-bareilly-kushinagar" data-start="0" data-duration="6.88" data-width="1920" data-height="1080">
+  <style>
+    @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; }
+    @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; }
+    @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; }
+    @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; }
+    @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; }
+    @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; }
+
+    #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; container-type: size; font-family: "Inter", sans-serif; color: #111111; }
+    .f08-bg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #fdfae7; }
+
+    /* map stage */
+    .f08-stage { position: absolute; left: 110px; top: 70px; width: 823px; height: 800px; transform-origin: 62% 50%; }
+    .f08-map { position: absolute; left: 0; top: 0; width: 823px; height: 800px; overflow: visible; }
+    .f08-district { stroke: #1e2bfa; stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+    .f08-route { fill: none; stroke: #1e2bfa; stroke-width: 4; stroke-dasharray: 11 9; stroke-linecap: round; }
+    .f08-route-mask { fill: none; stroke: #ffffff; stroke-width: 18; stroke-linecap: round; }
+    .f08-overlay { position: absolute; left: 0; top: 0; width: 823px; height: 800px; }
+
+    .f08-ring { position: absolute; width: 80px; height: 80px; margin: -40px 0 0 -40px; border-radius: 50%; border: 3px solid #1e2bfa; opacity: 0; }
+    .f08-rider { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+    .f08-badge { position: absolute; left: -26px; top: -26px; width: 52px; height: 52px; border-radius: 50%; background: #1e2bfa; color: #fdfae7; border: 3px solid #fdfae7; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 24px; line-height: 1; }
+
+    .f08-label { position: absolute; white-space: nowrap; padding: 4px 18px 6px; border-radius: 100px; background: #fdfae7; border: 1.5px solid rgba(30,43,250,0.2); font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.35; color: #111111; }
+    .f08-label-home { font-size: 22px; color: #6b6b6b; padding: 2px 14px 4px; }
+
+    /* right panel */
+    .f08-date { position: absolute; top: 92px; right: 110px; display: flex; align-items: center; gap: 16px; padding: 14px 32px 14px 26px; border-radius: 100px; background: rgba(30,43,250,0.08); color: #1e2bfa; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 44px; line-height: 1; letter-spacing: -0.01em; }
+    .f08-date-dot { width: 14px; height: 14px; border-radius: 50%; background: #1e2bfa; }
+
+    .f08-counter { position: absolute; left: 1060px; top: 250px; width: 750px; }
+    .f08-eyebrow { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: #1e2bfa; }
+    .f08-count-row { display: flex; align-items: flex-end; margin-top: 10px; height: 140px; }
+    .f08-roll { height: 140px; overflow: hidden; }
+    .f08-roll-col { display: flex; flex-direction: column; }
+    .f08-roll-num { height: 140px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 150px; line-height: 140px; color: #1e2bfa; letter-spacing: -0.03em; }
+    .f08-count-total { font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 64px; line-height: 1; color: #9a9a9a; margin: 0 0 18px 18px; }
+
+    .f08-card { position: absolute; left: 1060px; width: 750px; height: 150px; box-sizing: border-box; border-radius: 14px; background: rgba(30,43,250,0.04); border: 1.5px solid rgba(30,43,250,0.2); display: flex; align-items: center; padding: 0 36px; gap: 30px; }
+    .f08-card-a { top: 490px; }
+    .f08-card-b { top: 668px; }
+    .f08-card-badge { flex: none; width: 76px; height: 76px; border-radius: 50%; background: #1e2bfa; color: #fdfae7; display: flex; align-items: center; justify-content: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 38px; line-height: 1; }
+    .f08-card-body { display: flex; flex-direction: column; gap: 4px; }
+    .f08-card-route { display: flex; align-items: center; gap: 16px; }
+    .f08-card-from { font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 500; font-size: 30px; line-height: 1.35; color: #6b6b6b; }
+    .f08-card-arrow { font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 34px; line-height: 1; color: #1e2bfa; }
+    .f08-card-to { font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 700; font-size: 52px; line-height: 1.3; color: #111111; }
+  </style>
+
+  <div class="f08-bg clip" data-start="0" data-duration="6.88" data-track-index="0"></div>
+
+  <div id="f08-stage" class="f08-stage">
+    <svg id="f08-map" class="f08-map" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <mask id="f08-mask-a" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="972">
+          <path id="f08-mask-path-a" class="f08-route-mask" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"></path>
+        </mask>
+        <mask id="f08-mask-b" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="972">
+          <path id="f08-mask-path-b" class="f08-route-mask" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"></path>
+        </mask>
+      </defs>
+      <g id="f08-districts"></g>
+      <path id="f08-route-a" class="f08-route" mask="url(#f08-mask-a)"></path>
+      <path id="f08-route-b" class="f08-route" mask="url(#f08-mask-b)"></path>
+    </svg>
+    <div class="f08-overlay">
+      <div id="f08-ring-a" class="f08-ring"></div>
+      <div id="f08-ring-b" class="f08-ring"></div>
+      <div id="f08-label-home" class="f08-label f08-label-home">गोरखपुर</div>
+      <div id="f08-label-a" class="f08-label">बरेली</div>
+      <div id="f08-label-b" class="f08-label">कुशीनगर</div>
+      <div id="f08-rider-a" class="f08-rider"><div id="f08-badge-a" class="f08-badge">A</div></div>
+      <div id="f08-rider-b" class="f08-rider"><div id="f08-badge-b" class="f08-badge">B</div></div>
+    </div>
+  </div>
+
+  <div id="f08-date" class="f08-date"><span class="f08-date-dot"></span><span>14 Oct 2026</span></div>
+
+  <div id="f08-counter" class="f08-counter">
+    <div class="f08-eyebrow">Districts</div>
+    <div class="f08-count-row">
+      <div class="f08-roll"><div id="f08-roll-col" class="f08-roll-col">
+        <div class="f08-roll-num">1</div><div class="f08-roll-num">2</div><div class="f08-roll-num">3</div>
+      </div></div>
+      <div class="f08-count-total">/ 75</div>
+    </div>
+  </div>
+
+  <div id="f08-card-a" class="f08-card f08-card-a">
+    <div class="f08-card-badge">A</div>
+    <div class="f08-card-body">
+      <div class="f08-eyebrow">Rath A</div>
+      <div class="f08-card-route">
+        <span class="f08-card-from">गोरखपुर</span><span class="f08-card-arrow">→</span>
+        <span id="f08-card-to-a" class="f08-card-to">बरेली</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="f08-card-b" class="f08-card f08-card-b">
+    <div class="f08-card-badge">B</div>
+    <div class="f08-card-body">
+      <div class="f08-eyebrow">Rath B</div>
+      <div class="f08-card-route">
+        <span class="f08-card-from">गोरखपुर</span><span class="f08-card-arrow">→</span>
+        <span id="f08-card-to-b" class="f08-card-to">कुशीनगर</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>
+  <script>
+    (function () {
+      var FID = "08-bareilly-kushinagar";
+      var root = document.querySelector('[data-composition-id="' + FID + '"]') || document;
+      function q(id) { return root.querySelector('#' + id); }
+      var SVGNS = "http://www.w3.org/2000/svg";
+      var S = 823 / 1000; // viewBox -> stage px
+
+      var CARD = "rgba(30,43,250,0.04)", FILL = "rgba(30,43,250,0.9)", PRIMARY = "#1e2bfa", CREAM = "#fdfae7";
+
+      // ---- district data ----
+      var data = window.UP_DISTRICTS;
+      var list = (data && data.districts) ? data.districts : [];
+      function byOrder(n, fb) { for (var i = 0; i < list.length; i++) { if (list[i].order === n) return list[i]; } return fb; }
+      var G = byOrder(1, { cx: 831.2, cy: 557.6 });
+      var B = byOrder(2, { cx: 310.9, cy: 289.6 });
+      var K = byOrder(3, { cx: 907.1, cy: 526.7 });
+
+      var gWrap = q("f08-districts");
+      var pathEls = {};
+      for (var i = 0; i < list.length; i++) {
+        var d = list[i];
+        var p = document.createElementNS(SVGNS, "path");
+        p.setAttribute("d", d.d);
+        p.setAttribute("class", "f08-district");
+        var filled = d.order === 1;
+        p.style.fill = filled ? FILL : CARD;
+        p.style.stroke = filled ? CREAM : PRIMARY;
+        gWrap.appendChild(p);
+        pathEls[d.order] = p;
+      }
+      // keep the three active districts on top so their cream strokes read
+      [1, 2, 3].forEach(function (o) { if (pathEls[o]) gWrap.appendChild(pathEls[o]); });
+
+      // ---- routes (quadratic beziers, arc-length sampled) ----
+      function makeRoute(a, c, b) {
+        var N = 80, pts = [], lens = [0], total = 0;
+        for (var k = 0; k <= N; k++) {
+          var t = k / N, u = 1 - t;
+          var x = u * u * a.x + 2 * u * t * c.x + t * t * b.x;
+          var y = u * u * a.y + 2 * u * t * c.y + t * t * b.y;
+          pts.push({ x: x, y: y });
+          if (k > 0) { total += Math.hypot(x - pts[k - 1].x, y - pts[k - 1].y); lens.push(total); }
+        }
+        return {
+          d: "M" + a.x + " " + a.y + " Q" + c.x + " " + c.y + " " + b.x + " " + b.y,
+          at: function (f) {
+            var L = Math.max(0, Math.min(1, f)) * total;
+            for (var k = 1; k < lens.length; k++) {
+              if (lens[k] >= L) {
+                var seg = lens[k] - lens[k - 1] || 1, r = (L - lens[k - 1]) / seg;
+                return { x: pts[k - 1].x + (pts[k].x - pts[k - 1].x) * r, y: pts[k - 1].y + (pts[k].y - pts[k - 1].y) * r };
+              }
+            }
+            return pts[pts.length - 1];
+          }
+        };
+      }
+      var g0 = { x: G.cx, y: G.cy }, b0 = { x: B.cx, y: B.cy }, k0 = { x: K.cx, y: K.cy };
+      var routeA = makeRoute(g0, { x: (G.cx + B.cx) / 2, y: Math.min(G.cy, B.cy) - 120 }, b0);
+      var routeB = makeRoute(g0, { x: (G.cx + K.cx) / 2 + 10, y: Math.min(G.cy, K.cy) - 80 }, k0);
+      q("f08-route-a").setAttribute("d", routeA.d);
+      q("f08-mask-path-a").setAttribute("d", routeA.d);
+      q("f08-route-b").setAttribute("d", routeB.d);
+      q("f08-mask-path-b").setAttribute("d", routeB.d);
+
+      var maskA = q("f08-mask-path-a"), maskB = q("f08-mask-path-b");
+      var riderA = q("f08-rider-a"), riderB = q("f08-rider-b");
+      function place(el, pt) { el.style.transform = "translate(" + (pt.x * S).toFixed(2) + "px," + (pt.y * S).toFixed(2) + "px)"; }
+      place(riderA, g0); place(riderB, g0);
+
+      // ---- overlay positions ----
+      function pos(el, pt, dx, dy) { el.style.left = (pt.x * S + dx) + "px"; el.style.top = (pt.y * S + dy) + "px"; }
+      pos(q("f08-ring-a"), b0, 0, 0);
+      pos(q("f08-ring-b"), k0, 0, 0);
+      pos(q("f08-label-home"), g0, -70, 26);     // below Gorakhpur
+      pos(q("f08-label-a"), b0, -48, -96);       // above Bareilly
+      pos(q("f08-label-b"), k0, -40, -100);      // above Kushinagar
+
+      // ---- timeline ----
+      var tl = gsap.timeline({ paused: true });
+      var stage = q("f08-stage");
+
+      // macro camera: slow push, moves once then rests
+      tl.fromTo(stage, { scale: 1 }, { scale: 1.035, duration: 5.0, ease: "power1.inOut" }, 0);
+
+      // Scene 1 — date chip + counter
+      tl.fromTo("#f08-date", { opacity: 0, scale: 0.6, y: -10 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2)" }, 0.10);
+      tl.fromTo("#f08-counter", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.77);
+      tl.fromTo("#f08-label-home", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.3);
+
+      // Scene 2 — Rath A to Bareilly
+      tl.fromTo("#f08-badge-a", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 1.62);
+      var proxyA = { p: 0 };
+      tl.fromTo(proxyA, { p: 0 }, {
+        p: 1, duration: 0.95, ease: "power2.inOut",
+        onUpdate: function () { maskA.setAttribute("stroke-dashoffset", (1 - proxyA.p).toFixed(4)); place(riderA, routeA.at(proxyA.p)); }
+      }, 1.72);
+      tl.fromTo("#f08-card-a", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 1.98);
+      tl.fromTo("#f08-card-to-a", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 2.64);
+      if (pathEls[2]) tl.fromTo(pathEls[2], { fill: CARD, stroke: PRIMARY }, { fill: FILL, stroke: CREAM, duration: 0.4, ease: "power2.out" }, 2.62);
+      tl.fromTo("#f08-ring-a", { opacity: 0.7, scale: 0.4 }, { opacity: 0, scale: 2.6, duration: 0.8, ease: "power2.out" }, 2.64);
+      tl.fromTo("#f08-label-a", { opacity: 0, y: 14, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 2.72);
+      tl.fromTo("#f08-roll-col", { y: 0 }, { y: -140, duration: 0.45, ease: "power3.out" }, 2.75);
+
+      // Scene 3 — Rath B to Kushinagar
+      tl.fromTo("#f08-badge-b", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 3.59);
+      var proxyB = { p: 0 };
+      tl.fromTo(proxyB, { p: 0 }, {
+        p: 1, duration: 0.7, ease: "power2.inOut",
+        onUpdate: function () { maskB.setAttribute("stroke-dashoffset", (1 - proxyB.p).toFixed(4)); place(riderB, routeB.at(proxyB.p)); }
+      }, 3.7);
+      tl.fromTo("#f08-card-b", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 3.86);
+      tl.fromTo("#f08-card-to-b", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 4.39);
+      if (pathEls[3]) tl.fromTo(pathEls[3], { fill: CARD, stroke: PRIMARY }, { fill: FILL, stroke: CREAM, duration: 0.4, ease: "power2.out" }, 4.40);
+      tl.fromTo("#f08-ring-b", { opacity: 0.7, scale: 0.4 }, { opacity: 0, scale: 2.6, duration: 0.8, ease: "power2.out" }, 4.42);
+      tl.fromTo("#f08-label-b", { opacity: 0, y: 14, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 4.5);
+      tl.to("#f08-roll-col", { y: -280, duration: 0.45, ease: "power3.out" }, 4.6);
+
+      // hold to full duration
+      tl.set({}, {}, 6.88);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</div>
+</template>

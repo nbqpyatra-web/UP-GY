@@ -1,0 +1,203 @@
+<template>
+  <div id="root" data-composition-id="02-pmjay" data-width="1920" data-height="1080" data-start="0" data-duration="10.19">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        container-type: size;
+      }
+      .f02-bg {
+        position: absolute;
+        left: 0; top: 0;
+        width: 1920px;
+        height: 1080px;
+        background: #fdfae7;
+      }
+      /* left: emblem stage */
+      .f02-halo {
+        position: absolute;
+        left: 230px; top: 180px;
+        width: 520px; height: 520px;
+        border-radius: 50%;
+        background: rgba(30,43,250,0.06);
+      }
+      .f02-ring {
+        position: absolute;
+        left: 210px; top: 160px;
+        width: 560px; height: 560px;
+        overflow: visible;
+      }
+      .f02-emblem-wrap {
+        position: absolute;
+        left: 310px; top: 260px;
+        width: 360px; height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .f02-emblem {
+        width: 360px;
+        height: 338px;
+        object-fit: contain;
+        display: block;
+      }
+      /* right: aim stack */
+      .f02-stack {
+        position: absolute;
+        left: 930px; top: 210px;
+        width: 860px;
+      }
+      .f02-eyebrow-row {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .f02-accent-line {
+        width: 60px; height: 4px;
+        border-radius: 2px;
+        background: #1e2bfa;
+      }
+      .f02-eyebrow {
+        font-family: "Noto Sans Devanagari", "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1.4;
+        letter-spacing: 0.06em;
+        color: #1e2bfa;
+        text-transform: uppercase;
+      }
+      .f02-headline {
+        margin-top: 26px;
+        font-family: "Noto Sans Devanagari", "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        color: #6b6b6b;
+      }
+      .f02-headline-key { color: #111111; }
+      .f02-big {
+        position: relative;
+        margin-top: 34px;
+        display: inline-block;
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 88px;
+        line-height: 1.3;
+        color: #111111;
+      }
+      .f02-underline {
+        position: absolute;
+        left: 0; bottom: 4px;
+        width: 100%; height: 8px;
+        border-radius: 6px;
+        background: #1e2bfa;
+        transform-origin: 0% 50%;
+      }
+      .f02-chips {
+        margin-top: 44px;
+        display: flex;
+        gap: 24px;
+      }
+      .f02-chip {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 38px 20px 26px;
+        border-radius: 100px;
+        background: rgba(30,43,250,0.08);
+        border: 1.5px solid rgba(30,43,250,0.2);
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 38px;
+        line-height: 1.1;
+        color: #1e2bfa;
+        transform-origin: 0% 50%;
+      }
+      .f02-chip-dot {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        background: #1e2bfa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+      }
+    </style>
+
+    <div class="f02-bg clip" data-start="0" data-duration="10.19" data-track-index="0"></div>
+
+    <div class="f02-halo" id="f02-halo"></div>
+    <svg class="f02-ring" id="f02-ring" viewBox="0 0 560 560">
+      <circle id="f02-ring-faint" cx="280" cy="280" r="272" fill="none" stroke="rgba(30,43,250,0.15)" stroke-width="2"></circle>
+      <circle id="f02-ring-arc" cx="280" cy="280" r="272" fill="none" stroke="#1e2bfa" stroke-width="4" stroke-linecap="round"
+        transform="rotate(-90 280 280)" stroke-dasharray="1709.03" stroke-dashoffset="1709.03"></circle>
+    </svg>
+    <div class="f02-emblem-wrap" id="f02-emblem-wrap">
+      <img class="f02-emblem" id="f02-emblem" src="assets/logos/pmjay.png" alt="Ayushman Bharat PM-JAY">
+    </div>
+
+    <div class="f02-stack">
+      <div class="f02-eyebrow-row" id="f02-eyebrow-row">
+        <div class="f02-accent-line" id="f02-accent-line"></div>
+        <div class="f02-eyebrow" id="f02-eyebrow">आयुष्मान भारत · PM-JAY</div>
+      </div>
+      <div class="f02-headline" id="f02-headline">योजना का <span class="f02-headline-key" id="f02-headline-key">मूल उद्देश्य</span></div>
+      <div class="f02-big" id="f02-big">हर लाभार्थी को<div class="f02-underline" id="f02-underline"></div></div>
+      <div class="f02-chips">
+        <div class="f02-chip" id="f02-chip-quality">
+          <div class="f02-chip-dot"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" fill="none" stroke="#fdfae7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          Quality healthcare
+        </div>
+        <div class="f02-chip" id="f02-chip-standard">
+          <div class="f02-chip-dot"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" fill="none" stroke="#fdfae7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          Standard care
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var q = function (id) { return document.getElementById(id); };
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 1 (0.0–2.4s): emblem scales in, ring draws, eyebrow on "भारत"
+        tl.fromTo(q("f02-halo"), { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0, ease: "power3.out" }, 0.05);
+        tl.fromTo(q("f02-emblem-wrap"), { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.1);
+        tl.fromTo(q("f02-ring-faint"), { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.2);
+        tl.fromTo(q("f02-ring-arc"), { attr: { "stroke-dashoffset": 1709.03 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.6, ease: "power3.inOut" }, 0.3);
+        tl.fromTo(q("f02-accent-line"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.75);
+        tl.fromTo(q("f02-eyebrow"), { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.81);
+
+        // Scene 2 (2.4–5.6s): headline rises on "योजना" / "मूल उद्देश्य"
+        tl.fromTo(q("f02-headline"), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 3.26);
+        tl.fromTo(q("f02-headline-key"), { color: "#6b6b6b" }, { color: "#111111", duration: 0.4, ease: "power2.out" }, 3.94);
+
+        // Scene 3 (5.6–end): "हर लाभार्थी को" lands, then two chips pop
+        tl.fromTo(q("f02-big"), { y: 50, scale: 0.94, opacity: 0, transformOrigin: "0% 50%" }, { y: 0, scale: 1, opacity: 1, duration: 0.65, ease: "power3.out" }, 5.35);
+        tl.fromTo(q("f02-underline"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 5.7);
+        tl.fromTo(q("f02-chip-quality"), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, 6.49);
+        tl.fromTo(q("f02-chip-standard"), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, 7.34);
+
+        // hold to full duration
+        tl.set({}, {}, 10.19);
+
+        window.__timelines["02-pmjay"] = tl;
+      })();
+    </script>
+  </div>
+</template>

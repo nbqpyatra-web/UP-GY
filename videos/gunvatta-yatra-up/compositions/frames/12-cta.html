@@ -1,0 +1,146 @@
+<template>
+  <div id="root" data-composition-id="12-cta" data-start="0" data-duration="16.33" data-width="1920" data-height="1080">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      .f12-bg { position: absolute; inset: 0; background: #fdfae7; }
+      .f12-rings { position: absolute; left: 1060px; top: -20px; width: 800px; height: 800px; }
+      .f12-ring { position: absolute; border-radius: 50%; border: 1.5px solid rgba(30,43,250,0.08); }
+      .f12-map { position: absolute; left: 1120px; top: 60px; width: 680px; height: 661px; overflow: visible; }
+      .f12-dist { fill: #1e2bfa; fill-opacity: 0.9; stroke: #fdfae7; stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+      .f12-hi { font-family: "Noto Sans Devanagari", "Inter", sans-serif; line-height: 1.3; white-space: nowrap; }
+      .f12-rule { position: absolute; left: 150px; top: 110px; width: 60px; height: 4px; border-radius: 2px; background: #1e2bfa; transform-origin: 0% 50%; }
+      .f12-intro { position: absolute; left: 150px; top: 128px; font-size: 44px; font-weight: 500; color: #6b6b6b; }
+      .f12-pill { position: absolute; left: 150px; top: 210px; height: 112px; padding: 0 52px; box-sizing: border-box; border-radius: 100px; background: #1e2bfa; color: #fdfae7; display: flex; align-items: center; gap: 22px; white-space: nowrap; transform-origin: 0% 50%; }
+      .f12-pill-hi { font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 600; font-size: 52px; line-height: 1.3; }
+      .f12-pill-dot { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 44px; opacity: 0.6; }
+      .f12-pill-en { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 46px; letter-spacing: -0.01em; }
+      .f12-chip { position: absolute; left: 150px; top: 352px; height: 72px; padding: 0 30px; box-sizing: border-box; border-radius: 100px; background: rgba(30,43,250,0.04); border: 1.5px solid rgba(30,43,250,0.2); display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+      .f12-chip-txt { font-family: "Inter", sans-serif; font-weight: 500; font-size: 28px; color: #111111; }
+      .f12-chip-sep { width: 1.5px; height: 32px; background: rgba(30,43,250,0.2); }
+      .f12-chip-time { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; color: #1e2bfa; letter-spacing: 0.01em; }
+      .f12-cert { position: absolute; left: 150px; top: 528px; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 60px; line-height: 1.1; color: #9a9a9a; letter-spacing: -0.02em; white-space: nowrap; }
+      .f12-strike { position: absolute; left: -8px; right: -8px; top: 54%; height: 5px; border-radius: 3px; background: #6b6b6b; transform-origin: 0% 50%; }
+      .f12-trust { position: absolute; left: 560px; top: 440px; font-size: 120px; font-weight: 700; color: #1e2bfa; transform-origin: 0% 60%; }
+      .f12-beat { position: absolute; left: 560px; top: 612px; width: 360px; height: 60px; overflow: visible; }
+      .f12-beat path { fill: none; stroke: #1e2bfa; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .f12-close { position: absolute; left: 150px; top: 700px; font-size: 84px; font-weight: 700; color: #111111; display: flex; gap: 26px; }
+      .f12-w { display: inline-block; }
+      .f12-dash { color: #1e2bfa; }
+      .f12-logos { position: absolute; left: 1290px; top: 770px; height: 96px; display: flex; align-items: center; gap: 32px; }
+      .f12-logo-qci { height: 84px; width: 231px; object-fit: contain; }
+      .f12-logo-nabh { height: 66px; width: 189px; object-fit: contain; }
+      .f12-logo-sep { width: 1.5px; height: 64px; background: rgba(30,43,250,0.2); }
+    </style>
+
+    <div class="f12-bg clip" data-start="0" data-duration="16.33" data-track-index="0"></div>
+
+    <div id="f12-rings" class="f12-rings">
+      <div class="f12-ring" style="left:100px;top:100px;width:600px;height:600px;"></div>
+      <div class="f12-ring" style="left:0px;top:0px;width:800px;height:800px;"></div>
+    </div>
+    <svg id="f12-map" class="f12-map" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+      <g id="f12-districts"></g>
+    </svg>
+
+    <div id="f12-rule" class="f12-rule"></div>
+    <div id="f12-intro" class="f12-intro f12-hi">अपने ज़िले में</div>
+
+    <div id="f12-pill" class="f12-pill">
+      <span class="f12-pill-hi">यात्रा से जुड़ें</span>
+      <span class="f12-pill-dot">·</span>
+      <span class="f12-pill-en">Join the Yatra</span>
+    </div>
+
+    <div id="f12-chip" class="f12-chip">
+      <span class="f12-chip-txt">NABH Entry Level Certification Workshop</span>
+      <span class="f12-chip-sep"></span>
+      <span class="f12-chip-time">4 PM – 8 PM</span>
+    </div>
+
+    <div id="f12-cert" class="f12-cert">certificate<div id="f12-strike" class="f12-strike"></div></div>
+    <div id="f12-trust" class="f12-trust f12-hi">भरोसा</div>
+    <svg id="f12-beat" class="f12-beat" viewBox="0 0 360 60" xmlns="http://www.w3.org/2000/svg">
+      <path id="f12-beat-path" d="M0,34 L120,34 L138,34 L150,10 L164,56 L178,4 L192,34 L212,34 L222,26 L232,34 L360,34" />
+    </svg>
+
+    <div id="f12-close" class="f12-close f12-hi">
+      <span id="f12-c1" class="f12-w">गुणवत्ता</span>
+      <span id="f12-c2" class="f12-w f12-dash">—</span>
+      <span id="f12-c3" class="f12-w">हर</span>
+      <span id="f12-c4" class="f12-w">द्वार</span>
+      <span id="f12-c5" class="f12-w">तक</span>
+    </div>
+
+    <div id="f12-logos" class="f12-logos">
+      <img id="f12-logo-qci" class="f12-logo-qci" src="assets/logos/qci.png" alt="Quality Council of India" />
+      <div class="f12-logo-sep"></div>
+      <img id="f12-logo-nabh" class="f12-logo-nabh" src="assets/logos/nabh.png" alt="NABH" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>
+    <script>
+      (function () {
+        var FID = "12-cta";
+        var NS = "http://www.w3.org/2000/svg";
+        var data = window.UP_DISTRICTS;
+        var list = (data && data.districts) ? data.districts.slice().sort(function (a, b) { return a.order - b.order; }) : [];
+        function $(id) { return document.getElementById(id); }
+
+        // the lit map: all 75 districts visited (filled cobalt, cream strokes)
+        var gD = $("f12-districts");
+        list.forEach(function (d) {
+          var p = document.createElementNS(NS, "path");
+          p.setAttribute("d", d.d);
+          p.setAttribute("class", "f12-dist");
+          gD.appendChild(p);
+        });
+
+        var beat = $("f12-beat-path");
+        var BL = 420;
+        beat.setAttribute("stroke-dasharray", BL);
+
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 1 — background map (dim) + intro line, then the CTA pill on "जुड़िए"
+        tl.fromTo("#f12-map", { opacity: 0, scale: 0.97 }, { opacity: 0.35, scale: 1, duration: 1.2, ease: "power3.out", transformOrigin: "50% 50%" }, 0);
+        tl.fromTo("#f12-rings", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 1.4, ease: "power3.out", transformOrigin: "50% 50%" }, 0.1);
+        tl.fromTo("#f12-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.05);
+        tl.fromTo("#f12-intro", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.12);
+        tl.fromTo("#f12-pill", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.8)" }, 3.2);
+
+        // Scene 2 — workshop chip slides in under the pill on "चार से आठ"
+        tl.fromTo("#f12-chip", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 4.45);
+
+        // Scene 3 — "certificate" appears, struck on "नहीं"; "भरोसा" lands on cue + heartbeat
+        tl.fromTo("#f12-cert", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 9.4);
+        tl.fromTo("#f12-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 10.12);
+        tl.fromTo("#f12-trust", { opacity: 0, scale: 1.5, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 10.82);
+        tl.fromTo("#f12-beat-path", { strokeDashoffset: BL }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" }, 11.05);
+
+        // Scene 4 — closing line settles word by word, then the presenter lockup; hold
+        tl.fromTo("#f12-c1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 12.42);
+        tl.fromTo("#f12-c2", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out", transformOrigin: "0% 50%" }, 12.95);
+        tl.fromTo("#f12-c3", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.52);
+        tl.fromTo("#f12-c4", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.83);
+        tl.fromTo("#f12-c5", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 14.17);
+        tl.fromTo("#f12-logos", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 14.75);
+
+        // hold to the final frame
+        tl.set({}, {}, 16.33);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines[FID] = tl;
+      })();
+    </script>
+  </div>
+</template>

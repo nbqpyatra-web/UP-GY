@@ -1,0 +1,242 @@
+<template>
+  <div id="root" data-composition-id="10-all-districts" data-start="0" data-duration="16.96" data-width="1920" data-height="1080">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; }
+
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      .f10-bg { position: absolute; inset: 0; background: #fdfae7; }
+      .f10-stage { position: absolute; inset: 0; }
+
+      .f10-map { position: absolute; left: 110px; top: 70px; width: 823px; height: 800px; overflow: visible; }
+      .f10-dist { fill: rgba(30,43,250,0.04); stroke: #1e2bfa; stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+      .f10-filled { fill: #1e2bfa; fill-opacity: 0.9; stroke: #fdfae7; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+      .f10-glowp { fill: #1e2bfa; stroke: #1e2bfa; stroke-width: 6; }
+      .f10-ring { fill: none; stroke: #1e2bfa; stroke-width: 2.5; }
+
+      .f10-panel { position: absolute; left: 1040px; top: 96px; width: 770px; height: 780px; }
+      .f10-chip { position: absolute; right: 0; top: 0; width: 500px; height: 52px; border-radius: 100px; background: rgba(30,43,250,0.08); overflow: hidden; }
+      .f10-chip-t { position: absolute; left: 0; top: 0; width: 500px; height: 52px; line-height: 52px; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; color: #1e2bfa; white-space: nowrap; }
+      .f10-rule { position: absolute; left: 0; top: 24px; width: 60px; height: 4px; border-radius: 2px; background: #1e2bfa; }
+
+      .f10-count { position: absolute; left: 0; top: 92px; width: 770px; height: 190px; transform-origin: 0% 70%; }
+      .f10-count-lab { position: absolute; left: 0; top: 0; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b6b; }
+      .f10-count-row { position: absolute; left: 0; top: 34px; height: 150px; display: flex; align-items: baseline; gap: 22px; white-space: nowrap; }
+      .f10-num { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 150px; line-height: 150px; color: #1e2bfa; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+      .f10-total { font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 84px; line-height: 150px; color: #9a9a9a; letter-spacing: -0.02em; }
+
+      .f10-seg { position: absolute; top: 306px; height: 16px; border-radius: 6px; background: rgba(30,43,250,0.08); overflow: hidden; }
+      .f10-seg-fill { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 16px; border-radius: 6px; background: #1e2bfa; transform-origin: 0 50%; }
+      .f10-seg-lab { position: absolute; top: 334px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: #1e2bfa; white-space: nowrap; }
+
+      .f10-tick { position: absolute; left: 0; top: 396px; width: 770px; height: 380px; overflow: hidden;
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 45%, #000 78%);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 45%, #000 78%); }
+      .f10-stack { position: absolute; left: 0; top: 0; width: 770px; }
+      .f10-row { position: absolute; left: 0; width: 770px; height: 76px; display: flex; align-items: center; gap: 20px; transform-origin: 0% 50%; white-space: nowrap; }
+      .f10-row-n { flex: 0 0 auto; min-width: 70px; height: 40px; line-height: 40px; padding: 0 12px; box-sizing: border-box; border-radius: 100px; background: rgba(30,43,250,0.08); text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 22px; color: #1e2bfa; }
+      .f10-row-hi { font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 700; font-size: 56px; line-height: 1.32; color: #111111; }
+      .f10-row-c .f10-row-hi { font-size: 38px; line-height: 1.4; }
+    </style>
+
+    <div class="f10-bg clip" data-start="0" data-duration="16.96" data-track-index="0"></div>
+
+    <div class="f10-stage">
+      <svg id="f10-map" class="f10-map" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="f10-blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="14"></feGaussianBlur>
+          </filter>
+        </defs>
+        <g id="f10-glow" filter="url(#f10-blur)" opacity="0"></g>
+        <g id="f10-districts"></g>
+        <g id="f10-fills"></g>
+        <g id="f10-rings"></g>
+      </svg>
+
+      <div class="f10-panel">
+        <div class="f10-rule"></div>
+        <div class="f10-chip">
+          <div id="f10-chip-1" class="f10-chip-t">Phase 1 · Oct–Nov 2026</div>
+          <div id="f10-chip-2" class="f10-chip-t">Phase 2 · Jan–Mar 2027</div>
+          <div id="f10-chip-3" class="f10-chip-t">Phase 3 · Cluster Yatras · Mar 2027</div>
+        </div>
+
+        <div id="f10-count" class="f10-count">
+          <div class="f10-count-lab">Districts</div>
+          <div class="f10-count-row">
+            <div id="f10-num" class="f10-num">5</div>
+            <div class="f10-total">/ 75</div>
+          </div>
+        </div>
+
+        <div class="f10-seg" style="left:0px;width:228px;"><div id="f10-seg-1" class="f10-seg-fill"></div></div>
+        <div class="f10-seg" style="left:240px;width:330px;"><div id="f10-seg-2" class="f10-seg-fill"></div></div>
+        <div class="f10-seg" style="left:582px;width:188px;"><div id="f10-seg-3" class="f10-seg-fill"></div></div>
+        <div id="f10-lab-1" class="f10-seg-lab" style="left:0px;">Phase 1</div>
+        <div id="f10-lab-2" class="f10-seg-lab" style="left:240px;">Phase 2</div>
+        <div id="f10-lab-3" class="f10-seg-lab" style="left:582px;">Phase 3</div>
+
+        <div class="f10-tick">
+          <div id="f10-stack" class="f10-stack"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>
+    <script>
+      (function () {
+        var FID = "10-all-districts";
+        var DUR = 16.96;
+        var NS = "http://www.w3.org/2000/svg";
+        var data = window.UP_DISTRICTS;
+        var list = (data && data.districts) ? data.districts.slice().sort(function (a, b) { return a.order - b.order; }) : [];
+        function $(id) { return document.getElementById(id); }
+        function el(tag, attrs, parent) {
+          var n = document.createElementNS(NS, tag);
+          for (var k in attrs) n.setAttribute(k, attrs[k]);
+          if (parent) parent.appendChild(n);
+          return n;
+        }
+        function lerpAnchors(anchors, order) {
+          for (var i = 0; i < anchors.length - 1; i++) {
+            var a = anchors[i], b = anchors[i + 1];
+            if (order >= a[0] && order <= b[0]) return a[1] + (b[1] - a[1]) * (order - a[0]) / (b[0] - a[0]);
+          }
+          return anchors[anchors.length - 1][1];
+        }
+
+        // Fill times anchored to the spoken names (planner order)
+        var P1 = [[6, 0.40], [9, 1.18], [10, 2.01], [15, 3.12], [20, 4.27], [22, 5.04], [23, 5.30]];
+        var P2 = [[24, 6.62], [25, 7.30], [27, 7.93], [38, 8.69], [40, 9.64], [56, 10.70]];
+        var CL = { 1: 11.95, 2: 12.30, 3: 12.65, 4: 12.95, 5: 13.22, 6: 13.50, 7: 14.00 };
+        var CHIP2_T = 6.55, CHIP3_T = 11.45, FINAL_T = 15.0;
+
+        function fillTime(d) {
+          if (d.order <= 5) return -1;
+          if (d.order <= 23) return lerpAnchors(P1, d.order);
+          if (d.order <= 56) return lerpAnchors(P2, d.order);
+          var members = list.filter(function (x) { return x.phase === 3 && x.yatra === d.yatra; });
+          var idx = members.indexOf(d);
+          return (CL[d.yatra] || 14.0) + idx * 0.04;
+        }
+
+        var gGlow = $("f10-glow"), gD = $("f10-districts"), gF = $("f10-fills"), gR = $("f10-rings");
+        var events = [];
+        list.forEach(function (d) {
+          el("path", { d: d.d, "class": "f10-glowp" }, gGlow);
+          el("path", { d: d.d, "class": "f10-dist" }, gD);
+          var t = fillTime(d);
+          var f = el("path", { d: d.d, "class": "f10-filled", opacity: t < 0 ? 1 : 0 }, gF);
+          if (t >= 0) {
+            var r = el("circle", { cx: d.cx, cy: d.cy, r: 14, "class": "f10-ring", opacity: 0 }, gR);
+            events.push({ t: t, d: d, fill: f, ring: r });
+          }
+        });
+        var fillTimes = events.map(function (e) { return e.t; }).sort(function (a, b) { return a - b; });
+
+        // Ticker rows: #1-#5 (already visited), phase 1+2 per district, phase 3 per cluster
+        var rows = [];
+        list.forEach(function (d) {
+          if (d.order <= 56) rows.push({ t: fillTime(d), tag: (d.order < 10 ? "0" : "") + d.order, hi: d.hi, c: false });
+        });
+        var clusterIds = [];
+        list.forEach(function (d) { if (d.phase === 3 && clusterIds.indexOf(d.yatra) < 0) clusterIds.push(d.yatra); });
+        clusterIds.forEach(function (cid) {
+          var m = list.filter(function (x) { return x.phase === 3 && x.yatra === cid; });
+          rows.push({ t: CL[cid] || 14.0, tag: m[0].order + "–" + m[m.length - 1].order, hi: m.map(function (x) { return x.hi; }).join(" · "), c: true });
+        });
+
+        var ROW_H = 76, CUR_Y = 304;
+        var stack = $("f10-stack");
+        var rowEls = rows.map(function (r, i) {
+          var div = document.createElement("div");
+          div.className = "f10-row" + (r.c ? " f10-row-c" : "");
+          div.style.top = (i * ROW_H) + "px";
+          var n = document.createElement("div"); n.className = "f10-row-n"; n.textContent = r.tag;
+          var h = document.createElement("div"); h.className = "f10-row-hi"; h.textContent = r.hi;
+          div.appendChild(n); div.appendChild(h);
+          stack.appendChild(div);
+          return div;
+        });
+        var START_IDX = Math.min(4, rows.length - 1);
+        var PAST = { scale: 0.6, opacity: 0.42 }, CUR = { scale: 1, opacity: 1 };
+        rowEls.forEach(function (r, i) { gsap.set(r, i === START_IDX ? CUR : PAST); });
+        gsap.set(stack, { y: CUR_Y - START_IDX * ROW_H });
+
+        // Chip + phase labels initial
+        gsap.set("#f10-chip-2", { yPercent: 100, opacity: 0 });
+        gsap.set("#f10-chip-3", { yPercent: 100, opacity: 0 });
+        gsap.set(["#f10-lab-2", "#f10-lab-3"], { opacity: 0.35 });
+
+        // Counter + phase segments driven deterministically from timeline time
+        var numEl = $("f10-num"), s1 = $("f10-seg-1"), s2 = $("f10-seg-2"), s3 = $("f10-seg-3");
+        var lastN = -1;
+        function render(t) {
+          var n = 5;
+          for (var i = 0; i < fillTimes.length; i++) { if (fillTimes[i] <= t + 1e-6) n++; else break; }
+          if (n !== lastN) {
+            numEl.textContent = String(n);
+            s1.style.transform = "scaleX(" + (Math.min(n, 23) / 23) + ")";
+            s2.style.transform = "scaleX(" + (Math.max(0, Math.min(n, 56) - 23) / 33) + ")";
+            s3.style.transform = "scaleX(" + (Math.max(0, n - 56) / 19) + ")";
+            lastN = n;
+          }
+        }
+        render(0);
+
+        var tl = gsap.timeline({ paused: true });
+        var clock = { v: 0 };
+        tl.fromTo(clock, { v: 0 }, { v: 1, duration: DUR, ease: "none", onUpdate: function () { render(tl.time()); } }, 0);
+
+        // District fills + flash rings
+        events.forEach(function (e) {
+          tl.fromTo(e.fill, { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out" }, e.t);
+          gsap.set(e.ring, { svgOrigin: e.d.cx + " " + e.d.cy });
+          tl.fromTo(e.ring, { scale: 0.5, opacity: 0.9 }, { scale: 2.6, opacity: 0, duration: 0.6, ease: "power3.out" }, e.t);
+        });
+
+        // Name ticker: current name large, previous names scroll up and fade
+        for (var k = START_IDX + 1; k < rows.length; k++) {
+          var t = rows[k].t;
+          var next = (k + 1 < rows.length) ? rows[k + 1].t : t + 1;
+          var d = Math.max(0.05, Math.min(0.24, (next - t) * 0.85));
+          tl.to(stack, { y: CUR_Y - k * ROW_H, duration: d, ease: "power3.out" }, t);
+          tl.fromTo(rowEls[k], PAST, { scale: 1, opacity: 1, duration: d, ease: "power3.out" }, t);
+          tl.fromTo(rowEls[k - 1], CUR, { scale: 0.6, opacity: 0.42, duration: d, ease: "power3.out", immediateRender: false }, t);
+        }
+
+        // Phase band swaps
+        tl.fromTo("#f10-chip-1", { yPercent: 0, opacity: 1 }, { yPercent: -100, opacity: 0, duration: 0.4, ease: "power3.inOut" }, CHIP2_T);
+        tl.fromTo("#f10-chip-2", { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, CHIP2_T + 0.06);
+        tl.fromTo("#f10-lab-2", { opacity: 0.35 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, CHIP2_T);
+        tl.fromTo("#f10-chip-2", { yPercent: 0, opacity: 1 }, { yPercent: -100, opacity: 0, duration: 0.4, ease: "power3.inOut", immediateRender: false }, CHIP3_T);
+        tl.fromTo("#f10-chip-3", { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, CHIP3_T + 0.06);
+        tl.fromTo("#f10-lab-3", { opacity: 0.35 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, CHIP3_T);
+        tl.fromTo(".f10-chip", { scale: 1 }, { scale: 1.06, duration: 0.15, ease: "power2.out" }, CHIP2_T + 0.35);
+        tl.to(".f10-chip", { scale: 1, duration: 0.3, ease: "power3.out" }, CHIP2_T + 0.5);
+        tl.to(".f10-chip", { scale: 1.06, duration: 0.15, ease: "power2.out" }, CHIP3_T + 0.35);
+        tl.to(".f10-chip", { scale: 1, duration: 0.3, ease: "power3.out" }, CHIP3_T + 0.5);
+
+        // Scene 4: counter lands on 75 / 75 with a scale pop; one map glow pulse; hold
+        tl.fromTo("#f10-count", { scale: 1 }, { scale: 1.16, duration: 0.2, ease: "power2.out" }, FINAL_T);
+        tl.to("#f10-count", { scale: 1, duration: 0.55, ease: "back.out(2)" }, FINAL_T + 0.2);
+        tl.fromTo("#f10-glow", { opacity: 0 }, { opacity: 0.55, duration: 0.35, ease: "power2.out" }, FINAL_T);
+        tl.to("#f10-glow", { opacity: 0, duration: 1.0, ease: "power2.inOut" }, FINAL_T + 0.35);
+
+        tl.set({}, {}, DUR);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines[FID] = tl;
+      })();
+    </script>
+  </div>
+</template>

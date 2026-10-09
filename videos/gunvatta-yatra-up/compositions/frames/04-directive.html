@@ -1,0 +1,319 @@
+<template>
+  <div id="root" data-composition-id="04-directive" data-width="1920" data-height="1080" data-start="0" data-duration="16.12">
+    <style>
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+      @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        container-type: size;
+      }
+      .f04-bg {
+        position: absolute;
+        left: 0; top: 0;
+        width: 1920px; height: 1080px;
+        background: #1e2bfa;
+      }
+
+      /* ---------- the circular (paper card) ---------- */
+      .f04-card {
+        position: absolute;
+        left: 130px; top: 110px;
+        width: 980px; height: 700px;
+        background: #fdfae7;
+        border: 1.5px solid rgba(17,17,17,0.12);
+        border-radius: 14px;
+        overflow: visible;
+      }
+      .f04-head {
+        position: absolute;
+        left: 56px; top: 44px;
+        right: 56px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: "Noto Sans Devanagari", "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1.4;
+        color: #6b6b6b;
+        white-space: nowrap;
+      }
+      .f04-head-org {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #1e2bfa;
+      }
+      .f04-head-dot { color: #9a9a9a; }
+      .f04-head-type { color: #111111; }
+      .f04-hair {
+        position: absolute;
+        left: 56px; right: 56px;
+        top: 118px;
+        height: 1.5px;
+        background: rgba(30,43,250,0.2);
+      }
+      .f04-subject {
+        position: absolute;
+        left: 56px; top: 146px;
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 1.4;
+        color: #111111;
+        white-space: nowrap;
+      }
+      .f04-subject-label {
+        color: #6b6b6b;
+        font-weight: 500;
+        margin-right: 14px;
+      }
+      .f04-subject-key {
+        position: relative;
+        display: inline-block;
+        padding: 0 10px;
+      }
+      .f04-subject-mark {
+        position: absolute;
+        left: 0; right: 0;
+        top: 6px; bottom: 2px;
+        background: rgba(30,43,250,0.15);
+        border-bottom: 4px solid #1e2bfa;
+        border-radius: 6px;
+      }
+      .f04-subject-text { position: relative; }
+      .f04-line {
+        position: absolute;
+        left: 56px;
+        height: 14px;
+        border-radius: 6px;
+        background: rgba(17,17,17,0.12);
+      }
+      .f04-logo-slot {
+        position: absolute;
+        left: 444px; top: 420px;
+        width: 480px; height: 168px;
+      }
+      .f04-logo {
+        width: 480px; height: 168px;
+        object-fit: contain;
+        display: block;
+      }
+      .f04-sign {
+        position: absolute;
+        right: 56px; top: 628px;
+        width: 240px; height: 1.5px;
+        background: rgba(17,17,17,0.25);
+      }
+      .f04-stamp {
+        position: absolute;
+        left: 30px; top: 450px;
+        padding: 2px 34px 0 34px;
+        border: 7px solid #dc2626;
+        border-radius: 14px;
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 1.3;
+        color: #dc2626;
+        white-space: nowrap;
+        mix-blend-mode: multiply;
+      }
+
+      /* ---------- Quality <-> Incentive link ---------- */
+      .f04-link-row {
+        position: absolute;
+        left: 1196px; top: 160px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .f04-pill {
+        height: 96px;
+        padding: 0 38px;
+        border-radius: 100px;
+        background: #fdfae7;
+        color: #1e2bfa;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 44px;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+      }
+      .f04-link {
+        width: 110px; height: 70px;
+        overflow: visible;
+        display: block;
+      }
+
+      /* ---------- countdown ---------- */
+      .f04-goal {
+        position: absolute;
+        left: 1196px; top: 360px;
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 1.4;
+        letter-spacing: 0.04em;
+        color: rgba(253,250,231,0.75);
+      }
+      .f04-chip {
+        position: absolute;
+        left: 1196px; top: 440px;
+        width: 640px; height: 300px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(253,250,231,0.35);
+        background: rgba(253,250,231,0.08);
+      }
+      .f04-ring {
+        position: absolute;
+        left: 40px; top: 50px;
+        width: 200px; height: 200px;
+        overflow: visible;
+      }
+      .f04-count {
+        position: absolute;
+        left: 272px; top: 0;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: #fdfae7;
+        white-space: nowrap;
+      }
+      .f04-count-num {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 1;
+      }
+      .f04-count-unit {
+        font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 90px;
+        line-height: 1.3;
+      }
+    </style>
+
+    <div class="f04-bg clip" data-start="0" data-duration="16.12" data-track-index="0"></div>
+
+    <!-- the circular -->
+    <div id="f04-card" class="f04-card">
+      <div id="f04-head" class="f04-head">
+        <span class="f04-head-org">SACHIS</span>
+        <span class="f04-head-dot">·</span>
+        <span class="f04-head-type">परिपत्र</span>
+        <span class="f04-head-dot">·</span>
+        <span>14 मई 2026</span>
+      </div>
+      <div id="f04-hair" class="f04-hair"></div>
+
+      <div id="f04-subject" class="f04-subject">
+        <span class="f04-subject-label">विषय :</span>
+        <span class="f04-subject-key">
+          <span id="f04-subject-mark" class="f04-subject-mark"></span>
+          <span class="f04-subject-text">सभी सूचीबद्ध निजी चिकित्सालय</span>
+        </span>
+      </div>
+
+      <div id="f04-l1" class="f04-line" style="top: 252px; width: 860px;"></div>
+      <div id="f04-l2" class="f04-line" style="top: 290px; width: 800px;"></div>
+      <div id="f04-l3" class="f04-line" style="top: 328px; width: 836px;"></div>
+      <div id="f04-l4" class="f04-line" style="top: 420px; width: 300px;"></div>
+      <div id="f04-l5" class="f04-line" style="top: 458px; width: 270px;"></div>
+      <div id="f04-l6" class="f04-line" style="top: 496px; width: 310px;"></div>
+      <div id="f04-l7" class="f04-line" style="top: 534px; width: 250px;"></div>
+      <div id="f04-l8" class="f04-line" style="top: 572px; width: 290px;"></div>
+
+      <div id="f04-logo-slot" class="f04-logo-slot">
+        <img class="f04-logo" src="assets/logos/nabh.png" alt="NABH">
+      </div>
+      <div id="f04-sign" class="f04-sign"></div>
+
+      <div id="f04-stamp" class="f04-stamp">अनिवार्य</div>
+    </div>
+
+    <!-- Quality <-> Incentive -->
+    <div class="f04-link-row">
+      <div id="f04-pill-q" class="f04-pill">Quality</div>
+      <svg class="f04-link" viewBox="0 0 110 70">
+        <path id="f04-arrow-r" d="M6 24 H102 M90 12 L102 24 L90 36" pathLength="1" fill="none" stroke="#fdfae7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"></path>
+        <path id="f04-arrow-l" d="M104 48 H8 M20 36 L8 48 L20 60" pathLength="1" fill="none" stroke="#fdfae7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"></path>
+      </svg>
+      <div id="f04-pill-i" class="f04-pill">Incentive</div>
+    </div>
+
+    <!-- countdown -->
+    <div id="f04-goal" class="f04-goal">लक्ष्य</div>
+    <div id="f04-chip" class="f04-chip">
+      <svg class="f04-ring" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="84" fill="none" stroke="rgba(253,250,231,0.2)" stroke-width="14"></circle>
+        <circle id="f04-ring-fill" cx="100" cy="100" r="84" fill="none" stroke="#fdfae7" stroke-width="14" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 100 100)"></circle>
+        <circle cx="100" cy="100" r="10" fill="#fdfae7"></circle>
+      </svg>
+      <div class="f04-count">
+        <span class="f04-count-num">2</span>
+        <span class="f04-count-unit">महीने</span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var q = function (id) { return document.getElementById(id); };
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 1 (0.0–2.3s): the circular slides up from below, tilted -3deg
+        tl.fromTo(q("f04-card"), { y: 760, rotation: -8, opacity: 0 }, { y: 0, rotation: -3, opacity: 1, duration: 0.95, ease: "power3.out" }, 0.0);
+        tl.fromTo(q("f04-head"), { x: -20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.74);
+        tl.fromTo(q("f04-hair"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.95);
+        var lines = ["f04-l1", "f04-l2", "f04-l3", "f04-l4", "f04-l5", "f04-l6", "f04-l7", "f04-l8"];
+        lines.forEach(function (id, i) {
+          tl.fromTo(q(id), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 1.3 + i * 0.08);
+        });
+
+        // Scene 2 (2.3–5.8s): subject line, highlight on "private hospitals", NABH logo on "NABH"
+        tl.fromTo(q("f04-subject"), { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 2.38);
+        tl.fromTo(q("f04-subject-mark"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 3.89);
+        tl.fromTo(q("f04-logo-slot"), { x: 160, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 5.81);
+        tl.fromTo(q("f04-sign"), { scaleX: 0, transformOrigin: "100% 50%" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 6.22);
+
+        // Scene 3 (5.8–8.5s): red-ink stamp slams on "अनिवार्य"
+        tl.fromTo(q("f04-stamp"), { scale: 1.6, rotation: -12, opacity: 0 }, { scale: 1, rotation: -12, opacity: 0.92, duration: 0.22, ease: "power4.in" }, 7.0);
+        tl.to(q("f04-card"), { x: 10, duration: 0.05, ease: "none" }, 7.22);
+        tl.to(q("f04-card"), { x: -8, duration: 0.06, ease: "none" }, 7.27);
+        tl.to(q("f04-card"), { x: 4, duration: 0.06, ease: "none" }, 7.33);
+        tl.to(q("f04-card"), { x: 0, duration: 0.12, ease: "power2.out" }, 7.39);
+
+        // Scene 4 (8.5–12.0s): Quality <-> Incentive link on the cobalt field
+        tl.fromTo(q("f04-pill-q"), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, 8.58);
+        tl.fromTo(q("f04-arrow-r"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power3.out" }, 9.3);
+        tl.fromTo(q("f04-pill-i"), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, 9.87);
+        tl.fromTo(q("f04-arrow-l"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power3.out" }, 10.5);
+
+        // Scene 5 (12.0–end): goal eyebrow, countdown chip pops on "दो महीने", ring sweeps, hold
+        tl.fromTo(q("f04-goal"), { x: -20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 12.35);
+        tl.fromTo(q("f04-chip"), { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.8)" }, 13.06);
+        tl.fromTo(q("f04-ring-fill"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.8, ease: "power2.inOut" }, 13.36);
+
+        // hold to full duration
+        tl.set({}, {}, 16.12);
+
+        window.__timelines["04-directive"] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -1,0 +1,195 @@
+<template>
+<div id="root" data-composition-id="06-yatra" data-start="0" data-duration="18.97" data-width="1920" data-height="1080">
+  <style>
+    @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight: 500; }
+    @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-600.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: "Space Grotesk"; src: url('assets/fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight: 700; }
+    @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-400.woff2') format('woff2'); font-weight: 400; }
+    @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-500.woff2') format('woff2'); font-weight: 500; }
+    @font-face { font-family: "Inter"; src: url('assets/fonts/inter-latin-600.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-500.woff2') format('woff2'); font-weight: 500; }
+    @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-600.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: "Noto Sans Devanagari"; src: url('assets/fonts/noto-sans-devanagari-devanagari-700.woff2') format('woff2'); font-weight: 700; }
+
+    #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; container-type: size; font-family: "Inter", sans-serif; color: #111111; }
+    .f06-bg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #fdfae7; }
+
+    /* ---- map stage (shared placement) ---- */
+    .f06-stage { position: absolute; left: 110px; top: 70px; width: 823px; height: 800px; transform-origin: 50% 50%; }
+    .f06-map { position: absolute; left: 0; top: 0; width: 823px; height: 800px; overflow: visible; }
+    .f06-district { stroke: #1e2bfa; stroke-width: 1.2; vector-effect: non-scaling-stroke; stroke-linejoin: round; fill: rgba(30,43,250,0.04); }
+    .f06-pulse { position: absolute; left: 0; top: 0; width: 823px; height: 800px; overflow: visible; transform-origin: 50% 50%; opacity: 0; }
+    .f06-pulse-path { fill: rgba(30,43,250,0.15); stroke: #1e2bfa; stroke-width: 2.4; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+
+    /* ---- road + raths ---- */
+    .f06-road { position: absolute; left: 110px; top: 884px; width: 823px; height: 0; border-top: 3px dashed rgba(30,43,250,0.35); transform-origin: 0% 50%; }
+    .f06-rath { position: absolute; top: 808px; width: 132px; height: 76px; }
+    .f06-rath-a { left: 170px; }
+    .f06-rath-b { left: 660px; }
+    .f06-rath svg { position: absolute; left: 0; top: 0; width: 132px; height: 76px; overflow: visible; }
+    .f06-rath-tag { position: absolute; left: 44px; top: 14px; width: 40px; height: 40px; border-radius: 50%; background: #fdfae7; color: #1e2bfa; display: flex; align-items: center; justify-content: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 24px; line-height: 1; }
+
+    /* ---- right column: title lockup ---- */
+    .f06-col { position: absolute; left: 1010px; top: 96px; width: 820px; }
+    .f06-accent { width: 60px; height: 4px; border-radius: 2px; background: #1e2bfa; transform-origin: 0% 50%; }
+    .f06-title { margin-top: 18px; display: flex; gap: 30px; font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 700; font-size: 120px; line-height: 1.3; letter-spacing: -0.01em; color: #111111; white-space: nowrap; }
+    .f06-word { display: inline-block; transform-origin: 30% 70%; }
+    .f06-sub { margin-top: 4px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em; color: #1e2bfa; white-space: nowrap; }
+
+    .f06-qci { position: absolute; left: 1010px; top: 392px; display: flex; align-items: center; gap: 26px; }
+    .f06-qci-img { display: block; width: 300px; height: 109px; object-fit: contain; }
+    .f06-qci-label { padding: 6px 22px 8px; border-radius: 100px; background: rgba(30,43,250,0.08); color: #1e2bfa; font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.35; white-space: nowrap; }
+
+    /* ---- counters ---- */
+    .f06-stat { position: absolute; top: 548px; width: 252px; height: 150px; box-sizing: border-box; border-radius: 14px; background: rgba(30,43,250,0.04); border: 1.5px solid rgba(30,43,250,0.2); display: flex; flex-direction: column; justify-content: center; padding: 0 28px; }
+    .f06-stat-1 { left: 1010px; }
+    .f06-stat-2 { left: 1294px; }
+    .f06-stat-3 { left: 1578px; }
+    .f06-num { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 80px; line-height: 0.95; letter-spacing: -0.03em; color: #1e2bfa; }
+    .f06-lab { margin-top: 4px; font-family: "Noto Sans Devanagari", "Inter", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.3; color: #111111; white-space: nowrap; }
+
+    /* ---- workshops pill ---- */
+    .f06-pill { position: absolute; left: 1010px; top: 736px; width: 820px; height: 88px; box-sizing: border-box; border-radius: 100px; background: rgba(30,43,250,0.08); border: 1.5px solid rgba(30,43,250,0.2); display: flex; align-items: center; justify-content: center; gap: 18px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 33px; line-height: 1; letter-spacing: -0.01em; color: #1e2bfa; white-space: nowrap; transform-origin: 50% 50%; }
+    .f06-pill-dot { width: 14px; height: 14px; border-radius: 50%; background: #1e2bfa; flex: none; }
+  </style>
+
+  <div class="f06-bg clip" data-start="0" data-duration="18.97" data-track-index="0"></div>
+
+  <!-- shared district map stage -->
+  <div id="f06-stage" class="f06-stage">
+    <svg id="f06-map" class="f06-map" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+      <g id="f06-districts"></g>
+    </svg>
+    <svg id="f06-pulse" class="f06-pulse" viewBox="0 0 1000 972" xmlns="http://www.w3.org/2000/svg">
+      <g id="f06-pulse-g"></g>
+    </svg>
+  </div>
+
+  <!-- road + two raths -->
+  <div id="f06-road" class="f06-road"></div>
+  <div id="f06-rath-a" class="f06-rath f06-rath-a">
+    <svg viewBox="0 0 132 76" xmlns="http://www.w3.org/2000/svg">
+      <rect x="18" y="0" width="70" height="8" rx="4" fill="#1e2bfa" opacity="0.55"/>
+      <rect x="4" y="6" width="124" height="54" rx="14" fill="#1e2bfa"/>
+      <rect x="96" y="14" width="24" height="20" rx="5" fill="#fdfae7" opacity="0.9"/>
+      <rect x="12" y="40" width="80" height="4" rx="2" fill="#fdfae7" opacity="0.45"/>
+      <circle cx="32" cy="62" r="12" fill="#111111"/><circle cx="32" cy="62" r="5" fill="#fdfae7"/>
+      <circle cx="100" cy="62" r="12" fill="#111111"/><circle cx="100" cy="62" r="5" fill="#fdfae7"/>
+    </svg>
+    <div class="f06-rath-tag">A</div>
+  </div>
+  <div id="f06-rath-b" class="f06-rath f06-rath-b">
+    <svg viewBox="0 0 132 76" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(132,0) scale(-1,1)">
+        <rect x="18" y="0" width="70" height="8" rx="4" fill="#1e2bfa" opacity="0.55"/>
+        <rect x="4" y="6" width="124" height="54" rx="14" fill="#1e2bfa"/>
+        <rect x="96" y="14" width="24" height="20" rx="5" fill="#fdfae7" opacity="0.9"/>
+        <rect x="12" y="40" width="80" height="4" rx="2" fill="#fdfae7" opacity="0.45"/>
+        <circle cx="32" cy="62" r="12" fill="#111111"/><circle cx="32" cy="62" r="5" fill="#fdfae7"/>
+        <circle cx="100" cy="62" r="12" fill="#111111"/><circle cx="100" cy="62" r="5" fill="#fdfae7"/>
+      </g>
+    </svg>
+    <div class="f06-rath-tag">B</div>
+  </div>
+
+  <!-- title lockup -->
+  <div class="f06-col">
+    <div id="f06-accent" class="f06-accent"></div>
+    <div class="f06-title">
+      <span id="f06-w1" class="f06-word">गुणवत्ता</span>
+      <span id="f06-w2" class="f06-word">यात्रा</span>
+    </div>
+    <div id="f06-sub" class="f06-sub">Gunvatta Yatra · Uttar Pradesh</div>
+  </div>
+
+  <!-- QCI presenter -->
+  <div class="f06-qci">
+    <img id="f06-qci-img" class="f06-qci-img" src="assets/logos/qci.png" alt="Quality Council of India">
+    <div id="f06-qci-label" class="f06-qci-label">की पहल</div>
+  </div>
+
+  <!-- counters -->
+  <div id="f06-stat-1" class="f06-stat f06-stat-1"><div id="f06-n1" class="f06-num">0</div><div class="f06-lab">रथ</div></div>
+  <div id="f06-stat-2" class="f06-stat f06-stat-2"><div id="f06-n2" class="f06-num">0</div><div class="f06-lab">यात्राएं</div></div>
+  <div id="f06-stat-3" class="f06-stat f06-stat-3"><div id="f06-n3" class="f06-num">0</div><div class="f06-lab">ज़िले</div></div>
+
+  <!-- workshops pill -->
+  <div id="f06-pill" class="f06-pill"><span class="f06-pill-dot"></span>NABH Entry Level Certification Workshops</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>
+  <script>
+    (function () {
+      var FID = "06-yatra";
+      var root = document.querySelector('[data-composition-id="' + FID + '"]') || document;
+      function q(id) { return root.querySelector('#' + id); }
+      var SVGNS = "http://www.w3.org/2000/svg";
+
+      // ---- build district mesh (planner order) ----
+      var data = window.UP_DISTRICTS;
+      var list = (data && data.districts) ? data.districts : [];
+      var gWrap = q("f06-districts"), gPulse = q("f06-pulse-g");
+      var paths = [];
+      for (var i = 0; i < list.length; i++) {
+        var p = document.createElementNS(SVGNS, "path");
+        p.setAttribute("d", list[i].d);
+        p.setAttribute("class", "f06-district");
+        gWrap.appendChild(p);
+        paths.push(p);
+        var pp = document.createElementNS(SVGNS, "path");
+        pp.setAttribute("d", list[i].d);
+        pp.setAttribute("class", "f06-pulse-path");
+        gPulse.appendChild(pp);
+      }
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0–3s): districts assemble into the mark, index-ordered stagger
+      tl.fromTo(q("f06-stage"), { scale: 0.95 }, { scale: 1, duration: 3.0, ease: "power3.out" }, 0);
+      if (paths.length) {
+        tl.fromTo(paths,
+          { opacity: 0, scale: 0.55, transformOrigin: "50% 50%" },
+          { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)", stagger: { each: 0.03 } }, 0.1);
+      }
+
+      // Scene 2 (3–6s): title lockup lands on "गुणवत्ता यात्रा"
+      tl.fromTo(q("f06-accent"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 3.45);
+      tl.fromTo(q("f06-w1"), { opacity: 0, scale: 1.25, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "power4.out" }, 3.62);
+      tl.fromTo(q("f06-w2"), { opacity: 0, scale: 1.25, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "power4.out" }, 4.24);
+      tl.fromTo(q("f06-sub"), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 4.85);
+
+      // Scene 3 (6–9s): real QCI logo + "की पहल"
+      tl.fromTo(q("f06-qci-img"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 5.75);
+      tl.fromTo(q("f06-qci-label"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 7.5);
+
+      // Scene 4 (9–12.5s): counters + raths
+      function counter(el, to, at, dur) {
+        var o = { v: 0 };
+        tl.fromTo(o, { v: 0 }, { v: to, duration: dur, ease: "power2.out",
+          onUpdate: function () { el.textContent = String(Math.round(o.v)); } }, at);
+      }
+      tl.fromTo(q("f06-stat-1"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 8.9);
+      counter(q("f06-n1"), 2, 8.95, 0.4);
+      tl.fromTo(q("f06-stat-2"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 9.85);
+      counter(q("f06-n2"), 63, 9.9, 0.7);
+      tl.fromTo(q("f06-stat-3"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 11.3);
+      counter(q("f06-n3"), 75, 11.35, 0.7);
+
+      tl.fromTo(q("f06-road"), { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 8.95);
+      tl.fromTo(q("f06-rath-a"), { opacity: 0, x: -320 }, { opacity: 1, x: 0, duration: 1.6, ease: "power3.out" }, 9.25);
+      tl.fromTo(q("f06-rath-b"), { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 1.6, ease: "power3.out" }, 9.4);
+
+      // Scene 5 (12.5s–end): workshops pill, then one map pulse on "आपके ज़िले में"
+      tl.fromTo(q("f06-pill"), { opacity: 0, scale: 0.8, y: 16 }, { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "back.out(1.8)" }, 12.95);
+      tl.fromTo(q("f06-pulse"), { opacity: 0, scale: 1 }, { opacity: 0.9, scale: 1.02, duration: 0.3, ease: "power2.out" }, 16.25);
+      tl.to(q("f06-pulse"), { opacity: 0, scale: 1.06, duration: 0.9, ease: "power2.in" }, 16.55);
+
+      // hold to the end of the frame
+      tl.to({}, { duration: 0.01 }, 18.96);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</div>
+</template>
