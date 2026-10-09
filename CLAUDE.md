@@ -297,3 +297,12 @@ denominator is canonical is open gating decision #1 above.
   (Registered / Attended / Not Attended / Postponed / Cancelled).
 - Counting events: contacts are attendees, so count distinct `cf_event_type` values
   (format `NABH_<CITY>_<DDMMYY>_Y`). Exclude the undated catch-all `NABH_ADDITIONAL_Y`.
+
+## 15. Monitoring portal (`portal/`)
+- `portal/index.html` is a single-file portal (overview, yatras, districts, lead funnel,
+  readiness, reports, data checks), modelled on the reference "Gunvatta Yatra – UP"
+  dashboard screenshot. Data is embedded by `portal/build_data.py` (planner + live
+  Freshworks + district GeoJSON). See `portal/README.md` for rules and refresh commands.
+- Reports (delivery-approach comparison) is QCI-internal; the "District CMO" view hides it.
+- Readiness fields (CMO letter, hospital list, SPOC, venue) have no system of record yet
+  (gating decision #4) and show as "Not tracked".
