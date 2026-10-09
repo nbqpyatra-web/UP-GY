@@ -1,9 +1,9 @@
 <title>UP Gunvatta Yatra Portal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
-/* Layout: fixed left rail of sections + a working canvas; overview = filters → KPI strip → calendar | map | queue → selected-yatra sheet. */
+/* Layout: quiet left rail and toolbar; the overview opens on the two-rath route strip (the one bold element), then a ruled figures row, calendar | map | queue, and the selected yatra raised as the only card. */
 :root {
   --bg: #f2f5fa;
   --surface: #ffffff;
@@ -250,11 +250,74 @@ body.cmo [data-internal] { display: none !important; }
 .tracker select:disabled, .tracker input:disabled { opacity: .75; cursor: not-allowed; }
 .toast { position: fixed; z-index: 40; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--surface); padding: 9px 16px; border-radius: 8px; font-size: 14px; box-shadow: var(--shadow); }
 @media (max-width: 860px) { .nav-sep { display: none; } }
+
+/* ---- restyle: frontend-design pass ---- */
+:root { --font-display: "Tiro Devanagari Hindi", "Noto Serif", Georgia, serif; --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; --font-num: var(--font-ui); --saffron: #c96a12; --track: #c4cfdf; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --saffron: #f2a65a; --track: #33415e; } }
+:root[data-theme="dark"] { --saffron: #f2a65a; --track: #33415e; }
+body { font-size: 14.5px; }
+h1, h2, .mark b, .rail-foot .hi, .sheet-h h2 { font-family: var(--font-display); font-weight: 400; letter-spacing: 0; }
+.top h1 { font-size: 34px; line-height: 1.1; }
+.top .sub.ref { font-size: 13px; color: var(--muted); }
+.card-h h2 { font-size: 21px; }
+.sheet-h h2 { font-size: 26px; }
+.mark b { font-size: 24px; }
+.field label, th, .cal .dow, .stage h3, .nav-sep { text-transform: none; letter-spacing: 0; }
+.field label { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+th { font-size: 12.5px; color: var(--ink-2); background: var(--bg); }
+.cal .dow { font-size: 12px; }
+.nav-sep { font-size: 12.5px; font-weight: 600; }
+#filters { background: none; border: 0; padding: 0; }
+.card { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 16px 0 0; }
+.card.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; box-shadow: var(--shadow); }
+.map path.d { stroke: var(--bg); }
+.map text { stroke: var(--bg); }
+.kpis { gap: 0; border-block: 1px solid var(--line); }
+.kpi { background: none; border: 0; border-left: 1px solid var(--line); border-radius: 0; padding: 12px 18px; }
+.kpi:nth-child(4n+1) { border-left: 0; padding-left: 0; }
+.kpi:nth-child(n+5) { border-top: 1px solid var(--line); }
+.kpi .v { font-weight: 500; font-size: 26px; }
+.stages { gap: 0; }
+.stage { background: none; border-left: 1px solid var(--line); border-radius: 0; padding: 2px 18px; }
+.stage:first-child { border-left: 0; padding-left: 0; }
+.stage h3 { font-size: 14px; color: var(--ink); font-weight: 600; }
+.qi:hover, .qi.sel { background: var(--accent-soft); }
+
+.route { display: flex; flex-direction: column; gap: 6px; }
+.route-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+.route-h h2 { font-size: 24px; color: var(--brand); }
+.route-h p { margin: 0; color: var(--ink-2); }
+.route-scroll { overflow-x: auto; }
+#route svg { display: block; width: 100%; min-width: 860px; height: auto; }
+#route .track { stroke: var(--track); stroke-width: 4; stroke-linecap: round; fill: none; }
+#route .tick { fill: var(--muted); font: 12px var(--font-ui); }
+#route .lane { fill: var(--ink-2); font: 600 12.5px var(--font-ui); }
+#route .phase { fill: var(--ink-2); font: 12.5px var(--font-ui); }
+#route .brk { fill: var(--muted); font: italic 12px var(--font-ui); }
+#route .stop { stroke: var(--bg); stroke-width: 2; cursor: pointer; }
+#route .stop.completed { fill: var(--st-completed); } #route .stop.upcoming { fill: var(--st-upcoming); } #route .stop.today { fill: var(--saffron); }
+#route .stop.dim { opacity: .25; }
+#route .stop:hover { stroke: var(--ink); }
+#route .ring { fill: none; stroke: var(--ink); stroke-width: 1.5; pointer-events: none; }
+#route .now { stroke: var(--saffron); stroke-width: 2; }
+#route .now-l { fill: var(--saffron); font: 600 12.5px var(--font-ui); }
+#route .sel-l { fill: var(--ink); font: 600 12.5px var(--font-ui); }
+.dot.today, .cal .pip.today { background: var(--saffron); }
+.map path.today { fill: var(--saffron); }
+.chip.today { background: color-mix(in srgb, var(--saffron) 18%, transparent); color: var(--saffron); }
+@media (max-width: 860px) {
+  .kpi:nth-child(4n+1) { border-left: 1px solid var(--line); padding-left: 18px; }
+  .kpi:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+  .kpi:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stage { border-left: 0; padding: 10px 0; border-top: 1px solid var(--line); }
+  .stage:first-child { border-top: 0; }
+  .top h1 { font-size: 28px; }
+}
 </style>
 
 <div class="app">
   <aside class="rail">
-    <div class="mark"><b>UP GY</b><span>Gunvatta Yatra · Uttar Pradesh</span></div>
+    <div class="mark"><b>UP GY</b><span>Gunvatta Yatra, Uttar Pradesh</span></div>
     <nav class="nav" aria-label="Sections">
       <a href="#overview" data-view="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Overview</a>
       <a href="#yatras" data-view="yatras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Yatras</a>
@@ -267,7 +330,7 @@ body.cmo [data-internal] { display: none !important; }
     </nav>
     <div class="rail-foot">
       <span class="hi" lang="hi">बेहतर गुणवत्ता, सुरक्षित उपचार, स्वस्थ नागरिक</span>
-      <span>QCI · NBQP · NABH</span>
+      <span>Quality Council of India</span>
     </div>
   </aside>
 
@@ -275,7 +338,7 @@ body.cmo [data-internal] { display: none !important; }
     <header class="top">
       <div>
         <h1>Gunvatta Yatra – Uttar Pradesh</h1>
-        <div class="sub">63 yatras · 75 districts · 09 Oct 2026 – 24 Mar 2027 · <span class="ref">SACHIS circular ABPMJAY/UP-GY/2026-27/161, 15 May 2026</span></div>
+        <div class="sub">63 yatras across 75 districts, 9 October 2026 to 24 March 2027</div><div class="sub ref">Under SACHIS circular ABPMJAY/UP-GY/2026-27/161 of 15 May 2026</div>
       </div>
       <div class="top-right">
         <div class="stamp" id="stamp"></div>
@@ -289,7 +352,7 @@ body.cmo [data-internal] { display: none !important; }
     <section class="card" aria-label="Filters" id="filters">
       <div class="filters">
         <div class="field"><label for="f-phase">Phase</label>
-          <select id="f-phase"><option value="all">All phases</option><option value="1">Phase 1 · Oct–Nov 2026</option><option value="2">Phase 2 · Jan–Mar 2027</option><option value="3">Phase 3 · clusters, Mar 2027</option></select></div>
+          <select id="f-phase"><option value="all">All phases</option><option value="1">Phase 1 (Oct–Nov 2026)</option><option value="2">Phase 2 (Jan–Mar 2027)</option><option value="3">Phase 3 (clusters, Mar 2027)</option></select></div>
         <div class="field"><label for="f-zone">Zone</label><select id="f-zone"><option value="all">All zones</option></select></div>
         <div class="field"><label for="f-district">District</label><select id="f-district"><option value="all">All 75 districts</option></select></div>
         <div class="field"><label for="f-state">Status</label>
@@ -302,6 +365,10 @@ body.cmo [data-internal] { display: none !important; }
 
     <!-- OVERVIEW -->
     <div class="section" data-page="overview">
+      <section class="route" aria-label="Yatra route">
+        <div class="route-h"><h2>The route</h2><p id="route-caption"></p></div>
+        <div class="route-scroll"><div id="route"></div></div>
+      </section>
       <div class="kpis" id="kpis"></div>
       <div class="grid3">
         <section class="card">
@@ -319,11 +386,11 @@ body.cmo [data-internal] { display: none !important; }
           <div class="ramp" id="map-key-overview"></div>
         </section>
         <section class="card queue-card">
-          <div class="card-h"><h2>Next up</h2><button class="link" type="button" data-goto="yatras">All 63 yatras →</button></div>
+          <div class="card-h"><h2>Next up</h2><button class="link" type="button" data-goto="yatras">See all 63 yatras</button></div>
           <div class="queue" id="queue"></div>
         </section>
       </div>
-      <section class="card" id="sheet"></section>
+      <section class="card feature" id="sheet"></section>
       <section class="card">
         <div class="card-h"><h2>Phase progress</h2><span class="hint">Held vs planned, with CRM registrations and attendance</span></div>
         <div class="tbl-wrap"><table id="phase-table"></table></div>
@@ -337,7 +404,7 @@ body.cmo [data-internal] { display: none !important; }
           <div class="field" style="max-width:280px"><label for="y-search">Search</label><input id="y-search" type="search" placeholder="District, cluster or CRM event code"></div></div>
         <div class="tbl-wrap"><table id="y-table"></table></div>
       </section>
-      <section class="card" id="sheet-2"></section>
+      <section class="card feature" id="sheet-2"></section>
     </div>
 
     <!-- DISTRICTS -->
@@ -354,7 +421,7 @@ body.cmo [data-internal] { display: none !important; }
         <section class="card" id="district-detail"></section>
       </div>
       <section class="card">
-        <div class="card-h"><h2>All 75 districts</h2><span class="hint">Hospitals: (VF) Final Sheet · Activity: CRM events matched to UP GY yatras</span></div>
+        <div class="card-h"><h2>All 75 districts</h2><span class="hint">Hospitals from the (VF) Final Sheet; activity from CRM events matched to UP GY yatras</span></div>
         <div class="tbl-wrap"><table id="d-table"></table></div>
       </section>
     </div>
@@ -427,7 +494,7 @@ body.cmo [data-internal] { display: none !important; }
         </section>
       </div>
       <section class="card">
-        <div class="card-h"><h2>District baseline before UP GY</h2><span class="hint">(VF) Final Sheet, as of 06 Oct 2026 · districts with at least one earlier yatra</span></div>
+        <div class="card-h"><h2>District baseline before UP GY</h2><span class="hint">(VF) Final Sheet as of 06 Oct 2026, for districts with at least one earlier yatra</span></div>
         <div class="tbl-wrap"><table id="baseline-table"></table></div>
       </section>
     </div>
@@ -535,6 +602,47 @@ let selected = null;
 const pickDefault = list => list.find(y => y.state === 'today') || list.find(y => y.state === 'upcoming') || [...list].reverse()[0] || null;
 function select(id) { selected = id; render(); }
 
+
+// ---- route strip: the two raths as parallel lines, each yatra a stop ---------
+function trackOf(y, sameDay) {
+  if (/A \+ B/.test(y.rath || '')) return ['A', 'B'];
+  if (/Rath B/.test(y.rath || '')) return ['B'];
+  if (/Rath A/.test(y.rath || '')) return ['A'];
+  return [sameDay.indexOf(y) % 2 ? 'B' : 'A'];
+}
+function renderRoute(list) {
+  const host = $('#route');
+  const ids = new Set(list.map(y => y.id));
+  const W = 1180, Hh = 168, L = 70, Rr = 18, lane = { A: 62, B: 104 };
+  const t0 = new Date('2026-10-01T00:00:00'), t1 = new Date('2027-03-31T00:00:00');
+  const x = d => L + (new Date(d + 'T00:00:00') - t0) / (t1 - t0) * (W - L - Rr);
+  const byDate = {}; Y.forEach(y => (byDate[y.date] ||= []).push(y));
+  const stops = Y.flatMap(y => trackOf(y, byDate[y.date]).map(tk => ({ y, tk })));
+  const phases = [1, 2, 3].map(p => { const ds = Y.filter(y => y.phase === p).map(y => y.date).sort(); return { p, a: ds[0], b: ds[ds.length - 1] }; });
+  const months = ['2026-10-01', '2026-11-01', '2026-12-01', '2027-01-01', '2027-02-01', '2027-03-01'];
+  const monthName = d => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { month: 'short', year: d.endsWith('10-01') || d.startsWith('2027-01') ? 'numeric' : undefined });
+  const sel = Y.find(y => y.id === selected);
+  let svg = `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Route of the 63 yatras on Rath A and Rath B, October 2026 to March 2027">`;
+  svg += months.map(m => `<text class="tick" x="${x(m)}" y="22">${monthName(m)}</text>`).join('');
+  svg += `<text class="lane" x="0" y="${lane.A + 4}">Rath A</text><text class="lane" x="0" y="${lane.B + 4}">Rath B</text>`;
+  for (const ph of phases) for (const tk of ['A', 'B']) svg += `<line class="track" x1="${x(ph.a)}" x2="${x(ph.b)}" y1="${lane[tk]}" y2="${lane[tk]}"/>`;
+  svg += `<text class="brk" x="${(x('2026-11-27') + x('2027-01-06')) / 2}" y="${(lane.A + lane.B) / 2 + 4}" text-anchor="middle">Break, December</text>`;
+  const names = { 1: 'Phase 1, 23 yatras', 2: 'Phase 2, 33 yatras', 3: 'Phase 3, 7 clusters' };
+  svg += phases.map(ph => `<text class="phase" x="${(x(ph.a) + x(ph.b)) / 2}" y="${Hh - 14}" text-anchor="middle">${names[ph.p]}</text>`).join('');
+  if (TODAY >= '2026-10-01' && TODAY <= '2027-03-31') svg += `<line class="now" x1="${x(TODAY)}" x2="${x(TODAY)}" y1="32" y2="${lane.B + 18}"/><text class="now-l" x="${x(TODAY) + 6}" y="40">Today</text>`;
+  svg += stops.map(({ y, tk }) => `<circle class="stop ${y.state}${ids.has(y.id) ? '' : ' dim'}" data-id="${esc(y.id)}" cx="${x(y.date)}" cy="${lane[tk]}" r="${y.cluster ? 6.5 : 5.5}"><title>${esc(yname(y))}</title></circle>`).join('');
+  if (sel) { for (const tk of trackOf(sel, byDate[sel.date])) svg += `<circle class="ring" cx="${x(sel.date)}" cy="${lane[tk]}" r="10"/>`; svg += `<text class="sel-l" x="${Math.min(x(sel.date), W - 160)}" y="${lane.B + 34}" text-anchor="${x(sel.date) > W - 160 ? 'start' : 'middle'}">${esc(yname(sel).length > 30 ? sel.districts[0] + ' cluster' : yname(sel))}</text>`; }
+  host.innerHTML = svg + '</svg>';
+  host.querySelectorAll('.stop').forEach(c => {
+    const y = Y.find(v => v.id === c.dataset.id);
+    c.addEventListener('click', () => select(y.id));
+    c.addEventListener('mouseenter', e => showTip(e, `<b>${esc(yname(y))}</b>${row('Date', dateFmt(y.date))}${row('Rath', esc(y.cluster ? 'Cluster yatra' : y.rath))}${row('Status', STATE_LABEL[y.state])}${row('Registered', fmt(rec(y).registrations))}`));
+    c.addEventListener('mousemove', moveTip); c.addEventListener('mouseleave', hideTip);
+  });
+  const held = Y.filter(y => y.state === 'completed').length, next = Y.find(y => y.state !== 'completed');
+  $('#route-caption').textContent = `${held} of 63 yatras held. ${next ? (next.state === 'today' ? `${yname(next)} is today.` : `Next: ${yname(next)} on ${dateFmt(next.date)}.`) : 'All yatras held.'}`;
+}
+
 // ---- KPIs ---------------------------------------------------------------
 function renderKpis(list) {
   const t = yTotals(list);
@@ -543,11 +651,11 @@ function renderKpis(list) {
   const k = (label, v, s, dot) => `<div class="kpi"><span class="k">${dot ? `<i class="dot ${dot}"></i>` : ''}${label}</span><span class="v">${v}</span><span class="s">${s}</span></div>`;
   $('#kpis').innerHTML = [
     k('Yatras held', `${fmt(t.held)}<small> / ${list.length}</small>`, `${t.districts.size} of 75 districts covered`, 'completed'),
-    k('Next yatra', next ? dateFmt(next.date).slice(0, 6) : '–', next ? esc(yname(next)) + (next.state === 'today' ? ' · today' : '') : 'All yatras held', next ? next.state : ''),
-    k('Ready · next 14 days', trackerMode === 'off' ? '–' : `${soon.filter(y => doneCount(y) === 4).length}<small> / ${soon.length}</small>`, trackerMode === 'off' ? 'Tracker opens in the published portal' : 'yatras with all 4 checks done'),
+    k('Next yatra', next ? dateFmt(next.date).slice(0, 6) : '–', next ? esc(yname(next)) + (next.state === 'today' ? ', today' : '') : 'All yatras held', next ? next.state : ''),
+    k('Ready in the next 14 days', trackerMode === 'off' ? '–' : `${soon.filter(y => doneCount(y) === 4).length}<small> / ${soon.length}</small>`, trackerMode === 'off' ? 'Tracker opens in the published portal' : 'yatras with all 4 checks done'),
     k('Registrations', fmt(t.regs), 'contacts in matched CRM events'),
     k('Attended', fmt(t.att), t.att + t.notAtt ? `${pct(t.att, t.att + t.notAtt)} of recorded attendance` : 'recorded after each yatra'),
-    k('Potential leads', fmt(t.potential), `Hot ${fmt(t.hot)} · Warm ${fmt(t.warm)} · AIP ${fmt(t.aip)}`),
+    k('Potential leads', fmt(t.potential), `Hot ${fmt(t.hot)}, Warm ${fmt(t.warm)}, AIP ${fmt(t.aip)}`),
     k('Won', fmt(t.won), `Close rate ${closeTxt(t)}`),
     k('NABH gap in scope', fmt([...new Set(list.flatMap(y => y.districts))].reduce((a, n) => a + (byName[n]?.gap || 0), 0)), 'hospitals without NABH in these districts'),
   ].join('');
@@ -608,7 +716,7 @@ function renderMap(el, keyEl) {
     .on('mouseenter', (e, f) => {
       const n = f.properties.name, d = byName[n] || {}, ys = listAll.filter(y => y.districts.includes(n)), t = yTotals(ys);
       const y = ys[0];
-      showTip(e, `<b>${esc(n)}</b>${row('Zone', esc(d.zone || '–'))}${row('PM-JAY / NABH', `${fmt(d.universe)} / ${fmt(d.nabh)}`)}${row('Gap', fmt(d.gap))}${row('UP GY yatra', y ? `${dateFmt(y.date)} · P${y.phase}` : 'Not in current filter')}${y?.cluster ? row('Cluster', esc(y.cluster)) : ''}${t.held ? row('Attended', fmt(t.att)) + row('Potential leads', fmt(t.potential)) : ''}`);
+      showTip(e, `<b>${esc(n)}</b>${row('Zone', esc(d.zone || '–'))}${row('PM-JAY / NABH', `${fmt(d.universe)} / ${fmt(d.nabh)}`)}${row('Gap', fmt(d.gap))}${row('UP GY yatra', y ? `${dateFmt(y.date)}, phase ${y.phase}` : 'Not in current filter')}${y?.cluster ? row('Cluster', esc(y.cluster)) : ''}${t.held ? row('Attended', fmt(t.att)) + row('Potential leads', fmt(t.potential)) : ''}`);
     })
     .on('mousemove', moveTip).on('mouseleave', hideTip)
     .on('click', (e, f) => { F.district = F.district === f.properties.name ? 'all' : f.properties.name; $('#f-district').value = F.district; render(); });
@@ -627,7 +735,7 @@ function renderQueue(list) {
   const items = [...list.filter(y => y.state === 'today'), ...list.filter(y => y.state === 'upcoming')].slice(0, 9);
   const recent = list.filter(y => y.state === 'completed').slice(-2).reverse();
   const all = [...items, ...recent];
-  $('#queue').innerHTML = all.length ? all.map(y => `<button type="button" class="qi ${selected === y.id ? 'sel' : ''}" data-id="${esc(y.id)}"><i class="dot ${y.state}"></i><span><span class="t">${esc(yname(y))}</span><span class="m">${dateFmt(y.date)} · P${y.phase} · ${esc(y.cluster || y.rath)}</span></span><span class="qchips"><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span>${y.state !== 'completed' ? readyChip(y) : ''}</span></button>`).join('') : '<p class="empty">No yatras match these filters.</p>';
+  $('#queue').innerHTML = all.length ? all.map(y => `<button type="button" class="qi ${selected === y.id ? 'sel' : ''}" data-id="${esc(y.id)}"><i class="dot ${y.state}"></i><span><span class="t">${esc(yname(y))}</span><span class="m">${dateFmt(y.date)}, ${esc(y.cluster || y.rath)}</span></span><span class="qchips"><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span>${y.state !== 'completed' ? readyChip(y) : ''}</span></button>`).join('') : '<p class="empty">No yatras match these filters.</p>';
   $$('#queue .qi').forEach(b => b.onclick = () => select(b.dataset.id));
 }
 
@@ -643,21 +751,21 @@ function renderSheet(el, y) {
   const shift = c?.dayShift ? `<span class="chip warn">CRM date ${c.dayShift > 0 ? '+' : ''}${c.dayShift} day${Math.abs(c.dayShift) > 1 ? 's' : ''}</span>` : '';
   const rd = R[y.id] || {};
   const checkList = trackerMode === 'off' ? '<span class="note">Readiness is tracked in the published portal.</span>'
-    : `<div class="kv">${CHECKS.map(([k, l]) => `<span>${l}</span><span class="rs ${rd[k] || 'none'}">${(CHECK_STATES.find(s => s[0] === (rd[k] || '')) || CHECK_STATES[0])[1]}</span>`).join('')}</div>${rd.spocName || rd.venueName ? `<span class="note">${rd.spocName ? 'SPOC: ' + esc(rd.spocName) : ''}${rd.spocName && rd.venueName ? ' · ' : ''}${rd.venueName ? 'Venue: ' + esc(rd.venueName) : ''}</span>` : ''}`;
+    : `<div class="kv">${CHECKS.map(([k, l]) => `<span>${l}</span><span class="rs ${rd[k] || 'none'}">${(CHECK_STATES.find(s => s[0] === (rd[k] || '')) || CHECK_STATES[0])[1]}</span>`).join('')}</div>${rd.spocName || rd.venueName ? `<span class="note">${rd.spocName ? 'SPOC: ' + esc(rd.spocName) : ''}${rd.spocName && rd.venueName ? '; ' : ''}${rd.venueName ? 'Venue: ' + esc(rd.venueName) : ''}</span>` : ''}`;
   host.innerHTML = `
     <div class="sheet-h"><h2>Gunvatta Yatra – ${esc(yname(y))}</h2><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span>${y.cluster ? `<span class="chip plain">${esc(y.cluster)}</span>` : ''}${shift}${flags}</div>
     <div class="meta">
-      <span>Date <b>${dateFmt(y.date)}</b> · ${esc(y.day)} · ${esc(y.time)}</span>
-      <span>Plan <b>Phase ${y.phase} · Yatra ${y.no} · ${esc(y.rath)}</b></span>
+      <span><b>${dateFmt(y.date)}</b>, ${esc(y.day)}, ${esc(y.time)}</span>
+      <span>Phase ${y.phase}, yatra ${y.no}, <b>${esc(y.rath)}</b></span>
       <span>Visit <b>${esc(y.visitType)}</b></span>
       <span>Zone <b>${esc([...new Set(ds.map(d => d.zone))].join(', '))}</b></span>
       <span>CRM event <b class="num">${c ? esc(c.event) : 'Not created yet'}</b></span>
     </div>
     <div class="stages">
-      <div class="stage"><h3>Before · readiness</h3>${checkList}</div>
+      <div class="stage"><h3>Readiness</h3>${checkList}</div>
       <div class="stage"><h3>Registration</h3><span class="big">${fmt(r.registrations)}</span><span class="note">${c ? 'contacts registered in the CRM' : 'Appears once the CRM event is created'}</span></div>
-      <div class="stage"><h3>During · attendance</h3>${y.state === 'completed' && recorded ? `<span class="big">${fmt(att(r))}<span class="note"> / ${fmt(recorded)}</span></span><div class="bar"><i style="width:${Math.round(att(r) / recorded * 100)}%"></i></div><span class="note">${pct(att(r), recorded)} attended</span>` : `<span class="note">${y.state === 'completed' ? 'Attendance not recorded in the CRM' : 'Recorded after the yatra'}</span>`}</div>
-      <div class="stage"><h3>After · leads</h3><div class="kv"><span>Hot</span><span>${fmt(st(r, 'hot'))}</span><span>Warm</span><span>${fmt(st(r, 'warm'))}</span><span>Application in progress</span><span>${fmt(st(r, 'aip'))}</span><span>Won</span><span>${fmt(won(r))}</span></div></div>
+      <div class="stage"><h3>Attendance</h3>${y.state === 'completed' && recorded ? `<span class="big">${fmt(att(r))}<span class="note"> / ${fmt(recorded)}</span></span><div class="bar"><i style="width:${Math.round(att(r) / recorded * 100)}%"></i></div><span class="note">${pct(att(r), recorded)} attended</span>` : `<span class="note">${y.state === 'completed' ? 'Attendance not recorded in the CRM' : 'Recorded after the yatra'}</span>`}</div>
+      <div class="stage"><h3>Leads</h3><div class="kv"><span>Hot</span><span>${fmt(st(r, 'hot'))}</span><span>Warm</span><span>${fmt(st(r, 'warm'))}</span><span>Application in progress</span><span>${fmt(st(r, 'aip'))}</span><span>Won</span><span>${fmt(won(r))}</span></div></div>
     </div>
     <div class="meta" style="margin:12px 0 0">District context: <span>PM-JAY hospitals <b>${fmt(sum('universe'))}</b></span><span>NABH <b>${fmt(sum('nabh'))}</b></span><span>Gap <b>${fmt(sum('gap'))}</b></span><span>Mandal <b>${esc([...new Set(ds.map(d => d.mandal))].join(', '))}</b></span></div>`;
 }
@@ -670,7 +778,7 @@ function renderPhases(list) {
   const prog = (a, b) => `<span class="mini"><i style="width:${b ? a / b * 100 : 0}%"></i></span>`;
   $('#phase-table').innerHTML = `<thead><tr><th>Phase</th><th>Window</th><th>Held</th><th class="n">Districts</th><th>Next</th><th class="n">Registered</th><th class="n">Attended</th><th class="n">Potential leads</th><th class="n">Won</th></tr></thead><tbody>
     <tr class="total"><td>Total</td><td></td><td><span class="num">${all.held} / ${list.length}</span> ${prog(all.held, list.length)}</td><td class="n">${new Set(list.flatMap(y => y.districts)).size}</td><td></td><td class="n">${fmt(all.regs)}</td><td class="n">${fmt(all.att)}</td><td class="n">${fmt(all.potential)}</td><td class="n">${fmt(all.won)}</td></tr>
-    ${rows.map(r => `<tr><td>Phase ${r.p}</td><td>${windows[r.p]}</td><td><span class="num">${r.t.held} / ${r.ys.length}</span> ${prog(r.t.held, r.ys.length)}</td><td class="n">${new Set(r.ys.flatMap(y => y.districts)).size}</td><td>${r.next ? `${dateFmt(r.next.date)} · ${esc(yname(r.next))}` : 'Complete'}</td><td class="n">${fmt(r.t.regs)}</td><td class="n">${fmt(r.t.att)}</td><td class="n">${fmt(r.t.potential)}</td><td class="n">${fmt(r.t.won)}</td></tr>`).join('')}</tbody>`;
+    ${rows.map(r => `<tr><td>Phase ${r.p}</td><td>${windows[r.p]}</td><td><span class="num">${r.t.held} / ${r.ys.length}</span> ${prog(r.t.held, r.ys.length)}</td><td class="n">${new Set(r.ys.flatMap(y => y.districts)).size}</td><td>${r.next ? `${dateFmt(r.next.date)}, ${esc(yname(r.next))}` : 'Complete'}</td><td class="n">${fmt(r.t.regs)}</td><td class="n">${fmt(r.t.att)}</td><td class="n">${fmt(r.t.potential)}</td><td class="n">${fmt(r.t.won)}</td></tr>`).join('')}</tbody>`;
 }
 
 // ---- yatra table --------------------------------------------------------
@@ -685,7 +793,7 @@ function renderYatraTable(list) {
   const h = (k, l, n) => `<th${n ? ' class="n"' : ''}><button type="button" data-sort="${k}">${l}${ySort.k === k ? (ySort.dir > 0 ? ' ↑' : ' ↓') : ''}</button></th>`;
   $('#y-table').innerHTML = `<thead><tr>${h('date', 'Date')}${h('district', 'District')}<th>Plan</th><th>Status</th>${trackerMode === 'off' ? '' : h('ready', 'Readiness')}<th>CRM event</th>${h('regs', 'Registered', 1)}${h('att', 'Attended', 1)}${h('pot', 'Potential leads', 1)}${h('won', 'Won', 1)}</tr></thead><tbody>
     <tr class="total"><td>Total</td><td>${rows.length} yatras</td><td></td><td>${t.held} held</td>${trackerMode === 'off' ? '' : '<td></td>'}<td></td><td class="n">${fmt(t.regs)}</td><td class="n">${fmt(t.att)}</td><td class="n">${fmt(t.potential)}</td><td class="n">${fmt(t.won)}</td></tr>
-    ${rows.map(y => `<tr class="click" data-id="${esc(y.id)}"><td class="num">${dateFmt(y.date)}</td><td>${esc(yname(y))}</td><td>P${y.phase} · ${esc(y.cluster ? 'Cluster' : y.rath)}</td><td><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span></td>${trackerMode === 'off' ? '' : `<td>${readyChip(y)}</td>`}<td>${y.crm ? '<span class="chip completed">Live</span>' : y.state === 'upcoming' ? '<span class="chip plain">Not yet</span>' : '<span class="chip crit">Missing</span>'}</td><td class="n">${fmt(rec(y).registrations)}</td><td class="n">${fmt(att(rec(y)))}</td><td class="n">${fmt(potential(rec(y)))}</td><td class="n">${fmt(won(rec(y)))}</td></tr>`).join('')}</tbody>`;
+    ${rows.map(y => `<tr class="click" data-id="${esc(y.id)}"><td class="num">${dateFmt(y.date)}</td><td>${esc(yname(y))}</td><td>Phase ${y.phase}, ${esc(y.cluster ? 'cluster' : y.rath)}</td><td><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span></td>${trackerMode === 'off' ? '' : `<td>${readyChip(y)}</td>`}<td>${y.crm ? '<span class="chip completed">Live</span>' : y.state === 'upcoming' ? '<span class="chip plain">Not yet</span>' : '<span class="chip crit">Missing</span>'}</td><td class="n">${fmt(rec(y).registrations)}</td><td class="n">${fmt(att(rec(y)))}</td><td class="n">${fmt(potential(rec(y)))}</td><td class="n">${fmt(won(rec(y)))}</td></tr>`).join('')}</tbody>`;
   $$('#y-table [data-sort]').forEach(b => b.onclick = () => { ySort = { k: b.dataset.sort, dir: ySort.k === b.dataset.sort ? -ySort.dir : 1 }; render(); });
   $$('#y-table tr.click').forEach(r => r.onclick = () => { select(r.dataset.id); $('#sheet-2').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 }
@@ -705,7 +813,7 @@ function renderDistricts() {
   const sum = k => rows.reduce((a, r) => a + (r[k] || 0), 0);
   $('#d-table').innerHTML = `<thead><tr>${h('name', 'District')}<th>Zone</th>${h('date', 'UP GY yatra')}<th>Status</th>${h('universe', 'PM-JAY', 1)}${h('nabh', 'NABH', 1)}${h('gap', 'Gap', 1)}${h('regs', 'Registered', 1)}${h('att', 'Attended', 1)}${h('pot', 'Potential leads', 1)}${h('won', 'Won', 1)}</tr></thead><tbody>
     <tr class="total"><td>Total</td><td>${rows.length} districts</td><td></td><td></td><td class="n">${fmt(sum('universe'))}</td><td class="n">${fmt(sum('nabh'))}</td><td class="n">${fmt(sum('gap'))}</td><td class="n">${fmt(sum('regs'))}</td><td class="n">${fmt(sum('att'))}</td><td class="n">${fmt(sum('pot'))}</td><td class="n">${fmt(sum('won'))}</td></tr>
-    ${rows.map(r => `<tr class="click" data-d="${esc(r.name)}"><td>${esc(r.name)}</td><td>${esc(r.zone)}</td><td class="num">${r.y ? `${dateFmt(r.y.date)} · P${r.y.phase}${r.y.cluster ? ' cluster' : ''}` : '–'}</td><td>${r.y ? `<span class="chip ${r.state}">${STATE_LABEL[r.state]}</span>` : ''}</td><td class="n">${fmt(r.universe)}</td><td class="n">${fmt(r.nabh)}</td><td class="n">${fmt(r.gap)}</td><td class="n">${fmt(r.regs)}</td><td class="n">${fmt(r.att)}</td><td class="n">${fmt(r.pot)}</td><td class="n">${fmt(r.won)}</td></tr>`).join('')}</tbody>`;
+    ${rows.map(r => `<tr class="click" data-d="${esc(r.name)}"><td>${esc(r.name)}</td><td>${esc(r.zone)}</td><td class="num">${r.y ? `${dateFmt(r.y.date)}, phase ${r.y.phase}${r.y.cluster ? ' cluster' : ''}` : '–'}</td><td>${r.y ? `<span class="chip ${r.state}">${STATE_LABEL[r.state]}</span>` : ''}</td><td class="n">${fmt(r.universe)}</td><td class="n">${fmt(r.nabh)}</td><td class="n">${fmt(r.gap)}</td><td class="n">${fmt(r.regs)}</td><td class="n">${fmt(r.att)}</td><td class="n">${fmt(r.pot)}</td><td class="n">${fmt(r.won)}</td></tr>`).join('')}</tbody>`;
   $$('#d-table [data-dsort]').forEach(b => b.onclick = () => { dSort = { k: b.dataset.dsort, dir: dSort.k === b.dataset.dsort ? -dSort.dir : (['name', 'date'].includes(b.dataset.dsort) ? 1 : -1) }; render(); });
   $$('#d-table tr.click').forEach(r => r.onclick = () => { F.district = r.dataset.d; $('#f-district').value = F.district; render(); scrollTo({ top: 0, behavior: 'smooth' }); });
 
@@ -713,12 +821,12 @@ function renderDistricts() {
   if (!d) { host.innerHTML = `<div class="card-h"><h2>District detail</h2></div><p class="empty">Click a district on the map or in the table.</p><div class="callout">Map colours use the absolute gap (PM-JAY hospitals minus NABH), not % potential, so small districts with 100% potential do not look like priorities. Gautam Buddha Nagar and Ghaziabad have more NABH facilities than PM-JAY hospitals; their gap is shown as 0.</div>`; return; }
   const ys = Y.filter(y => y.districts.includes(d.name)), t = yTotals(ys);
   host.innerHTML = `<div class="card-h"><h2>${esc(d.name)}</h2><button class="link" type="button" id="clear-d">Clear</button></div>
-    <div class="meta" style="margin-top:0"><span>Mandal <b>${esc(d.mandal)}</b></span><span>Zone <b>${esc(d.zone)}</b></span><span>${esc(d.tier)}</span><span>Phase <b>${d.phase}</b>${d.cluster ? ` · ${esc(d.cluster)}${d.role === 'Host' ? ' (host)' : ''}` : ''}</span></div>
+    <div class="meta" style="margin-top:0"><span>Mandal <b>${esc(d.mandal)}</b></span><span>Zone <b>${esc(d.zone)}</b></span><span>${esc(d.tier)}</span><span>Phase <b>${d.phase}</b>${d.cluster ? `, ${esc(d.cluster)}${d.role === 'Host' ? ' (host)' : ''}` : ''}</span></div>
     <div class="stages" style="grid-template-columns:repeat(2,minmax(0,1fr))">
       <div class="stage"><h3>Hospitals</h3><div class="kv"><span>PM-JAY empanelled</span><span>${fmt(d.universe)}</span><span>NABH certified</span><span>${fmt(d.cert)}</span><span>NABH accredited</span><span>${fmt(d.accr)}</span><span>Gap</span><span>${fmt(d.gap)}${d.gapRaw < 0 ? ' (raw ' + d.gapRaw + ')' : ''}</span></div></div>
       <div class="stage"><h3>UP GY activity</h3><div class="kv"><span>Registered</span><span>${fmt(t.regs)}</span><span>Attended</span><span>${fmt(t.att)}</span><span>Hot / Warm / AIP</span><span>${fmt(t.hot)} / ${fmt(t.warm)} / ${fmt(t.aip)}</span><span>Won</span><span>${fmt(t.won)}</span></div></div>
     </div>
-    <div style="margin-top:12px">${ys.map(y => `<button type="button" class="qi" data-id="${esc(y.id)}"><i class="dot ${y.state}"></i><span><span class="t">${dateFmt(y.date)}${y.districts.length > 1 ? ' · ' + esc(yname(y)) : ''}</span><span class="m">P${y.phase} · ${esc(y.cluster || y.rath)}${y.crm ? ' · ' + fmt(y.crm.registrations) + ' registered' : ''}</span></span><span class="qchips"><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span></span></button>`).join('')}</div>`;
+    <div style="margin-top:12px">${ys.map(y => `<button type="button" class="qi" data-id="${esc(y.id)}"><i class="dot ${y.state}"></i><span><span class="t">${dateFmt(y.date)}${y.districts.length > 1 ? ', ' + esc(yname(y)) : ''}</span><span class="m">Phase ${y.phase}, ${esc(y.cluster || y.rath)}${y.crm ? ', ' + fmt(y.crm.registrations) + ' registered' : ''}</span></span><span class="qchips"><span class="chip ${y.state}">${STATE_LABEL[y.state]}</span></span></button>`).join('')}</div>`;
   $('#clear-d').onclick = () => { F.district = 'all'; $('#f-district').value = 'all'; render(); };
   $$('#district-detail .qi').forEach(b => b.onclick = () => { selected = b.dataset.id; location.hash = '#yatras'; });
 }
@@ -755,9 +863,9 @@ function renderTracker(list) {
   const dis = editable() ? '' : ' disabled';
   const sel = (y, k) => `<select data-y="${esc(y.id)}" data-k="${k}" class="rsel ${R[y.id]?.[k] || 'none'}" aria-label="${CHECKS.find(c => c[0] === k)[1]} – ${esc(yname(y))}"${dis}>${CHECK_STATES.map(([v, l]) => `<option value="${v}"${(R[y.id]?.[k] || '') === v ? ' selected' : ''}>${l}</option>`).join('')}</select>`;
   const txt = (y, k, ph) => `<input type="text" data-y="${esc(y.id)}" data-k="${k}" value="${esc(R[y.id]?.[k] || '')}" placeholder="${ph}" aria-label="${ph} – ${esc(yname(y))}"${dis}>`;
-  const who = y => { const r = R[y.id]; if (!r?.updatedAt) return '<span class="muted">–</span>'; const n = profiles[r.updatedBy]?.name; return `<span class="muted">${new Date(r.updatedAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}${n ? ' · ' + esc(n) : ''}</span>`; };
+  const who = y => { const r = R[y.id]; if (!r?.updatedAt) return '<span class="muted">–</span>'; const n = profiles[r.updatedBy]?.name; return `<span class="muted">${new Date(r.updatedAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}${n ? ' by ' + esc(n) : ''}</span>`; };
   $('#tracker').innerHTML = `<thead><tr><th>Date</th><th>Yatra</th><th>Ready</th>${CHECKS.map(([, l]) => `<th>${l}</th>`).join('')}<th>SPOC name</th><th>Venue</th><th>Notes</th><th>CRM event</th><th>Updated</th></tr></thead><tbody>
-    ${rows.map(y => `<tr><td class="num">${dateFmt(y.date)}</td><td><button type="button" class="link" data-open="${esc(y.id)}">${esc(yname(y))}</button><div class="muted">P${y.phase} · ${esc(y.cluster || y.rath)}</div></td><td>${readyChip(y)}</td>${CHECKS.map(([k]) => `<td>${sel(y, k)}</td>`).join('')}<td>${txt(y, 'spocName', 'Name, phone')}</td><td>${txt(y, 'venueName', 'Venue')}</td><td>${txt(y, 'notes', 'Notes')}</td><td>${y.crm ? '<span class="chip completed">Live</span>' : '<span class="chip plain">Not yet</span>'}</td><td>${who(y)}</td></tr>`).join('') || '<tr><td colspan="12" class="empty">No yatras match these filters.</td></tr>'}</tbody>`;
+    ${rows.map(y => `<tr><td class="num">${dateFmt(y.date)}</td><td><button type="button" class="link" data-open="${esc(y.id)}">${esc(yname(y))}</button><div class="muted">Phase ${y.phase}, ${esc(y.cluster || y.rath)}</div></td><td>${readyChip(y)}</td>${CHECKS.map(([k]) => `<td>${sel(y, k)}</td>`).join('')}<td>${txt(y, 'spocName', 'Name, phone')}</td><td>${txt(y, 'venueName', 'Venue')}</td><td>${txt(y, 'notes', 'Notes')}</td><td>${y.crm ? '<span class="chip completed">Live</span>' : '<span class="chip plain">Not yet</span>'}</td><td>${who(y)}</td></tr>`).join('') || '<tr><td colspan="12" class="empty">No yatras match these filters.</td></tr>'}</tbody>`;
   $$('#tracker select, #tracker input').forEach(el => el.addEventListener('change', () => saveField(el.dataset.y, el.dataset.k, el.value.trim())));
   $$('#tracker [data-open]').forEach(b => b.onclick = () => { selected = b.dataset.open; location.hash = '#overview'; });
 }
@@ -810,7 +918,7 @@ function renderPast() {
   $('#p-kpis').innerHTML = [
     k('Past yatras', fmt(list.length), `${new Set(list.map(e => e.district)).size} districts`),
     k('Attended', fmt(t.att), `${pct(t.att, t.att + t.notAtt)} of recorded attendance`),
-    k('Potential leads', fmt(t.potential), `Hot ${fmt(t.hot)} · Warm ${fmt(t.warm)} · AIP ${fmt(t.aip)}`),
+    k('Potential leads', fmt(t.potential), `Hot ${fmt(t.hot)}, Warm ${fmt(t.warm)}, AIP ${fmt(t.aip)}`),
     k('Won', fmt(t.won), `Close rate ${closeTxt(t)}`),
   ].join('');
   $('#p-count').textContent = `Past CRM events (${list.length})`;
@@ -840,7 +948,7 @@ function renderPast() {
   // VF baseline
   const base = D.filter(d => d.baseline?.yatras && (P.zone === 'all' || d.zone === P.zone)).sort((a, b) => b.baseline.yatras - a.baseline.yatras || b.baseline.attended - a.baseline.attended);
   const bs = k => base.reduce((a, d) => a + (d.baseline[k] || 0), 0);
-  $('#baseline-table').innerHTML = `<thead><tr><th>District</th><th>Zone</th><th class="n">Yatras</th><th class="n">Attended</th><th class="n">Hot</th><th class="n">Warm</th><th class="n">AIP</th><th class="n">Won</th><th>UP GY visit</th></tr></thead><tbody><tr class="total"><td>Total</td><td>${base.length} districts</td><td class="n">${bs('yatras')}</td><td class="n">${fmt(bs('attended'))}</td><td class="n">${bs('hot')}</td><td class="n">${bs('warm')}</td><td class="n">${bs('aip')}</td><td class="n">${bs('won')}</td><td></td></tr>${base.map(d => { const y = Y.find(v => v.districts.includes(d.name)); return `<tr><td>${esc(d.name)}</td><td>${esc(d.zone)}</td><td class="n">${d.baseline.yatras}</td><td class="n">${fmt(d.baseline.attended)}</td><td class="n">${d.baseline.hot}</td><td class="n">${d.baseline.warm}</td><td class="n">${d.baseline.aip}</td><td class="n">${d.baseline.won}</td><td class="num">${y ? dateFmt(y.date) + ' · P' + y.phase : '–'}</td></tr>`; }).join('')}</tbody>`;
+  $('#baseline-table').innerHTML = `<thead><tr><th>District</th><th>Zone</th><th class="n">Yatras</th><th class="n">Attended</th><th class="n">Hot</th><th class="n">Warm</th><th class="n">AIP</th><th class="n">Won</th><th>UP GY visit</th></tr></thead><tbody><tr class="total"><td>Total</td><td>${base.length} districts</td><td class="n">${bs('yatras')}</td><td class="n">${fmt(bs('attended'))}</td><td class="n">${bs('hot')}</td><td class="n">${bs('warm')}</td><td class="n">${bs('aip')}</td><td class="n">${bs('won')}</td><td></td></tr>${base.map(d => { const y = Y.find(v => v.districts.includes(d.name)); return `<tr><td>${esc(d.name)}</td><td>${esc(d.zone)}</td><td class="n">${d.baseline.yatras}</td><td class="n">${fmt(d.baseline.attended)}</td><td class="n">${d.baseline.hot}</td><td class="n">${d.baseline.warm}</td><td class="n">${d.baseline.aip}</td><td class="n">${d.baseline.won}</td><td class="num">${y ? dateFmt(y.date) + ', phase ' + y.phase : '–'}</td></tr>`; }).join('')}</tbody>`;
 }
 
 // ---- data checks --------------------------------------------------------
@@ -849,30 +957,30 @@ const issue = (sev, title, body) => `<div class="issue"><span class="chip ${sev}
 function renderIssues() {
   const out = [];
   const noCrm = Y.filter(y => !y.crm && y.state !== 'upcoming');
-  if (noCrm.length) out.push(issue('crit', `${noCrm.length} UP GY yatra${noCrm.length > 1 ? 's' : ''} on or before today with no CRM event`, noCrm.map(y => `${esc(yname(y))} (${dateFmt(y.date)})`).join(' · ') + '. Create the event in Freshworks (Board NABH, Event Type Yatra, the district as city, the yatra date) so registrations and attendance flow in.'));
+  if (noCrm.length) out.push(issue('crit', `${noCrm.length} UP GY yatra${noCrm.length > 1 ? 's' : ''} on or before today with no CRM event`, noCrm.map(y => `${esc(yname(y))} (${dateFmt(y.date)})`).join('; ') + '. Create the event in Freshworks (Board NABH, Event Type Yatra, the district as city, the yatra date) so registrations and attendance flow in.'));
   const soon = Y.filter(y => !y.crm && y.state === 'upcoming' && (new Date(y.date) - new Date(TODAY)) / 864e5 <= 7);
-  if (soon.length) out.push(issue('warn', `${soon.length} yatras in the next 7 days have no CRM event yet`, soon.map(y => `${esc(yname(y))} (${dateFmt(y.date)})`).join(' · ') + '. Hospitals register through the CRM link, so it should be live before outreach starts.'));
+  if (soon.length) out.push(issue('warn', `${soon.length} yatras in the next 7 days have no CRM event yet`, soon.map(y => `${esc(yname(y))} (${dateFmt(y.date)})`).join('; ') + '. Hospitals register through the CRM link, so it should be live before outreach starts.'));
   const noAtt = Y.filter(y => y.crm?.flags?.includes('attendance-missing'));
-  if (noAtt.length) out.push(issue('crit', `${noAtt.length} held yatras have no attendance recorded`, noAtt.map(y => esc(yname(y))).join(' · ')));
+  if (noAtt.length) out.push(issue('crit', `${noAtt.length} held yatras have no attendance recorded`, noAtt.map(y => esc(yname(y))).join('; ')));
   const shifted = Y.filter(y => y.crm?.dayShift);
-  if (shifted.length) out.push(issue('warn', `${shifted.length} CRM events are dated differently from the planner`, shifted.map(y => `${esc(yname(y))}: planned ${dateFmt(y.date)}, CRM ${dateFmt(y.crm.date)}`).join(' · ') + '. Update whichever one is wrong.'));
+  if (shifted.length) out.push(issue('warn', `${shifted.length} CRM events are dated differently from the planner`, shifted.map(y => `${esc(yname(y))}: planned ${dateFmt(y.date)}, CRM ${dateFmt(y.crm.date)}`).join('; ') + '. Update whichever one is wrong.'));
   const dm = Y.filter(y => y.crm?.flags?.includes('district-mismatch'));
-  if (dm.length) out.push(issue('warn', `${dm.length} CRM events have a district field that disagrees with the city`, dm.map(y => esc(y.crm.event)).join(' · ')));
-  if ((DATA.unplanned || []).length) out.push(issue('warn', `${DATA.unplanned.length} UP CRM events since 09 Oct 2026 are not in the planner`, DATA.unplanned.map(e => `${esc(e.event)} (${esc(e.district)}, ${dateFmt(e.date)})`).join(' · ') + '. Either the planner date or district is wrong (more than 3 days apart), or this is an extra yatra to add to the planner.'));
+  if (dm.length) out.push(issue('warn', `${dm.length} CRM events have a district field that disagrees with the city`, dm.map(y => esc(y.crm.event)).join('; ')));
+  if ((DATA.unplanned || []).length) out.push(issue('warn', `${DATA.unplanned.length} UP CRM events since 09 Oct 2026 are not in the planner`, DATA.unplanned.map(e => `${esc(e.event)} (${esc(e.district)}, ${dateFmt(e.date)})`).join('; ') + '. Either the planner date or district is wrong (more than 3 days apart), or this is an extra yatra to add to the planner.'));
   if (DATA.notes?.unmatchedDistricts?.length) out.push(issue('crit', 'CRM cities that do not match a district', DATA.notes.unmatchedDistricts.map(esc).join(', ') + '. Add them to DISTRICT_ALIASES in portal/build_data.py.'));
   const neg = D.filter(d => d.gapRaw < 0);
-  if (neg.length) out.push(issue('warn', 'Planner shows negative gaps', neg.map(d => `${esc(d.name)} ${d.gapRaw}`).join(' · ') + '. The portal shows these as 0, so its gap totals are higher than the planner’s.'));
+  if (neg.length) out.push(issue('warn', 'Planner shows negative gaps', neg.map(d => `${esc(d.name)} ${d.gapRaw}`).join('; ') + '. The portal shows these as 0, so its gap totals are higher than the planner’s.'));
   out.push(issue('warn', 'Planner defines “Won” differently', 'Its Summary sheet says Won = already NABH certified/accredited. The locked definition is fee paid / application submitted, which this portal uses (CRM “Won” + “Application submitted”).'));
   if (!DATA.crmLive) out.push(issue('crit', 'This build has no CRM data', 'Run python3 portal/build_data.py with Freshworks credentials.'));
   issueList('#issues', out);
 
   const past = [];
   const miss = H.filter(e => e.flags?.includes('attendance-missing'));
-  if (miss.length) past.push(issue('warn', `${miss.length} past yatras have no attendance recorded`, miss.map(e => `${esc(e.district)} (${dateFmt(e.date)}, ${fmt(e.registrations)} contacts)`).join(' · ')));
+  if (miss.length) past.push(issue('warn', `${miss.length} past yatras have no attendance recorded`, miss.map(e => `${esc(e.district)} (${dateFmt(e.date)}, ${fmt(e.registrations)} contacts)`).join('; ')));
   const few = H.filter(e => e.flags?.includes('few-records'));
-  if (few.length) past.push(issue('warn', `${few.length} past events have fewer than 5 contacts`, few.map(e => `${esc(e.event)} (${e.registrations})`).join(' · ')));
+  if (few.length) past.push(issue('warn', `${few.length} past events have fewer than 5 contacts`, few.map(e => `${esc(e.event)} (${e.registrations})`).join('; ')));
   const pdm = H.filter(e => e.flags?.includes('district-mismatch'));
-  if (pdm.length) past.push(issue('warn', `${pdm.length} past events have a wrong district field`, pdm.map(e => `${esc(e.event)} → ${esc(e.district)}`).join(' · ')));
+  if (pdm.length) past.push(issue('warn', `${pdm.length} past events have a wrong district field`, pdm.map(e => `${esc(e.event)} should be ${esc(e.district)}`).join('; ')));
   issueList('#issues-past', past);
 }
 
@@ -898,7 +1006,7 @@ function render(fromSnapshot) {
   const sel = Y.find(y => y.id === selected);
   $$('[data-map]').forEach(b => b.setAttribute('aria-pressed', b.dataset.map === mapMode));
   $('#stamp').innerHTML = `CRM data as of <b>${DATA.generatedAt ? new Date(DATA.generatedAt).toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '–'}</b><br>${DATA.crmLive ? 'Freshworks CRM + master planner' : 'Planner only (no CRM)'}`;
-  if (view === 'overview') { renderKpis(list); renderCalendar(list); renderMap('#map-overview', '#map-key-overview'); renderQueue(list); renderSheet('#sheet', sel); renderPhases(list); }
+  if (view === 'overview') { renderRoute(list); renderKpis(list); renderCalendar(list); renderMap('#map-overview', '#map-key-overview'); renderQueue(list); renderSheet('#sheet', sel); renderPhases(list); }
   if (view === 'yatras') { renderYatraTable(list); renderSheet('#sheet-2', sel); }
   if (view === 'districts') { renderMap('#map-districts', '#map-key-districts'); renderDistricts(); }
   if (view === 'leads') renderLeads(list);
