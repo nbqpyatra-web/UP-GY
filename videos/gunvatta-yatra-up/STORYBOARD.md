@@ -1,246 +1,312 @@
 ---
 format: 1920x1080
-duration: 60s
-message: "Gunvatta Yatra is taking quality to every corner of Uttar Pradesh — join the journey."
+duration: 150s
+message: "Gunvatta Yatra takes NABH quality to every PM-JAY hospital — every district, every city, every pincode of Uttar Pradesh."
 arc: story-explainer with how-to
-audience: UP MSMEs, healthcare & education institutions, government and the general public
+audience: PM-JAY empanelled private hospitals, health administrators and citizens of UP
 mode: autonomous
 language: hi-en
 music: none
-captions: skipped (no narration — on-screen text carries the story)
+captions: enabled
 ---
 
 ## Video direction
 
-- palette: `frame.md` blue-professional — cream `bg` ground, cobalt `primary` the ONLY accent (route line, pins, CTA pill, eyebrows), `text` near-black headlines, `text-muted` English sub-lines, `card-tinted` for stop cards. No other hues.
-- type: Hindi lines in Noto Sans Devanagari (frame.md `hindi` token, `assets/fonts/`), English in Space Grotesk (display) / Inter (body). Hindi is the hero line; English sits beneath it, smaller, `text-muted`.
-- shared map stage (frames 02–07 — MUST be identical so the push-slides read as one continuous journey): UP outline from `assets/up-map.json` (`path`, viewBox `0 0 1000 973`), drawn as an SVG at left 150px, top 80px, width 781px, height 760px (scale 0.781). Outline: `primary` stroke 2.5px, fill `card-bg`. City pins (map-space coords in `up-map.json.cities`): Agra, Kanpur, Lucknow, Varanasi, Gorakhpur. Route = dashed cobalt polyline (stroke 4px, dash 14 10) Agra→Kanpur→Lucknow→Varanasi→Gorakhpur. Visited pins: solid cobalt dot r=12 + white center r=4 + city label (Hindi, 26px, `text`) beside it. Current pin gets a soft cobalt pulse ring. Stop card: right column x 1010–1790, vertically centered ~y 450.
-- motion grammar: long-tail eases (power3.out default), reveals paced to the beat (silent film — paced to reading time, one idea per ~1.2–1.8s), never front-load. Route segments draw with stroke-dashoffset (mask technique so the dash pattern is kept). Holds are still — no breathing, no drift.
-- rhythm: 01 kinetic open → 02 the big map build (energy peak) → 03–07 a steady repeating stop rhythm → 08 held breather/turn → 09 clean held end card.
-- negative list: no official logos or emblems, no invented numbers/dates, no photos, no gradients/bokeh, no shadows (except CTA), no slideshow front-loading, no screensaver floating.
+- palette: `frame.md` blue-professional — cream `bg` ground, cobalt `primary` the ONLY accent; `negative` (#dc2626) ONLY for the 'not meeting standards' flags (frame 03) and the 'अनिवार्य' stamp (frame 04). Energy frames 04 and 11 are INVERTED: full cobalt field with cream (#fdfae7) text/elements.
+- type: Hindi in Noto Sans Devanagari (font-family: "Noto Sans Devanagari", "Inter", sans-serif; line-height ≥ 1.3), English display Space Grotesk, body Inter. Fonts in assets/fonts/.
+- real logos (only these files, never redraw them): assets/logos/qci.png (Quality Council of India — presenter), assets/logos/nabh.png (NABH), assets/logos/pmjay.png (Ayushman Bharat PM-JAY emblem). Use <img> with object-fit: contain; never recolor or crop them.
+- shared district map stage (frames 06–12): put exactly this inline script inside the template BEFORE your timeline script: `<script>window.UP_DISTRICTS = window.UP_DISTRICTS || /*UP_DISTRICTS_DATA*/null;</script>` (the orchestrator injects the data at the marker after you finish; to inspect the data read assets/up-districts.json). It defines `window.UP_DISTRICTS = { viewBox: "0 0 1000 972", districts: [ {order, district, hi, phase, date, rath, zone, d, cx, cy}, … 75 in PLANNER ORDER ] }`. Build the SVG paths from it at timeline-construction time (synchronously, before registering the timeline). Placement: SVG at left 110px, top 70px, width 823px, height 800px (viewBox 0 0 1000 972). District style: stroke primary 1.2 (vector-effect: non-scaling-stroke), fill card-bg rgba(30,43,250,0.04); FILLED/visited = fill primary (opacity 0.9) with cream stroke. Labels: Hindi (Noto Sans Devanagari 600). Planner order #1–#5: Gorakhpur, Bareilly, Kushi Nagar, Moradabad, Maharajganj.
+- captions: ENABLED — the bottom ~17% (y > 900) is reserved for the caption pill in EVERY frame; keep all content above y ≤ 900.
+- motion grammar: long-tail eases (power3.out default), every reveal lands on its voiceover cue (word timings are listed per frame), never front-load; holds are still (no breathing/drift). Engaging = decisive hits on cues: scale-pops, slams, fast counters, camera pushes — but each element moves once and then rests.
+- sfx are mounted by the orchestrator at the root; workers mount no audio.
+- negative list: no invented statistics or hospital numbers; no logos other than the three files; no photos; no gradients/bokeh; no slideshow front-loading; no screensaver floating.
 
-## Frame 1 — Hook: quality, everywhere
+## Frame 1 — Hook: भरोसा
 
 - type: hook
-- scene: A single cobalt dot pulses on cream; Hindi line types beside it, English sub-line settles under it
-- duration: 6s
-- poster: 4.5s
+- scene: A cobalt ECG heartbeat line traces across a cream field; the word भरोसा lands huge on the spoken cue
+- duration: 13.84s
+- poster: 11.1s
 - transition_in: cut
-- status: animated
-- persuasion: Rhetorical question + direct address
-- beat: Curiosity + recognition
-- voiceover: "क्या गुणवत्ता हर ज़िले तक पहुँच सकती है? — What if quality reached every district of UP?"
+- status: outline
+- beat: Recognition + warmth
+- voiceover: "जब कोई अपने परिवार को hospital लेकर जाता है... तो उसे सबसे पहले क्या चाहिए? भरोसा। ऐसा इलाज, जिसकी quality पर भरोसा हो।"
 - src: compositions/frames/01-hook.html
 - blueprint: kinetic-type-beats (Adapt)
-- focal: the Hindi question line
-- roles: cobalt dot = supporting · Hindi question = foreground subject · English sub-line = supporting · faint hairline grid = background (dim ~30%)
+- focal: the word 'भरोसा'
+- roles: heartbeat line = supporting · question text = supporting · 'भरोसा' = foreground subject · hairline grid = background
 
-narrativeRole: Opens the gap — quality is usually something "elsewhere"; asks whether it can reach every district.
-keyMessage: Quality is not just for big cities — this is about all of Uttar Pradesh.
+voice word cues (seconds from frame start): जब@0.10 · कोई@0.47 · अपने@0.78 · परिवार@1.11 · को@1.59 · hospital@1.75 · लेकर@2.32 · जाता@2.67 · है@3.00 · तो@4.07 · उसे@4.33 · सबसे@4.64 · पहले@5.11 · क्या@5.49 · चाहिए@5.76 · भरोसा@7.10 · ऐसा@8.68 · इलाज@9.18 · जिसकी@10.03 · quality@10.52 · पर@11.04 · भरोसा@11.24 · हो@11.68
 
-Adapt: keep the beat-by-beat word landing; the payoff is a word-swap emphasis on "हर ज़िले" (every district).
-Scene 1 (0.0–1.2s): cream ground + faint cobalt hairline grid; a single cobalt dot springs in at center-left and pulses once. Centered, sparse.
-Scene 2 (1.2–3.4s): the Hindi line "क्या गुणवत्ता हर ज़िले तक पहुँच सकती है?" reveals word by word (per-word reveal, rise + fade) at h1 scale, centered ~y 420; "हर ज़िले" lands last-but-one in cobalt with an underline that draws on.
-Scene 3 (3.4–4.6s): English sub-line "What if quality reached every district of UP?" fades up beneath (body, text-muted).
-Scene 4 (4.6–6.0s): held read; the dot slides to the line's left edge and holds still (it will become the route start in 02).
+Scene 1 (0.0–4.0s): cream field + faint hairline grid; a cobalt ECG line draws left→right across mid-frame (y≈430), one sharp heartbeat spike at center; small Hindi line "अस्पताल · परिवार" fades in above it at 1.1s ("परिवार" cue).
+Scene 2 (4.0–7.0s): the line keeps a slow pulse; question text "सबसे पहले क्या चाहिए?" (Hindi h2) rises in at 4.6s, centered y≈300.
+Scene 3 (7.0–8.6s): on the cue "भरोसा" (7.1s) the question clears upward and "भरोसा" slams in huge (≈220px, 700, primary) at center; the ECG spike flashes once behind it.
+Scene 4 (8.6–end): under it, "ऐसा इलाज, जिसकी quality पर भरोसा हो" (Hindi 44px, text-muted) reveals word-by-word synced to the voice (8.68–11.7s); "quality" in cobalt. Hold.
 
-## Frame 2 — Introducing Gunvatta Yatra
+## Frame 2 — PM-JAY's aim
+
+- type: pain_point
+- scene: The Ayushman Bharat PM-JAY emblem rises in; its aim — quality, standard healthcare for every beneficiary — builds as chips
+- duration: 10.19s
+- poster: 8.2s
+- transition_in: crossfade
+- status: outline
+- beat: Orientation
+- voiceover: "आयुष्मान भारत, प्रधानमंत्री जन आरोग्य योजना का मूल उद्देश्य है — हर लाभार्थी को quality और standard healthcare."
+- src: compositions/frames/02-pmjay.html
+- blueprint: compose
+- focal: PM-JAY emblem + 'हर लाभार्थी' line
+- roles: assets/logos/pmjay.png = foreground (left) · aim text + chips = foreground (right) · soft cobalt radial = background
+
+voice word cues (seconds from frame start): आयुष्मान@0.10 · भारत@0.81 · प्रधानमंत्री@1.55 · जन@2.47 · आरोग्य@2.77 · योजना@3.26 · का@3.79 · मूल@3.94 · उद्देश्य@4.25 · है@4.78 · हर@5.35 · लाभार्थी@5.64 · को@6.31 · quality@6.49 · और@7.08 · standard@7.34 · healthcare@7.85
+
+Scene 1 (0.0–2.4s): left third: the real PM-JAY emblem image (assets/logos/pmjay.png, ~360px) scales in from 0.85 with a soft cobalt ring drawing around it; right: eyebrow "आयुष्मान भारत · PM-JAY" (eyebrow style).
+Scene 2 (2.4–5.6s): on "मूल उद्देश्य" (~3.3s) the headline "योजना का मूल उद्देश्य" (Hindi h2) rises in on the right.
+Scene 3 (5.6–end): on "हर लाभार्थी" (~5.8s) a big line "हर लाभार्थी को" (Hindi 72px) and then two pill chips pop on their cues: "Quality healthcare" (~6.3s) and "Standard care" (~7.3s). Hold.
+
+## Frame 3 — The gap
+
+- type: pain_point
+- scene: An inspection lens sweeps across a grid of hospital tiles; a few tiles flag red — 'minimum standards' not met
+- duration: 7.69s
+- poster: 6.2s
+- transition_in: push-slide LEFT
+- status: outline
+- beat: Concern
+- voiceover: "लेकिन inspection में पाया गया, कि कुछ hospitals अभी भी minimum standards पूरे नहीं कर रहे।"
+- src: compositions/frames/03-gap.html
+- blueprint: compose
+- focal: the hospital-tile grid under the inspection lens
+- roles: 4x3 grid of simple hospital tiles (line icon: building + plus) = foreground · magnifier = supporting · red flags = supporting
+
+voice word cues (seconds from frame start): लेकिन@0.10 · inspection@0.57 · में@1.18 · पाया@1.29 · गया@1.67 · कि@2.20 · कुछ@2.43 · hospitals@2.66 · अभी@3.35 · भी@3.65 · minimum@3.81 · standards@4.22 · पूरे@4.81 · नहीं@5.16 · कर@5.47 · रहे@5.58
+
+Scene 1 (0.0–1.6s): a 6x2 grid of hospital tiles (card-tinted, cobalt line icons: a building with a plus) cascades in on the left 60% (stagger).
+Scene 2 (1.6–3.4s): on "inspection" (~0.9s cue) a cobalt magnifier ring glides across the grid tile by tile (camera-free, element move).
+Scene 3 (3.4–5.0s): on "कुछ hospitals" (~3.3s) three tiles turn negative (#dc2626 border + small ✕ badge) one by one.
+Scene 4 (5.0–end): right column: "minimum standards" (Space Grotesk 600, 64px) with a red strike/underline drawing, and Hindi "पूरे नहीं" (Hindi 56px, negative). Hold.
+
+## Frame 4 — SACHIS directive: NABH mandatory
 
 - type: product_intro
-- scene: The dot becomes the start of a route; the UP outline draws on, a dashed route traces west→east through five pins; title lockup "गुणवत्ता यात्रा / Gunvatta Yatra · Uttar Pradesh" with "An initiative of the Quality Council of India"
-- duration: 8s
-- poster: 6s
-- transition_in: crossfade
-- status: animated
-- persuasion: Concept announcement + frame-then-fill (show the whole route before visiting each stop)
-- beat: Clarity + anticipation
-- voiceover: "गुणवत्ता यात्रा — a quality journey across Uttar Pradesh, by the Quality Council of India."
-- src: compositions/frames/02-intro.html
+- scene: A circular slides in and is stamped 'अनिवार्य'; the NABH logo locks in; quality↔incentive link; a 2-month countdown
+- duration: 16.12s
+- poster: 12.9s
+- transition_in: zoom-through
+- status: outline
+- beat: Resolve + urgency
+- voiceover: "इसीलिए SACHIS ने तय किया — योजना से जुड़े सभी private hospitals के लिए, NABH certification अनिवार्य। Quality अब सीधे incentive से जुड़ी है... और लक्ष्य — दो महीने के अंदर!"
+- src: compositions/frames/04-directive.html
+- blueprint: compose
+- focal: the circular card + 'अनिवार्य' stamp
+- roles: circular paper card (cream, hairline, with header lines) = foreground · assets/logos/nabh.png = foreground · stamp = foreground · countdown chip = supporting
+
+voice word cues (seconds from frame start): इसीलिए@0.10 · SACHIS@0.74 · ने@1.30 · तय@1.48 · किया@1.76 · योजना@2.38 · से@2.94 · जुड़े@3.17 · सभी@3.50 · private@3.89 · hospitals@4.38 · के@5.06 · लिए@5.19 · NABH@5.81 · certification@6.22 · अनिवार्य@7.09 · Quality@8.58 · अब@9.21 · सीधे@9.39 · incentive@9.87 · से@10.46 · जुड़ी@10.68 · है@11.03 · और@12.07 · लक्ष्य@12.35 · दो@13.06 · महीने@13.36 · के@13.71 · अंदर@13.87
+
+Scene 1 (0.0–2.3s): a paper "circular" card (cream #fdfae7 on a full cobalt field — inverted frame for energy) slides up from below, tilted −3°: header "SACHIS · परिपत्र · 14 मई 2026" (Hindi/Latin mix), grey text lines as placeholders.
+Scene 2 (2.3–5.8s): on "private hospitals" (~3.9s) the card's subject line highlights "सभी सूचीबद्ध निजी चिकित्सालय"; on "NABH certification" (~5.8s) the real NABH logo image (assets/logos/nabh.png, ~520px wide) slides onto the card's right side.
+Scene 3 (5.8–8.5s): on "अनिवार्य" (7.1s) a red-ink stamp "अनिवार्य" (rotated −12°, bordered) slams onto the card (scale 1.6→1 + slight shake).
+Scene 4 (8.5–12.0s): on "Quality ... incentive" (8.6/9.9s) two pills "Quality" ⇄ "Incentive" with a link line drawing between them, top-right on the cobalt field (cream pills).
+Scene 5 (12.0–end): on "दो महीने" (13.1s) a big countdown chip "2 महीने" (cream on cobalt, 90px) pops with a circular progress ring sweeping. Hold.
+
+## Frame 5 — Three benefits
+
+- type: benefit_highlight
+- scene: Three numbered benefit cards land on 'एक, दो, तीन'
+- duration: 16.14s
+- poster: 12.9s
+- transition_in: push-slide LEFT
+- status: outline
+- beat: Clarity
+- voiceover: "इसका मतलब? एक — स्वास्थ्य सेवाओं की quality में सुधार। दो — मरीज़ों का इलाज, तय standards के अनुसार। तीन — लाभार्थियों को बेहतर और पारदर्शी सेवाएं।"
+- src: compositions/frames/05-benefits.html
+- blueprint: grid-card-assemble (Adapt)
+- focal: three benefit cards
+- roles: cards 1–3 = foreground · numerals = supporting · hairline grid = background
+
+voice word cues (seconds from frame start): इसका@0.10 · मतलब@0.50 · एक@1.81 · स्वास्थ्य@2.46 · सेवाओं@3.09 · की@3.59 · quality@3.73 · में@4.21 · सुधार@4.37 · दो@5.75 · मरीज़ों@6.44 · का@6.97 · इलाज@7.15 · तय@8.01 · standards@8.27 · के@8.86 · अनुसार@9.04 · तीन@10.50 · लाभार्थियों@11.23 · को@12.13 · बेहतर@12.27 · और@12.69 · पारदर्शी@12.94 · सेवाएं@13.56
+
+Adapt: keep the staggered self-assembly, but each card lands on its spoken numeral, not a cascade.
+Scene 1 (0.0–1.4s): eyebrow "मरीज़ों को क्या मिलेगा?" (Hindi h3, primary) top-left y≈150.
+Scene 2 (1.4–5.5s): on "एक" (~1.5s) card 1 rises in (triptych, left): big cobalt numeral "1", Hindi "स्वास्थ्य सेवाओं की गुणवत्ता में सुधार", English sub "Better quality of care".
+Scene 3 (5.5–10.2s): on "दो" (~5.6s) card 2 (center): "2", "मानकों के अनुरूप उपचार", "Treatment as per standards".
+Scene 4 (10.2–end): on "तीन" (~10.3s) card 3 (right): "3", "बेहतर एवं पारदर्शी सेवाएं", "Better, transparent services"; then all three cards' top borders turn solid cobalt in a sweep. Hold.
+
+## Frame 6 — Enter: Gunvatta Yatra
+
+- type: product_intro
+- scene: The 75-district UP map assembles; two raths (A, B) drive on; title गुणवत्ता यात्रा; counters 2 रथ · 63 यात्राएं · 75 ज़िले; QCI pahal
+- duration: 18.97s
+- poster: 15.2s
+- transition_in: blur-crossfade
+- status: outline
+- beat: Excitement
+- voiceover: "और इस बदलाव को हर hospital तक पहुँचाने निकली है — गुणवत्ता यात्रा! Quality Council of India की पहल। दो रथ, तिरसठ यात्राएं, पचहत्तर ज़िले — NABH Entry Level Certification workshops, सीधे आपके ज़िले में।"
+- src: compositions/frames/06-yatra.html
 - blueprint: logo-assemble-lockup (Adapt)
-- focal: the UP outline with the 5-pin route
-- roles: UP outline = foreground subject · dashed route + 5 pins = supporting · title lockup = foreground (right column) · hairline grid = background
+- focal: the district map + title lockup
+- roles: UP district mesh (shared map stage) = foreground (left) · rath icons = supporting · title + counters = foreground (right) · assets/logos/qci.png = supporting
 
-narrativeRole: Names the protagonist (the Yatra) and states the thesis by beat 2: one journey, the whole state.
-keyMessage: Gunvatta Yatra is QCI's journey taking quality to every corner of UP.
+voice word cues (seconds from frame start): और@0.10 · इस@0.44 · बदलाव@0.65 · को@1.18 · हर@1.36 · hospital@1.60 · तक@2.25 · पहुँचाने@2.45 · निकली@2.94 · है@3.33 · गुणवत्ता@3.76 · यात्रा@4.38 · Quality@5.82 · Council@6.36 · of@6.85 · India@7.05 · की@7.42 · पहल@7.62 · दो@8.94 · रथ@9.30 · तिरसठ@9.87 · यात्राएं@10.38 · पचहत्तर@11.34 · ज़िले@12.03 · NABH@12.64 · Entry@13.13 · Level@13.51 · Certification@13.85 · workshops@14.68 · सीधे@15.66 · आपके@16.28 · ज़िले@16.68 · में@16.95
 
-Adapt: keep the signature "outline draws on, then the lockup resolves"; the mark being assembled is the UP map + route.
-Scene 1 (0.0–2.4s): UP outline draws on (stroke-dashoffset) on the shared map stage, fill fades to card-bg as the stroke closes.
-Scene 2 (2.4–4.6s): the dashed route traces Agra→Kanpur→Lucknow→Varanasi→Gorakhpur; the 5 pins pop in sequence as the route reaches each (pins WITHOUT labels here — small, r=8).
-Scene 3 (4.6–6.6s): right column: eyebrow "उत्तर प्रदेश · UTTAR PRADESH" (h4-eyebrow, primary), then the title "गुणवत्ता यात्रा" (Hindi, ~120px, 700, text) rises in, then "Gunvatta Yatra" (h2, primary) beneath.
-Scene 4 (6.6–8.0s): "An initiative of the Quality Council of India" pill (tag-pill style, larger 22px) fades up under the title; hold still.
-NOTE: frame 03 starts with the route reset to only the Agra pin lit — that is the journey beginning.
+Adapt: keep the signature "parts assemble into the mark" — the mark is the UP district mesh.
+Scene 1 (0.0–3.0s): all 75 district outlines (shared map stage) draw/fade in with a fast random-order stagger (deterministic order: by index) — hairline cobalt strokes, card-bg fill.
+Scene 2 (3.0–6.0s): on "गुणवत्ता यात्रा" (~3.6s) the title lockup lands on the right: "गुणवत्ता यात्रा" (Hindi 120px, 700) + "Gunvatta Yatra · Uttar Pradesh" (Space Grotesk 44px, primary).
+Scene 3 (6.0–9.0s): on "Quality Council of India की पहल" (~6.3s) the real QCI logo (assets/logos/qci.png, ~300px wide) fades in under the title with a small "की पहल" label.
+Scene 4 (9.0–12.5s): counters pop on cues: "2 रथ" (~9.5s "दो रथ"), "63 यात्राएं" (~10.4s), "75 ज़िले" (~11.3s) — Space Grotesk 700 numbers counting up quickly, Hindi labels. Two small rath badges (rounded bus/van glyph built in SVG, labelled A and B) drive along the bottom of the map from left/right edges.
+Scene 5 (12.5–end): on "NABH Entry Level Certification workshops" (~13.0s) a wide pill "NABH Entry Level Certification Workshops" appears under the counters; on "आपके ज़िले में" the map gives one cobalt pulse. Hold.
 
-## Frame 3 — Stop 1: Agra · Skilling
+## Frame 7 — Stop 1: Gorakhpur launch
 
 - type: feature_showcase
-- scene: Map stage, camera eased onto Agra pin (west); stop card slides in: "पड़ाव 1 · आगरा" / "Skilling — quality skills, quality services"
-- duration: 6.5s
-- poster: 4.5s
-- transition_in: push-slide LEFT
-- status: animated
-- persuasion: Signposting (numbered stops) + concretization
+- scene: Camera zooms into Gorakhpur on the district map; it fills cobalt; launch chip 09 Oct 2026 · Rath A + B
+- duration: 7.09s
+- poster: 5.7s
+- transition_in: zoom-through
+- status: outline
 - beat: Momentum
-- voiceover: "पड़ाव 1 · आगरा — कौशल. Skilled people deliver quality services."
-- src: compositions/frames/03-agra.html
-- blueprint: compose
-- focal: the Agra stop card + pin
-- roles: shared map stage = background-midground · Agra pin + pulse = foreground · stop card = foreground subject (right column)
-
-narrativeRole: First step of the journey — quality starts with people's skills.
-keyMessage: Skilling is the foundation of quality.
-
-Map stage state at t=0: outline fully drawn (no route segments yet), all 5 pins shown faint (opacity 0.25, r=8).
-Scene 1 (0.0–1.4s): Agra pin activates (scales up to the visited style, pulse ring), label "आगरा" appears beside it.
-Scene 2 (1.4–3.4s): stop card slides in from right (card-tinted): eyebrow "पड़ाव 1 · STOP 1", then Hindi headline "कौशल" (~96px 700), then English "Skilling" (h2, primary).
-Scene 3 (3.4–5.0s): card line "Quality skills → quality services" (body, text-muted) fades up, with a small 3-segment progress bar (cobalt) filling to 1/5.
-Scene 4 (5.0–6.5s): held read, still.
-
-## Frame 4 — Stop 2: Kanpur · MSMEs (ZED & LEAN)
-
-- type: feature_showcase
-- scene: Same map stage, route extends to Kanpur; stop card: "पड़ाव 2 · कानपुर" / "MSMEs — ZED: Zero Effect, Zero Defect · LEAN"; two chips pop
-- duration: 6.5s
-- poster: 4.5s
-- transition_in: push-slide LEFT
-- status: animated
-- persuasion: Signposting + coined term (Zero Effect, Zero Defect)
-- beat: Comprehension
-- voiceover: "पड़ाव 2 · कानपुर — उद्योग. MSMEs adopt ZED and LEAN: zero defect, zero effect."
-- src: compositions/frames/04-kanpur.html
-- blueprint: compose
-- focal: the Kanpur stop card with ZED + LEAN chips
-- roles: shared map stage = background-midground · Agra→Kanpur route segment + pin = foreground · stop card = foreground subject
-
-narrativeRole: Industry stop — QCI's ZED and LEAN help MSMEs build better and cleaner.
-keyMessage: MSMEs can certify quality through ZED and LEAN.
-
-Map stage state at t=0: outline drawn; Agra visited (solid pin + label); other pins faint.
-Scene 1 (0.0–1.5s): route segment Agra→Kanpur draws on (dashed); Kanpur pin activates with pulse, label "कानपुर".
-Scene 2 (1.5–3.3s): stop card slides in: eyebrow "पड़ाव 2 · STOP 2", Hindi headline "उद्योग", English "MSMEs" (h2, primary).
-Scene 3 (3.3–5.0s): two pill chips pop in one after another: "ZED · Zero Effect, Zero Defect" and "LEAN"; progress bar fills to 2/5.
-Scene 4 (5.0–6.5s): held read, still.
-
-## Frame 5 — Stop 3: Lucknow · Healthcare
-
-- type: feature_showcase
-- scene: Same map stage, route extends to Lucknow; stop card: "पड़ाव 3 · लखनऊ" / "Healthcare — safer, accredited care"
-- duration: 6.5s
-- poster: 4.5s
-- transition_in: push-slide LEFT
-- status: animated
-- persuasion: Signposting + concretization
-- beat: Confidence
-- voiceover: "पड़ाव 3 · लखनऊ — स्वास्थ्य. Quality care, patient safety first."
-- src: compositions/frames/05-lucknow.html
-- blueprint: compose
-- focal: the Lucknow stop card
-- roles: shared map stage · Kanpur→Lucknow route segment + pin = foreground · stop card = foreground subject
-
-narrativeRole: Health stop — quality reaches hospitals and clinics.
-keyMessage: Quality in healthcare means safer care for every patient.
-
-Map stage state at t=0: outline; route Agra→Kanpur drawn; Agra, Kanpur visited; others faint.
-Scene 1 (0.0–1.5s): route Kanpur→Lucknow draws on; Lucknow pin activates with pulse, label "लखनऊ".
-Scene 2 (1.5–3.3s): stop card slides in: eyebrow "पड़ाव 3 · STOP 3", Hindi headline "स्वास्थ्य", English "Healthcare" (h2, primary).
-Scene 3 (3.3–5.0s): card line "Safer, accredited care for every patient" (body, text-muted); progress bar fills to 3/5.
-Scene 4 (5.0–6.5s): held read, still.
-
-## Frame 6 — Stop 4: Varanasi · Education
-
-- type: feature_showcase
-- scene: Same map stage, route extends to Varanasi; stop card: "पड़ाव 4 · वाराणसी" / "Education — quality learning, quality institutions"
-- duration: 6.5s
-- poster: 4.5s
-- transition_in: push-slide LEFT
-- status: animated
-- persuasion: Signposting + concretization
-- beat: Foresight
-- voiceover: "पड़ाव 4 · वाराणसी — शिक्षा. Quality institutions shape quality futures."
-- src: compositions/frames/06-varanasi.html
-- blueprint: compose
-- focal: the Varanasi stop card
-- roles: shared map stage · Lucknow→Varanasi route segment + pin = foreground · stop card = foreground subject
-
-narrativeRole: Education stop — quality in schools and colleges.
-keyMessage: Quality education builds the next generation.
-
-Map stage state at t=0: outline; route Agra→Kanpur→Lucknow drawn; three pins visited; others faint.
-Scene 1 (0.0–1.5s): route Lucknow→Varanasi draws on; Varanasi pin activates with pulse, label "वाराणसी".
-Scene 2 (1.5–3.3s): stop card slides in: eyebrow "पड़ाव 4 · STOP 4", Hindi headline "शिक्षा", English "Education" (h2, primary).
-Scene 3 (3.3–5.0s): card line "Quality institutions, quality futures" (body, text-muted); progress bar fills to 4/5.
-Scene 4 (5.0–6.5s): held read, still.
-
-## Frame 7 — Stop 5: Gorakhpur · Citizens
-
-- type: feature_showcase
-- scene: Same map stage, route reaches Gorakhpur; all five pins now glow; stop card: "पड़ाव 5 · गोरखपुर" / "Citizens — quality as everyone's right"
-- duration: 6.5s
-- poster: 4.5s
-- transition_in: push-slide LEFT
-- status: animated
-- persuasion: Signposting + build-up (all stops lit = the whole state)
-- beat: Momentum + delight
-- voiceover: "पड़ाव 5 · गोरखपुर — नागरिक. Quality is every citizen's right."
+- voiceover: "शुरुआत — गोरखपुर से! नौ अक्टूबर को, launch के साथ।"
 - src: compositions/frames/07-gorakhpur.html
 - blueprint: compose
-- focal: the fully lit route + Gorakhpur card
-- roles: shared map stage · Varanasi→Gorakhpur segment + all 5 pins = foreground · stop card = foreground subject
+- focal: Gorakhpur district filling
+- roles: shared district map (zoomed) = background-midground · Gorakhpur fill + label = foreground · date/launch card = foreground (right)
 
-narrativeRole: Final stop closes the loop from institutions to people; the fully lit route shows reach.
-keyMessage: Quality is for every citizen, in every district.
+voice word cues (seconds from frame start): शुरुआत@0.10 · गोरखपुर@1.09 · से@1.70 · नौ@2.84 · अक्टूबर@3.26 · को@3.76 · launch@4.21 · के@4.68 · साथ@4.85
 
-Map stage state at t=0: outline; route up to Varanasi drawn; four pins visited; Gorakhpur faint.
-Scene 1 (0.0–1.5s): route Varanasi→Gorakhpur draws on; Gorakhpur pin activates, label "गोरखपुर".
-Scene 2 (1.5–3.3s): stop card slides in: eyebrow "पड़ाव 5 · STOP 5", Hindi headline "नागरिक", English "Citizens" (h2, primary).
-Scene 3 (3.3–5.0s): card line "Quality is every citizen's right" (body, text-muted); progress bar completes 5/5; all five pins pulse once together in a stagger along the route (the whole state lit).
-Scene 4 (5.0–6.5s): held read, still.
+Scene 1 (0.0–1.4s): district map at full view, then a camera push (scale ~2.6) centered on Gorakhpur (district #1 cx/cy), easing power3.inOut over 1.2s; other districts stay hairline.
+Scene 2 (1.4–3.0s): on "गोरखपुर" (~1.0s) Gorakhpur fills cobalt from 0 opacity and its Hindi label "गोरखपुर" (Hindi 600) appears beside it; a pulse ring expands from its centroid.
+Scene 3 (3.0–end): right card: "#1" big cobalt numeral, "09 Oct 2026" (Space Grotesk 600), "Launch · Rath A + B" pill, and "1 / 75" counter. Hold.
 
-## Frame 8 — The vision: Aatmanirbhar → Daata Pradesh
+## Frame 8 — Stops 2–3: Bareilly + Kushinagar
+
+- type: feature_showcase
+- scene: Split action on the full district map: Rath A heads west to Bareilly, Rath B east to Kushinagar; both fill; date chip 14 Oct
+- duration: 6.88s
+- poster: 5.5s
+- transition_in: push-slide LEFT
+- status: outline
+- beat: Momentum
+- voiceover: "चौदह अक्टूबर — Rath A पहुँचेगा बरेली, और Rath B — कुशीनगर।"
+- src: compositions/frames/08-bareilly-kushinagar.html
+- blueprint: compose
+- focal: the two simultaneous rath routes
+- roles: shared district map (full view, Gorakhpur already filled) = foreground · two dashed routes + rath badges = foreground · date chip = supporting
+
+voice word cues (seconds from frame start): चौदह@0.10 · अक्टूबर@0.77 · Rath@1.62 · A@1.98 · पहुँचेगा@2.10 · बरेली@2.64 · और@3.34 · Rath@3.59 · B@3.86 · कुशीनगर@4.39
+
+Map state at t=0: full view, Gorakhpur filled cobalt.
+Scene 1 (0.0–1.4s): date chip "14 Oct 2026" pops top-right; counter "1 / 75".
+Scene 2 (1.4–3.0s): on "Rath A" (~1.4s) a dashed route draws from Gorakhpur westward to Bareilly (#2) with an "A" rath badge riding its head; Bareilly fills on arrival (~2.6s "बरेली"), label "बरेली".
+Scene 3 (3.0–end): on "Rath B" (~3.6s) a second dashed route draws from Gorakhpur east to Kushinagar (#3) with a "B" badge; Kushinagar fills (~4.5s), label "कुशीनगर"; counter ticks to "3 / 75". Hold.
+
+## Frame 9 — Stops 4–5: Moradabad + Maharajganj
+
+- type: feature_showcase
+- scene: Same map: Rath A continues to Moradabad, Rath B to Maharajganj; date chip 16 Oct; counter 5/75
+- duration: 6.37s
+- poster: 5.1s
+- transition_in: push-slide LEFT
+- status: outline
+- beat: Momentum
+- voiceover: "सोलह अक्टूबर — मुरादाबाद... और महराजगंज।"
+- src: compositions/frames/09-moradabad-maharajganj.html
+- blueprint: compose
+- focal: the two routes extending
+- roles: shared district map (full view; Gorakhpur, Bareilly, Kushinagar filled; their routes drawn) = foreground · rath badges = supporting · date chip = supporting
+
+voice word cues (seconds from frame start): सोलह@0.10 · अक्टूबर@0.88 · मुरादाबाद@1.62 · और@3.34 · महराजगंज@3.68
+
+Map state at t=0: full view; Gorakhpur, Bareilly, Kushinagar filled; routes G→Bareilly and G→Kushinagar drawn.
+Scene 1 (0.0–1.0s): date chip "16 Oct 2026" swaps in top-right; counter "3 / 75".
+Scene 2 (1.0–2.6s): on "मुरादाबाद" (~1.7s) route extends Bareilly→Moradabad (#4) with badge A; Moradabad fills, label "मुरादाबाद".
+Scene 3 (2.6–end): on "महराजगंज" (~3.6s) route extends Kushinagar→Maharajganj (#5) with badge B; it fills, label "महराजगंज"; counter "5 / 75". Hold.
+
+## Frame 10 — All 75 districts
+
+- type: social_proof
+- scene: Fast montage: districts 6–75 fill one by one in planner order; a name ticker streams; phase bands; counter 5→75
+- duration: 16.96s
+- poster: 13.6s
+- transition_in: cut
+- status: outline
+- beat: Momentum → awe
+- voiceover: "फिर बिजनौर, बस्ती, सहारनपुर, प्रयागराज, कानपुर, झाँसी... जनवरी में मेरठ, आगरा, वाराणसी, लखनऊ... और मार्च में cluster यात्राएं — बुंदेलखंड से तराई तक।"
+- src: compositions/frames/10-all-districts.html
+- blueprint: compose
+- focal: the map filling district by district
+- roles: shared district map = foreground (left 60%) · name ticker + phase band + counter = foreground (right column)
+
+voice word cues (seconds from frame start): फिर@0.10 · बिजनौर@0.48 · बस्ती@1.26 · सहारनपुर@2.09 · प्रयागराज@3.20 · कानपुर@4.35 · झाँसी@5.12 · जनवरी@6.63 · में@7.24 · मेरठ@7.37 · आगरा@8.00 · वाराणसी@8.76 · लखनऊ@9.71 · और@11.21 · मार्च@11.51 · में@11.94 · cluster@12.10 · यात्राएं@12.56 · बुंदेलखंड@13.51 · से@14.24 · तराई@14.46 · तक@14.86
+
+Map state at t=0: full view; districts 1–5 filled.
+Scene 1 (0.0–5.5s) PHASE 1: districts #6–#23 fill in planner order (≈0.28s apart, starting 0.3s); each fill flashes its Hindi name in the right-column ticker (large current name, previous names scrolling up and fading). Phase band top-right: "Phase 1 · Oct–Nov 2026". Counter counts with fills ("N / 75").
+Scene 2 (5.5–10.8s) PHASE 2: band swaps to "Phase 2 · Jan–Mar 2027"; districts #24–#56 fill (≈0.16s apart).
+Scene 3 (10.8–15.0s) PHASE 3: band "Phase 3 · Cluster Yatras · Mar 2027"; districts #57–#75 fill (≈0.2s apart), cluster members filling together per cluster.
+Scene 4 (15.0–end): counter lands on "75 / 75" with a scale pop; the whole map gets one glow pulse. Hold.
+
+## Frame 11 — हर ज़िला · हर शहर · हर पिनकोड
 
 - type: branding
-- scene: Map pulls back and fades; two words on a line — "आत्मनिर्भर प्रदेश" morphs/arrow → "दाता प्रदेश"; English sub-line "From self-reliant to a state that gives back to the nation"
-- duration: 6.5s
-- poster: 5s
-- transition_in: blur-crossfade
-- status: animated
-- persuasion: Before/after + distillation
-- beat: Inspiration
-- voiceover: "आत्मनिर्भर प्रदेश से दाता प्रदेश तक — from self-reliant to a state that gives back to the nation."
-- src: compositions/frames/08-vision.html
-- blueprint: kinetic-type-beats (Adapt)
-- focal: the before→after word pair
-- roles: 'आत्मनिर्भर प्रदेश' = supporting (before) · arrow = supporting · 'दाता प्रदेश' = foreground subject · faint UP outline watermark = background (opacity ~0.06)
+- scene: Inverted cobalt frame: three stacked kinetic lines hit on the voice — हर ज़िला / हर शहर / हर पिनकोड — with a rolling pincode counter; 'पूरे 75 ज़िले'
+- duration: 8.39s
+- poster: 6.7s
+- transition_in: zoom-through
+- status: outline
+- beat: Pride
+- voiceover: "हर ज़िला। हर शहर। हर pincode। पूरे पचहत्तर ज़िले!"
+- src: compositions/frames/11-every-pincode.html
+- blueprint: kinetic-type-beats (Reproduce)
+- focal: the three kinetic lines
+- roles: full cobalt field = background · three lines (cream) = foreground · rolling 6-digit pincode digits = supporting · faint lit-map watermark = background
 
-narrativeRole: The "so what" — quality is how UP moves from self-reliance to giving back (UP Gunvatta Sankalp vision).
-keyMessage: Quality turns UP into a state that gives back to India.
+voice word cues (seconds from frame start): हर@0.10 · ज़िला@0.44 · हर@1.70 · शहर@2.03 · हर@3.35 · pincode@3.69 · पूरे@5.19 · पचहत्तर@5.66 · ज़िले@6.26
 
-Adapt: keep the in-place escalation that resolves on a payoff word; the swap is self-reliant → giving.
-Scene 1 (0.0–1.6s): faint UP outline watermark large behind; "आत्मनिर्भर प्रदेश" rises in (Hindi ~84px, 600, text), centered ~y 360.
-Scene 2 (1.6–3.4s): a cobalt arrow draws downward/rightward; "दाता प्रदेश" lands beneath at larger scale (~130px, 700, primary) — the payoff.
-Scene 3 (3.4–5.0s): English "From self-reliant to a state that gives back to the nation" (h3, text-muted) fades up under it.
-Scene 4 (5.0–6.5s): held breather, still.
+Full cobalt (#1e2bfa) field, faint cream lit-map watermark (opacity 0.08) of all 75 districts.
+Scene 1 (0.0–1.6s): "हर ज़िला" (cream Hindi 130px 700) slams in at y≈230 on 0.1s.
+Scene 2 (1.6–3.3s): "हर शहर" slams in at y≈420 on 1.7s.
+Scene 3 (3.3–5.0s): "हर पिनकोड" slams in at y≈610 on 3.35s; beside it a 6-digit odometer of pincode-style digits rolls (deterministic sequence through 2xxxxx values like 273001 → 243001 → 274401 → 244001 → 273303) and settles.
+Scene 4 (5.0–end): "पूरे 75 ज़िले" (Space Grotesk/Hindi 60px, cream, inside a cream-outlined pill) rises at y≈800 on 5.2s. Hold.
 
-## Frame 9 — Join the Yatra
+## Frame 12 — Join the Yatra
 
 - type: cta
-- scene: Clean end card: "यात्रा से जुड़ें · Join the Yatra" with a cobalt pill CTA, lockup "गुणवत्ता यात्रा · Quality Council of India", the small route mark returning as a callback
-- duration: 7s
-- poster: 5s
+- scene: Clean CTA: यात्रा से जुड़ें pill, workshop chip 4–8 PM, then the closing line गुणवत्ता — हर द्वार तक with भरोसा callback
+- duration: 16.33s
+- poster: 13.1s
 - transition_in: crossfade
-- status: animated
-- persuasion: Callback (route mark from frame 2) + direct ask
+- status: outline
 - beat: Resolve
-- voiceover: "यात्रा से जुड़ें — Join the Gunvatta Yatra. गुणवत्ता, हर द्वार तक."
-- src: compositions/frames/09-cta.html
+- voiceover: "अपने ज़िले में गुणवत्ता यात्रा आए, तो ज़रूर जुड़िए — शाम चार से आठ बजे, NABH workshop। क्योंकि quality सिर्फ़ एक certificate नहीं — भरोसा है। गुणवत्ता — हर द्वार तक।"
+- src: compositions/frames/12-cta.html
 - blueprint: titlecard-reveal (Adapt)
-- focal: the 'यात्रा से जुड़ें · Join the Yatra' CTA pill
-- roles: small route mark (callback: mini dashed line with 5 dots) = supporting · Hindi title = foreground · CTA pill = foreground subject · QCI text mark = supporting
+- focal: the 'यात्रा से जुड़ें' CTA pill
+- roles: CTA pill = foreground · workshop chip = supporting · closing line = foreground · small lit UP map = background (right, dim)
 
-narrativeRole: The ask — invite every viewer to take part.
-keyMessage: Join the journey — quality, at every doorstep.
+voice word cues (seconds from frame start): अपने@0.10 · ज़िले@0.54 · में@0.83 · गुणवत्ता@0.98 · यात्रा@1.57 · आए@2.12 · तो@2.85 · ज़रूर@3.00 · जुड़िए@3.37 · शाम@4.05 · चार@4.50 · से@4.81 · आठ@5.10 · बजे@5.39 · NABH@5.94 · workshop@6.40 · क्योंकि@7.86 · quality@8.33 · सिर्फ़@8.85 · एक@9.21 · certificate@9.45 · नहीं@10.16 · भरोसा@10.86 · है@11.41 · गुणवत्ता@12.47 · हर@13.56 · द्वार@13.87 · तक@14.21
 
-Adapt: keep the calm single-move reveal + still hold; a 3-step stack instead of a chain.
-Scene 1 (0.0–1.6s): a mini route mark (dashed cobalt line through 5 dots, ~420px wide) draws left→right at ~y 300 (callback to 02).
-Scene 2 (1.6–3.4s): "गुणवत्ता, हर द्वार तक" (Hindi ~96px 700 text) slides up beneath; then "Quality, at every doorstep" (h3, text-muted).
-Scene 3 (3.4–5.0s): the cta-button pill "यात्रा से जुड़ें · Join the Yatra" (cobalt fill, cream text, ~40px) scales in at ~y 680.
-Scene 4 (5.0–7.0s): text mark "Gunvatta Yatra · Quality Council of India" (counter style, 20px, text-muted) fades in at ~y 820; final frame: everything holds still, then a gentle fade of the whole frame to cream over the last 0.6s.
+Scene 1 (0.0–3.5s): left side: "अपने ज़िले में" (Hindi h3, text-muted) then the cobalt cta-button pill "यात्रा से जुड़ें · Join the Yatra" scales in (on "जुड़िए" ~2.6s). Right side: the lit district map, dim (opacity 0.35).
+Scene 2 (3.5–7.5s): on "चार से आठ" (~3.9s) a chip "NABH Entry Level Certification Workshop · 4 PM – 8 PM" slides in under the pill.
+Scene 3 (7.5–11.5s): on "certificate नहीं" (~8.6s) the word "certificate" appears struck through, then on "भरोसा" (~10.3s) "भरोसा" (Hindi 120px primary) lands — callback to frame 1 — with a tiny heartbeat line under it.
+Scene 4 (11.5–end): on "गुणवत्ता — हर द्वार तक" (~12.3s) the closing line "गुणवत्ता — हर द्वार तक" (Hindi 84px, text) settles at the bottom of the content area (y≈760). Hold.
+
+## Frame 13 — End card: QCI presents
+
+- type: branding
+- scene: End lockup: QCI logo large, 'गुणवत्ता यात्रा · उत्तर प्रदेश', partner logos row (NABH, PM-JAY)
+- duration: 4.5s
+- poster: 3.6s
+- transition_in: crossfade
+- status: outline
+- beat: Closure
+- voiceover: ""
+- src: compositions/frames/13-endcard.html
+- blueprint: logo-assemble-lockup (Adapt)
+- focal: QCI logo
+- roles: assets/logos/qci.png = foreground subject · title = foreground · partner row (assets/logos/nabh.png, assets/logos/pmjay.png) = supporting
+
+voice word cues (seconds from frame start): (silent frame)
+
+Scene 1 (0.0–1.4s): QCI logo (assets/logos/qci.png, ~620px wide) scales 0.92→1 + fades in at center y≈330 with the label "प्रस्तुति · Presented by" above it (eyebrow).
+Scene 2 (1.4–2.6s): "गुणवत्ता यात्रा · उत्तर प्रदेश" (Hindi 64px) rises under it.
+Scene 3 (2.6–4.5s): a hairline divider draws and a partner row fades in at y≈760: NABH logo (assets/logos/nabh.png, height 90px) and PM-JAY emblem (assets/logos/pmjay.png, height 110px). Final frame: in the last 0.6s the whole frame fades to cream.
+

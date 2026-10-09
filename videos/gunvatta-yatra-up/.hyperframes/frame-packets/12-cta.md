@@ -1,4 +1,4 @@
-# Frame packet: 09-cta
+# Frame packet: 12-cta
 
 ## Project inputs
 
@@ -8,31 +8,27 @@
 
 ## Assigned storyboard block
 
-## Frame 9 — Join the Yatra
+## Frame 12 — Join the Yatra
 
 - type: cta
-- scene: Clean end card: "यात्रा से जुड़ें · Join the Yatra" with a cobalt pill CTA, lockup "गुणवत्ता यात्रा · Quality Council of India", the small route mark returning as a callback
-- duration: 7s
-- poster: 5s
+- scene: Clean CTA: यात्रा से जुड़ें pill, workshop chip 4–8 PM, then the closing line गुणवत्ता — हर द्वार तक with भरोसा callback
+- duration: 16.33s
+- poster: 13.1s
 - transition_in: crossfade
 - status: outline
-- persuasion: Callback (route mark from frame 2) + direct ask
 - beat: Resolve
-- voiceover: "यात्रा से जुड़ें — Join the Gunvatta Yatra. गुणवत्ता, हर द्वार तक."
-- src: compositions/frames/09-cta.html
+- voiceover: "अपने ज़िले में गुणवत्ता यात्रा आए, तो ज़रूर जुड़िए — शाम चार से आठ बजे, NABH workshop। क्योंकि quality सिर्फ़ एक certificate नहीं — भरोसा है। गुणवत्ता — हर द्वार तक।"
+- src: compositions/frames/12-cta.html
 - blueprint: titlecard-reveal (Adapt)
-- focal: the 'यात्रा से जुड़ें · Join the Yatra' CTA pill
-- roles: small route mark (callback: mini dashed line with 5 dots) = supporting · Hindi title = foreground · CTA pill = foreground subject · QCI text mark = supporting
-- sfx: chime
+- focal: the 'यात्रा से जुड़ें' CTA pill
+- roles: CTA pill = foreground · workshop chip = supporting · closing line = foreground · small lit UP map = background (right, dim)
 
-narrativeRole: The ask — invite every viewer to take part.
-keyMessage: Join the journey — quality, at every doorstep.
+voice word cues (seconds from frame start): अपने@0.10 · ज़िले@0.54 · में@0.83 · गुणवत्ता@0.98 · यात्रा@1.57 · आए@2.12 · तो@2.85 · ज़रूर@3.00 · जुड़िए@3.37 · शाम@4.05 · चार@4.50 · से@4.81 · आठ@5.10 · बजे@5.39 · NABH@5.94 · workshop@6.40 · क्योंकि@7.86 · quality@8.33 · सिर्फ़@8.85 · एक@9.21 · certificate@9.45 · नहीं@10.16 · भरोसा@10.86 · है@11.41 · गुणवत्ता@12.47 · हर@13.56 · द्वार@13.87 · तक@14.21
 
-Adapt: keep the calm single-move reveal + still hold; a 3-step stack instead of a chain.
-Scene 1 (0.0–1.6s): a mini route mark (dashed cobalt line through 5 dots, ~420px wide) draws left→right at ~y 300 (callback to 02).
-Scene 2 (1.6–3.4s): "गुणवत्ता, हर द्वार तक" (Hindi ~96px 700 text) slides up beneath; then "Quality, at every doorstep" (h3, text-muted).
-Scene 3 (3.4–5.0s): the cta-button pill "यात्रा से जुड़ें · Join the Yatra" (cobalt fill, cream text, ~40px) scales in at ~y 680.
-Scene 4 (5.0–7.0s): text mark "Gunvatta Yatra · Quality Council of India" (counter style, 20px, text-muted) fades in at ~y 820; final frame: everything holds still, then a gentle fade of the whole frame to cream over the last 0.6s.
+Scene 1 (0.0–3.5s): left side: "अपने ज़िले में" (Hindi h3, text-muted) then the cobalt cta-button pill "यात्रा से जुड़ें · Join the Yatra" scales in (on "जुड़िए" ~2.6s). Right side: the lit district map, dim (opacity 0.35).
+Scene 2 (3.5–7.5s): on "चार से आठ" (~3.9s) a chip "NABH Entry Level Certification Workshop · 4 PM – 8 PM" slides in under the pill.
+Scene 3 (7.5–11.5s): on "certificate नहीं" (~8.6s) the word "certificate" appears struck through, then on "भरोसा" (~10.3s) "भरोसा" (Hindi 120px primary) lands — callback to frame 1 — with a tiny heartbeat line under it.
+Scene 4 (11.5–end): on "गुणवत्ता — हर द्वार तक" (~12.3s) the closing line "गुणवत्ता — हर द्वार तक" (Hindi 84px, text) settles at the bottom of the content area (y≈760). Hold.
 
 ## Selected blueprint: titlecard-reveal
 

@@ -8,28 +8,23 @@
 
 ## Assigned storyboard block
 
-## Frame 7 — Stop 5: Gorakhpur · Citizens
+## Frame 7 — Stop 1: Gorakhpur launch
 
 - type: feature_showcase
-- scene: Same map stage, route reaches Gorakhpur; all five pins now glow; stop card: "पड़ाव 5 · गोरखपुर" / "Citizens — quality as everyone's right"
-- duration: 6.5s
-- poster: 4.5s
-- transition_in: push-slide LEFT
+- scene: Camera zooms into Gorakhpur on the district map; it fills cobalt; launch chip 09 Oct 2026 · Rath A + B
+- duration: 7.09s
+- poster: 5.7s
+- transition_in: zoom-through
 - status: outline
-- persuasion: Signposting + build-up (all stops lit = the whole state)
-- beat: Momentum + delight
-- voiceover: "पड़ाव 5 · गोरखपुर — नागरिक. Quality is every citizen's right."
+- beat: Momentum
+- voiceover: "शुरुआत — गोरखपुर से! नौ अक्टूबर को, launch के साथ।"
 - src: compositions/frames/07-gorakhpur.html
 - blueprint: compose
-- focal: the fully lit route + Gorakhpur card
-- roles: shared map stage · Varanasi→Gorakhpur segment + all 5 pins = foreground · stop card = foreground subject
-- sfx: pop, chime
+- focal: Gorakhpur district filling
+- roles: shared district map (zoomed) = background-midground · Gorakhpur fill + label = foreground · date/launch card = foreground (right)
 
-narrativeRole: Final stop closes the loop from institutions to people; the fully lit route shows reach.
-keyMessage: Quality is for every citizen, in every district.
+voice word cues (seconds from frame start): शुरुआत@0.10 · गोरखपुर@1.09 · से@1.70 · नौ@2.84 · अक्टूबर@3.26 · को@3.76 · launch@4.21 · के@4.68 · साथ@4.85
 
-Map stage state at t=0: outline; route up to Varanasi drawn; four pins visited; Gorakhpur faint.
-Scene 1 (0.0–1.5s): route Varanasi→Gorakhpur draws on; Gorakhpur pin activates, label "गोरखपुर".
-Scene 2 (1.5–3.3s): stop card slides in: eyebrow "पड़ाव 5 · STOP 5", Hindi headline "नागरिक", English "Citizens" (h2, primary).
-Scene 3 (3.3–5.0s): card line "Quality is every citizen's right" (body, text-muted); progress bar completes 5/5; all five pins pulse once together in a stagger along the route (the whole state lit).
-Scene 4 (5.0–6.5s): held read, still.
+Scene 1 (0.0–1.4s): district map at full view, then a camera push (scale ~2.6) centered on Gorakhpur (district #1 cx/cy), easing power3.inOut over 1.2s; other districts stay hairline.
+Scene 2 (1.4–3.0s): on "गोरखपुर" (~1.0s) Gorakhpur fills cobalt from 0 opacity and its Hindi label "गोरखपुर" (Hindi 600) appears beside it; a pulse ring expands from its centroid.
+Scene 3 (3.0–end): right card: "#1" big cobalt numeral, "09 Oct 2026" (Space Grotesk 600), "Launch · Rath A + B" pill, and "1 / 75" counter. Hold.

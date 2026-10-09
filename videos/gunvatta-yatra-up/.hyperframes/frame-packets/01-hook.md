@@ -8,31 +8,27 @@
 
 ## Assigned storyboard block
 
-## Frame 1 — Hook: quality, everywhere
+## Frame 1 — Hook: भरोसा
 
 - type: hook
-- scene: A single cobalt dot pulses on cream; Hindi line types beside it, English sub-line settles under it
-- duration: 6s
-- poster: 4.5s
+- scene: A cobalt ECG heartbeat line traces across a cream field; the word भरोसा lands huge on the spoken cue
+- duration: 13.84s
+- poster: 11.1s
 - transition_in: cut
 - status: outline
-- persuasion: Rhetorical question + direct address
-- beat: Curiosity + recognition
-- voiceover: "क्या गुणवत्ता हर ज़िले तक पहुँच सकती है? — What if quality reached every district of UP?"
+- beat: Recognition + warmth
+- voiceover: "जब कोई अपने परिवार को hospital लेकर जाता है... तो उसे सबसे पहले क्या चाहिए? भरोसा। ऐसा इलाज, जिसकी quality पर भरोसा हो।"
 - src: compositions/frames/01-hook.html
 - blueprint: kinetic-type-beats (Adapt)
-- focal: the Hindi question line
-- roles: cobalt dot = supporting · Hindi question = foreground subject · English sub-line = supporting · faint hairline grid = background (dim ~30%)
-- sfx: whoosh-soft
+- focal: the word 'भरोसा'
+- roles: heartbeat line = supporting · question text = supporting · 'भरोसा' = foreground subject · hairline grid = background
 
-narrativeRole: Opens the gap — quality is usually something "elsewhere"; asks whether it can reach every district.
-keyMessage: Quality is not just for big cities — this is about all of Uttar Pradesh.
+voice word cues (seconds from frame start): जब@0.10 · कोई@0.47 · अपने@0.78 · परिवार@1.11 · को@1.59 · hospital@1.75 · लेकर@2.32 · जाता@2.67 · है@3.00 · तो@4.07 · उसे@4.33 · सबसे@4.64 · पहले@5.11 · क्या@5.49 · चाहिए@5.76 · भरोसा@7.10 · ऐसा@8.68 · इलाज@9.18 · जिसकी@10.03 · quality@10.52 · पर@11.04 · भरोसा@11.24 · हो@11.68
 
-Adapt: keep the beat-by-beat word landing; the payoff is a word-swap emphasis on "हर ज़िले" (every district).
-Scene 1 (0.0–1.2s): cream ground + faint cobalt hairline grid; a single cobalt dot springs in at center-left and pulses once. Centered, sparse.
-Scene 2 (1.2–3.4s): the Hindi line "क्या गुणवत्ता हर ज़िले तक पहुँच सकती है?" reveals word by word (per-word reveal, rise + fade) at h1 scale, centered ~y 420; "हर ज़िले" lands last-but-one in cobalt with an underline that draws on.
-Scene 3 (3.4–4.6s): English sub-line "What if quality reached every district of UP?" fades up beneath (body, text-muted).
-Scene 4 (4.6–6.0s): held read; the dot slides to the line's left edge and holds still (it will become the route start in 02).
+Scene 1 (0.0–4.0s): cream field + faint hairline grid; a cobalt ECG line draws left→right across mid-frame (y≈430), one sharp heartbeat spike at center; small Hindi line "अस्पताल · परिवार" fades in above it at 1.1s ("परिवार" cue).
+Scene 2 (4.0–7.0s): the line keeps a slow pulse; question text "सबसे पहले क्या चाहिए?" (Hindi h2) rises in at 4.6s, centered y≈300.
+Scene 3 (7.0–8.6s): on the cue "भरोसा" (7.1s) the question clears upward and "भरोसा" slams in huge (≈220px, 700, primary) at center; the ECG spike flashes once behind it.
+Scene 4 (8.6–end): under it, "ऐसा इलाज, जिसकी quality पर भरोसा हो" (Hindi 44px, text-muted) reveals word-by-word synced to the voice (8.68–11.7s); "quality" in cobalt. Hold.
 
 ## Selected blueprint: kinetic-type-beats
 

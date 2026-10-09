@@ -1,4 +1,4 @@
-# Frame packet: 02-intro
+# Frame packet: 13-endcard
 
 ## Project inputs
 
@@ -8,32 +8,26 @@
 
 ## Assigned storyboard block
 
-## Frame 2 — Introducing Gunvatta Yatra
+## Frame 13 — End card: QCI presents
 
-- type: product_intro
-- scene: The dot becomes the start of a route; the UP outline draws on, a dashed route traces west→east through five pins; title lockup "गुणवत्ता यात्रा / Gunvatta Yatra · Uttar Pradesh" with "An initiative of the Quality Council of India"
-- duration: 8s
-- poster: 6s
+- type: branding
+- scene: End lockup: QCI logo large, 'गुणवत्ता यात्रा · उत्तर प्रदेश', partner logos row (NABH, PM-JAY)
+- duration: 4.5s
+- poster: 3.6s
 - transition_in: crossfade
 - status: outline
-- persuasion: Concept announcement + frame-then-fill (show the whole route before visiting each stop)
-- beat: Clarity + anticipation
-- voiceover: "गुणवत्ता यात्रा — a quality journey across Uttar Pradesh, by the Quality Council of India."
-- src: compositions/frames/02-intro.html
+- beat: Closure
+- voiceover: ""
+- src: compositions/frames/13-endcard.html
 - blueprint: logo-assemble-lockup (Adapt)
-- focal: the UP outline with the 5-pin route
-- roles: UP outline = foreground subject · dashed route + 5 pins = supporting · title lockup = foreground (right column) · hairline grid = background
-- sfx: whoosh-soft, chime
+- focal: QCI logo
+- roles: assets/logos/qci.png = foreground subject · title = foreground · partner row (assets/logos/nabh.png, assets/logos/pmjay.png) = supporting
 
-narrativeRole: Names the protagonist (the Yatra) and states the thesis by beat 2: one journey, the whole state.
-keyMessage: Gunvatta Yatra is QCI's journey taking quality to every corner of UP.
+voice word cues (seconds from frame start): (silent frame)
 
-Adapt: keep the signature "outline draws on, then the lockup resolves"; the mark being assembled is the UP map + route.
-Scene 1 (0.0–2.4s): UP outline draws on (stroke-dashoffset) on the shared map stage, fill fades to card-bg as the stroke closes.
-Scene 2 (2.4–4.6s): the dashed route traces Agra→Kanpur→Lucknow→Varanasi→Gorakhpur; the 5 pins pop in sequence as the route reaches each (pins WITHOUT labels here — small, r=8).
-Scene 3 (4.6–6.6s): right column: eyebrow "उत्तर प्रदेश · UTTAR PRADESH" (h4-eyebrow, primary), then the title "गुणवत्ता यात्रा" (Hindi, ~120px, 700, text) rises in, then "Gunvatta Yatra" (h2, primary) beneath.
-Scene 4 (6.6–8.0s): "An initiative of the Quality Council of India" pill (tag-pill style, larger 22px) fades up under the title; hold still.
-NOTE: frame 03 starts with the route reset to only the Agra pin lit — that is the journey beginning.
+Scene 1 (0.0–1.4s): QCI logo (assets/logos/qci.png, ~620px wide) scales 0.92→1 + fades in at center y≈330 with the label "प्रस्तुति · Presented by" above it (eyebrow).
+Scene 2 (1.4–2.6s): "गुणवत्ता यात्रा · उत्तर प्रदेश" (Hindi 64px) rises under it.
+Scene 3 (2.6–4.5s): a hairline divider draws and a partner row fades in at y≈760: NABH logo (assets/logos/nabh.png, height 90px) and PM-JAY emblem (assets/logos/pmjay.png, height 110px). Final frame: in the last 0.6s the whole frame fades to cream.
 
 ## Selected blueprint: logo-assemble-lockup
 

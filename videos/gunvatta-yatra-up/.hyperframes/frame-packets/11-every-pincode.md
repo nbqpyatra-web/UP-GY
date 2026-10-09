@@ -1,4 +1,4 @@
-# Frame packet: 08-vision
+# Frame packet: 11-every-pincode
 
 ## Project inputs
 
@@ -8,31 +8,28 @@
 
 ## Assigned storyboard block
 
-## Frame 8 — The vision: Aatmanirbhar → Daata Pradesh
+## Frame 11 — हर ज़िला · हर शहर · हर पिनकोड
 
 - type: branding
-- scene: Map pulls back and fades; two words on a line — "आत्मनिर्भर प्रदेश" morphs/arrow → "दाता प्रदेश"; English sub-line "From self-reliant to a state that gives back to the nation"
-- duration: 6.5s
-- poster: 5s
-- transition_in: blur-crossfade
+- scene: Inverted cobalt frame: three stacked kinetic lines hit on the voice — हर ज़िला / हर शहर / हर पिनकोड — with a rolling pincode counter; 'पूरे 75 ज़िले'
+- duration: 8.39s
+- poster: 6.7s
+- transition_in: zoom-through
 - status: outline
-- persuasion: Before/after + distillation
-- beat: Inspiration
-- voiceover: "आत्मनिर्भर प्रदेश से दाता प्रदेश तक — from self-reliant to a state that gives back to the nation."
-- src: compositions/frames/08-vision.html
-- blueprint: kinetic-type-beats (Adapt)
-- focal: the before→after word pair
-- roles: 'आत्मनिर्भर प्रदेश' = supporting (before) · arrow = supporting · 'दाता प्रदेश' = foreground subject · faint UP outline watermark = background (opacity ~0.06)
-- sfx: whoosh-soft
+- beat: Pride
+- voiceover: "हर ज़िला। हर शहर। हर pincode। पूरे पचहत्तर ज़िले!"
+- src: compositions/frames/11-every-pincode.html
+- blueprint: kinetic-type-beats (Reproduce)
+- focal: the three kinetic lines
+- roles: full cobalt field = background · three lines (cream) = foreground · rolling 6-digit pincode digits = supporting · faint lit-map watermark = background
 
-narrativeRole: The "so what" — quality is how UP moves from self-reliance to giving back (UP Gunvatta Sankalp vision).
-keyMessage: Quality turns UP into a state that gives back to India.
+voice word cues (seconds from frame start): हर@0.10 · ज़िला@0.44 · हर@1.70 · शहर@2.03 · हर@3.35 · pincode@3.69 · पूरे@5.19 · पचहत्तर@5.66 · ज़िले@6.26
 
-Adapt: keep the in-place escalation that resolves on a payoff word; the swap is self-reliant → giving.
-Scene 1 (0.0–1.6s): faint UP outline watermark large behind; "आत्मनिर्भर प्रदेश" rises in (Hindi ~84px, 600, text), centered ~y 360.
-Scene 2 (1.6–3.4s): a cobalt arrow draws downward/rightward; "दाता प्रदेश" lands beneath at larger scale (~130px, 700, primary) — the payoff.
-Scene 3 (3.4–5.0s): English "From self-reliant to a state that gives back to the nation" (h3, text-muted) fades up under it.
-Scene 4 (5.0–6.5s): held breather, still.
+Full cobalt (#1e2bfa) field, faint cream lit-map watermark (opacity 0.08) of all 75 districts.
+Scene 1 (0.0–1.6s): "हर ज़िला" (cream Hindi 130px 700) slams in at y≈230 on 0.1s.
+Scene 2 (1.6–3.3s): "हर शहर" slams in at y≈420 on 1.7s.
+Scene 3 (3.3–5.0s): "हर पिनकोड" slams in at y≈610 on 3.35s; beside it a 6-digit odometer of pincode-style digits rolls (deterministic sequence through 2xxxxx values like 273001 → 243001 → 274401 → 244001 → 273303) and settles.
+Scene 4 (5.0–end): "पूरे 75 ज़िले" (Space Grotesk/Hindi 60px, cream, inside a cream-outlined pill) rises at y≈800 on 5.2s. Hold.
 
 ## Selected blueprint: kinetic-type-beats
 

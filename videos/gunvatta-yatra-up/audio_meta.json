@@ -1,9 +1,1858 @@
 {
-  "bgm": {
-    "path": "assets/bgm.mp3",
-    "source": "host"
+ "bgm": {
+  "path": "assets/bgm.mp3",
+  "source": "host",
+  "volume": 0.16
+ },
+ "bgm_pending": false,
+ "voices": [
+  {
+   "frame": 1,
+   "path": "assets/voice/01.mp3",
+   "duration_s": 12.94,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "जब",
+     "start": 0.1,
+     "end": 0.454
+    },
+    {
+     "id": 1,
+     "text": "कोई",
+     "start": 0.466,
+     "end": 0.772
+    },
+    {
+     "id": 2,
+     "text": "अपने",
+     "start": 0.784,
+     "end": 1.102
+    },
+    {
+     "id": 3,
+     "text": "परिवार",
+     "start": 1.114,
+     "end": 1.574
+    },
+    {
+     "id": 4,
+     "text": "को",
+     "start": 1.586,
+     "end": 1.739
+    },
+    {
+     "id": 5,
+     "text": "hospital",
+     "start": 1.751,
+     "end": 2.305
+    },
+    {
+     "id": 6,
+     "text": "लेकर",
+     "start": 2.317,
+     "end": 2.659
+    },
+    {
+     "id": 7,
+     "text": "जाता",
+     "start": 2.671,
+     "end": 2.989
+    },
+    {
+     "id": 8,
+     "text": "है",
+     "start": 3.001,
+     "end": 3.26
+    },
+    {
+     "id": 9,
+     "text": "तो",
+     "start": 4.071,
+     "end": 4.319
+    },
+    {
+     "id": 10,
+     "text": "उसे",
+     "start": 4.331,
+     "end": 4.625
+    },
+    {
+     "id": 11,
+     "text": "सबसे",
+     "start": 4.637,
+     "end": 5.097
+    },
+    {
+     "id": 12,
+     "text": "पहले",
+     "start": 5.109,
+     "end": 5.475
+    },
+    {
+     "id": 13,
+     "text": "क्या",
+     "start": 5.486,
+     "end": 5.746
+    },
+    {
+     "id": 14,
+     "text": "चाहिए",
+     "start": 5.758,
+     "end": 6.288
+    },
+    {
+     "id": 15,
+     "text": "भरोसा",
+     "start": 7.102,
+     "end": 7.868
+    },
+    {
+     "id": 16,
+     "text": "ऐसा",
+     "start": 8.682,
+     "end": 9.166
+    },
+    {
+     "id": 17,
+     "text": "इलाज",
+     "start": 9.177,
+     "end": 9.85
+    },
+    {
+     "id": 18,
+     "text": "जिसकी",
+     "start": 10.026,
+     "end": 10.51
+    },
+    {
+     "id": 19,
+     "text": "quality",
+     "start": 10.522,
+     "end": 11.029
+    },
+    {
+     "id": 20,
+     "text": "पर",
+     "start": 11.041,
+     "end": 11.229
+    },
+    {
+     "id": 21,
+     "text": "भरोसा",
+     "start": 11.241,
+     "end": 11.666
+    },
+    {
+     "id": 22,
+     "text": "हो",
+     "start": 11.677,
+     "end": 12.102
+    }
+   ]
   },
-  "bgm_pending": false,
-  "voices": [],
-  "sfx": []
+  {
+   "frame": 2,
+   "path": "assets/voice/02.mp3",
+   "duration_s": 9.29,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "आयुष्मान",
+     "start": 0.1,
+     "end": 0.796
+    },
+    {
+     "id": 1,
+     "text": "भारत",
+     "start": 0.808,
+     "end": 1.397
+    },
+    {
+     "id": 2,
+     "text": "प्रधानमंत्री",
+     "start": 1.55,
+     "end": 2.458
+    },
+    {
+     "id": 3,
+     "text": "जन",
+     "start": 2.47,
+     "end": 2.753
+    },
+    {
+     "id": 4,
+     "text": "आरोग्य",
+     "start": 2.765,
+     "end": 3.249
+    },
+    {
+     "id": 5,
+     "text": "योजना",
+     "start": 3.26,
+     "end": 3.779
+    },
+    {
+     "id": 6,
+     "text": "का",
+     "start": 3.791,
+     "end": 3.933
+    },
+    {
+     "id": 7,
+     "text": "मूल",
+     "start": 3.944,
+     "end": 4.239
+    },
+    {
+     "id": 8,
+     "text": "उद्देश्य",
+     "start": 4.251,
+     "end": 4.77
+    },
+    {
+     "id": 9,
+     "text": "है",
+     "start": 4.782,
+     "end": 5.065
+    },
+    {
+     "id": 10,
+     "text": "हर",
+     "start": 5.348,
+     "end": 5.631
+    },
+    {
+     "id": 11,
+     "text": "लाभार्थी",
+     "start": 5.642,
+     "end": 6.303
+    },
+    {
+     "id": 12,
+     "text": "को",
+     "start": 6.315,
+     "end": 6.48
+    },
+    {
+     "id": 13,
+     "text": "quality",
+     "start": 6.492,
+     "end": 7.069
+    },
+    {
+     "id": 14,
+     "text": "और",
+     "start": 7.081,
+     "end": 7.329
+    },
+    {
+     "id": 15,
+     "text": "standard",
+     "start": 7.341,
+     "end": 7.836
+    },
+    {
+     "id": 16,
+     "text": "healthcare",
+     "start": 7.848,
+     "end": 8.461
+    }
+   ]
+  },
+  {
+   "frame": 3,
+   "path": "assets/voice/03.mp3",
+   "duration_s": 6.79,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "लेकिन",
+     "start": 0.1,
+     "end": 0.56
+    },
+    {
+     "id": 1,
+     "text": "inspection",
+     "start": 0.572,
+     "end": 1.173
+    },
+    {
+     "id": 2,
+     "text": "में",
+     "start": 1.185,
+     "end": 1.279
+    },
+    {
+     "id": 3,
+     "text": "पाया",
+     "start": 1.291,
+     "end": 1.657
+    },
+    {
+     "id": 4,
+     "text": "गया",
+     "start": 1.668,
+     "end": 1.999
+    },
+    {
+     "id": 5,
+     "text": "कि",
+     "start": 2.199,
+     "end": 2.423
+    },
+    {
+     "id": 6,
+     "text": "कुछ",
+     "start": 2.435,
+     "end": 2.647
+    },
+    {
+     "id": 7,
+     "text": "hospitals",
+     "start": 2.659,
+     "end": 3.343
+    },
+    {
+     "id": 8,
+     "text": "अभी",
+     "start": 3.355,
+     "end": 3.638
+    },
+    {
+     "id": 9,
+     "text": "भी",
+     "start": 3.65,
+     "end": 3.803
+    },
+    {
+     "id": 10,
+     "text": "minimum",
+     "start": 3.815,
+     "end": 4.204
+    },
+    {
+     "id": 11,
+     "text": "standards",
+     "start": 4.216,
+     "end": 4.793
+    },
+    {
+     "id": 12,
+     "text": "पूरे",
+     "start": 4.805,
+     "end": 5.147
+    },
+    {
+     "id": 13,
+     "text": "नहीं",
+     "start": 5.159,
+     "end": 5.454
+    },
+    {
+     "id": 14,
+     "text": "कर",
+     "start": 5.466,
+     "end": 5.572
+    },
+    {
+     "id": 15,
+     "text": "रहे",
+     "start": 5.583,
+     "end": 5.973
+    }
+   ]
+  },
+  {
+   "frame": 4,
+   "path": "assets/voice/04.mp3",
+   "duration_s": 15.22,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "इसीलिए",
+     "start": 0.1,
+     "end": 0.725
+    },
+    {
+     "id": 1,
+     "text": "SACHIS",
+     "start": 0.737,
+     "end": 1.291
+    },
+    {
+     "id": 2,
+     "text": "ने",
+     "start": 1.303,
+     "end": 1.468
+    },
+    {
+     "id": 3,
+     "text": "तय",
+     "start": 1.48,
+     "end": 1.751
+    },
+    {
+     "id": 4,
+     "text": "किया",
+     "start": 1.763,
+     "end": 2.128
+    },
+    {
+     "id": 5,
+     "text": "योजना",
+     "start": 2.376,
+     "end": 2.93
+    },
+    {
+     "id": 6,
+     "text": "से",
+     "start": 2.942,
+     "end": 3.154
+    },
+    {
+     "id": 7,
+     "text": "जुड़े",
+     "start": 3.166,
+     "end": 3.484
+    },
+    {
+     "id": 8,
+     "text": "सभी",
+     "start": 3.496,
+     "end": 3.874
+    },
+    {
+     "id": 9,
+     "text": "private",
+     "start": 3.885,
+     "end": 4.369
+    },
+    {
+     "id": 10,
+     "text": "hospitals",
+     "start": 4.381,
+     "end": 5.053
+    },
+    {
+     "id": 11,
+     "text": "के",
+     "start": 5.065,
+     "end": 5.183
+    },
+    {
+     "id": 12,
+     "text": "लिए",
+     "start": 5.194,
+     "end": 5.56
+    },
+    {
+     "id": 13,
+     "text": "NABH",
+     "start": 5.808,
+     "end": 6.208
+    },
+    {
+     "id": 14,
+     "text": "certification",
+     "start": 6.22,
+     "end": 7.081
+    },
+    {
+     "id": 15,
+     "text": "अनिवार्य",
+     "start": 7.093,
+     "end": 7.765
+    },
+    {
+     "id": 16,
+     "text": "Quality",
+     "start": 8.576,
+     "end": 9.201
+    },
+    {
+     "id": 17,
+     "text": "अब",
+     "start": 9.213,
+     "end": 9.378
+    },
+    {
+     "id": 18,
+     "text": "सीधे",
+     "start": 9.39,
+     "end": 9.861
+    },
+    {
+     "id": 19,
+     "text": "incentive",
+     "start": 9.873,
+     "end": 10.451
+    },
+    {
+     "id": 20,
+     "text": "से",
+     "start": 10.463,
+     "end": 10.663
+    },
+    {
+     "id": 21,
+     "text": "जुड़ी",
+     "start": 10.675,
+     "end": 11.017
+    },
+    {
+     "id": 22,
+     "text": "है",
+     "start": 11.029,
+     "end": 11.241
+    },
+    {
+     "id": 23,
+     "text": "और",
+     "start": 12.066,
+     "end": 12.338
+    },
+    {
+     "id": 24,
+     "text": "लक्ष्य",
+     "start": 12.35,
+     "end": 12.88
+    },
+    {
+     "id": 25,
+     "text": "दो",
+     "start": 13.057,
+     "end": 13.352
+    },
+    {
+     "id": 26,
+     "text": "महीने",
+     "start": 13.364,
+     "end": 13.694
+    },
+    {
+     "id": 27,
+     "text": "के",
+     "start": 13.706,
+     "end": 13.859
+    },
+    {
+     "id": 28,
+     "text": "अंदर",
+     "start": 13.871,
+     "end": 14.378
+    }
+   ]
+  },
+  {
+   "frame": 5,
+   "path": "assets/voice/05.mp3",
+   "duration_s": 15.24,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "इसका",
+     "start": 0.1,
+     "end": 0.489
+    },
+    {
+     "id": 1,
+     "text": "मतलब",
+     "start": 0.501,
+     "end": 0.996
+    },
+    {
+     "id": 2,
+     "text": "एक",
+     "start": 1.807,
+     "end": 2.291
+    },
+    {
+     "id": 3,
+     "text": "स्वास्थ्य",
+     "start": 2.456,
+     "end": 3.081
+    },
+    {
+     "id": 4,
+     "text": "सेवाओं",
+     "start": 3.092,
+     "end": 3.576
+    },
+    {
+     "id": 5,
+     "text": "की",
+     "start": 3.588,
+     "end": 3.717
+    },
+    {
+     "id": 6,
+     "text": "quality",
+     "start": 3.729,
+     "end": 4.201
+    },
+    {
+     "id": 7,
+     "text": "में",
+     "start": 4.213,
+     "end": 4.354
+    },
+    {
+     "id": 8,
+     "text": "सुधार",
+     "start": 4.366,
+     "end": 4.92
+    },
+    {
+     "id": 9,
+     "text": "दो",
+     "start": 5.746,
+     "end": 6.241
+    },
+    {
+     "id": 10,
+     "text": "मरीज़ों",
+     "start": 6.441,
+     "end": 6.96
+    },
+    {
+     "id": 11,
+     "text": "का",
+     "start": 6.972,
+     "end": 7.137
+    },
+    {
+     "id": 12,
+     "text": "इलाज",
+     "start": 7.149,
+     "end": 7.821
+    },
+    {
+     "id": 13,
+     "text": "तय",
+     "start": 8.01,
+     "end": 8.258
+    },
+    {
+     "id": 14,
+     "text": "standards",
+     "start": 8.269,
+     "end": 8.847
+    },
+    {
+     "id": 15,
+     "text": "के",
+     "start": 8.859,
+     "end": 9.024
+    },
+    {
+     "id": 16,
+     "text": "अनुसार",
+     "start": 9.036,
+     "end": 9.696
+    },
+    {
+     "id": 17,
+     "text": "तीन",
+     "start": 10.498,
+     "end": 11.1
+    },
+    {
+     "id": 18,
+     "text": "लाभार्थियों",
+     "start": 11.229,
+     "end": 12.114
+    },
+    {
+     "id": 19,
+     "text": "को",
+     "start": 12.125,
+     "end": 12.255
+    },
+    {
+     "id": 20,
+     "text": "बेहतर",
+     "start": 12.267,
+     "end": 12.68
+    },
+    {
+     "id": 21,
+     "text": "और",
+     "start": 12.691,
+     "end": 12.927
+    },
+    {
+     "id": 22,
+     "text": "पारदर्शी",
+     "start": 12.939,
+     "end": 13.552
+    },
+    {
+     "id": 23,
+     "text": "सेवाएं",
+     "start": 13.564,
+     "end": 14.413
+    }
+   ]
+  },
+  {
+   "frame": 6,
+   "path": "assets/voice/06.mp3",
+   "duration_s": 18.07,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "और",
+     "start": 0.1,
+     "end": 0.43
+    },
+    {
+     "id": 1,
+     "text": "इस",
+     "start": 0.442,
+     "end": 0.642
+    },
+    {
+     "id": 2,
+     "text": "बदलाव",
+     "start": 0.654,
+     "end": 1.173
+    },
+    {
+     "id": 3,
+     "text": "को",
+     "start": 1.185,
+     "end": 1.35
+    },
+    {
+     "id": 4,
+     "text": "हर",
+     "start": 1.362,
+     "end": 1.586
+    },
+    {
+     "id": 5,
+     "text": "hospital",
+     "start": 1.598,
+     "end": 2.234
+    },
+    {
+     "id": 6,
+     "text": "तक",
+     "start": 2.246,
+     "end": 2.435
+    },
+    {
+     "id": 7,
+     "text": "पहुँचाने",
+     "start": 2.447,
+     "end": 2.93
+    },
+    {
+     "id": 8,
+     "text": "निकली",
+     "start": 2.942,
+     "end": 3.319
+    },
+    {
+     "id": 9,
+     "text": "है",
+     "start": 3.331,
+     "end": 3.532
+    },
+    {
+     "id": 10,
+     "text": "गुणवत्ता",
+     "start": 3.756,
+     "end": 4.369
+    },
+    {
+     "id": 11,
+     "text": "यात्रा",
+     "start": 4.381,
+     "end": 5.006
+    },
+    {
+     "id": 12,
+     "text": "Quality",
+     "start": 5.816,
+     "end": 6.347
+    },
+    {
+     "id": 13,
+     "text": "Council",
+     "start": 6.359,
+     "end": 6.842
+    },
+    {
+     "id": 14,
+     "text": "of",
+     "start": 6.854,
+     "end": 7.043
+    },
+    {
+     "id": 15,
+     "text": "India",
+     "start": 7.055,
+     "end": 7.408
+    },
+    {
+     "id": 16,
+     "text": "की",
+     "start": 7.42,
+     "end": 7.609
+    },
+    {
+     "id": 17,
+     "text": "पहल",
+     "start": 7.621,
+     "end": 8.128
+    },
+    {
+     "id": 18,
+     "text": "दो",
+     "start": 8.941,
+     "end": 9.284
+    },
+    {
+     "id": 19,
+     "text": "रथ",
+     "start": 9.295,
+     "end": 9.72
+    },
+    {
+     "id": 20,
+     "text": "तिरसठ",
+     "start": 9.873,
+     "end": 10.368
+    },
+    {
+     "id": 21,
+     "text": "यात्राएं",
+     "start": 10.38,
+     "end": 11.135
+    },
+    {
+     "id": 22,
+     "text": "पचहत्तर",
+     "start": 11.335,
+     "end": 12.019
+    },
+    {
+     "id": 23,
+     "text": "ज़िले",
+     "start": 12.031,
+     "end": 12.432
+    },
+    {
+     "id": 24,
+     "text": "NABH",
+     "start": 12.644,
+     "end": 13.116
+    },
+    {
+     "id": 25,
+     "text": "Entry",
+     "start": 13.128,
+     "end": 13.493
+    },
+    {
+     "id": 26,
+     "text": "Level",
+     "start": 13.505,
+     "end": 13.835
+    },
+    {
+     "id": 27,
+     "text": "Certification",
+     "start": 13.847,
+     "end": 14.673
+    },
+    {
+     "id": 28,
+     "text": "workshops",
+     "start": 14.684,
+     "end": 15.545
+    },
+    {
+     "id": 29,
+     "text": "सीधे",
+     "start": 15.663,
+     "end": 16.265
+    },
+    {
+     "id": 30,
+     "text": "आपके",
+     "start": 16.276,
+     "end": 16.666
+    },
+    {
+     "id": 31,
+     "text": "ज़िले",
+     "start": 16.677,
+     "end": 16.937
+    },
+    {
+     "id": 32,
+     "text": "में",
+     "start": 16.949,
+     "end": 17.243
+    }
+   ]
+  },
+  {
+   "frame": 7,
+   "path": "assets/voice/07.mp3",
+   "duration_s": 6.19,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "शुरुआत",
+     "start": 0.1,
+     "end": 0.961
+    },
+    {
+     "id": 1,
+     "text": "गोरखपुर",
+     "start": 1.091,
+     "end": 1.692
+    },
+    {
+     "id": 2,
+     "text": "से",
+     "start": 1.704,
+     "end": 2.034
+    },
+    {
+     "id": 3,
+     "text": "नौ",
+     "start": 2.845,
+     "end": 3.246
+    },
+    {
+     "id": 4,
+     "text": "अक्टूबर",
+     "start": 3.258,
+     "end": 3.753
+    },
+    {
+     "id": 5,
+     "text": "को",
+     "start": 3.765,
+     "end": 4.107
+    },
+    {
+     "id": 6,
+     "text": "launch",
+     "start": 4.213,
+     "end": 4.673
+    },
+    {
+     "id": 7,
+     "text": "के",
+     "start": 4.684,
+     "end": 4.838
+    },
+    {
+     "id": 8,
+     "text": "साथ",
+     "start": 4.85,
+     "end": 5.38
+    }
+   ]
+  },
+  {
+   "frame": 8,
+   "path": "assets/voice/08.mp3",
+   "duration_s": 5.98,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "चौदह",
+     "start": 0.1,
+     "end": 0.76
+    },
+    {
+     "id": 1,
+     "text": "अक्टूबर",
+     "start": 0.772,
+     "end": 1.421
+    },
+    {
+     "id": 2,
+     "text": "Rath",
+     "start": 1.621,
+     "end": 1.963
+    },
+    {
+     "id": 3,
+     "text": "A",
+     "start": 1.975,
+     "end": 2.093
+    },
+    {
+     "id": 4,
+     "text": "पहुँचेगा",
+     "start": 2.105,
+     "end": 2.624
+    },
+    {
+     "id": 5,
+     "text": "बरेली",
+     "start": 2.635,
+     "end": 3.166
+    },
+    {
+     "id": 6,
+     "text": "और",
+     "start": 3.343,
+     "end": 3.579
+    },
+    {
+     "id": 7,
+     "text": "Rath",
+     "start": 3.591,
+     "end": 3.85
+    },
+    {
+     "id": 8,
+     "text": "B",
+     "start": 3.862,
+     "end": 4.192
+    },
+    {
+     "id": 9,
+     "text": "कुशीनगर",
+     "start": 4.392,
+     "end": 5.147
+    }
+   ]
+  },
+  {
+   "frame": 9,
+   "path": "assets/voice/09.mp3",
+   "duration_s": 5.47,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "सोलह",
+     "start": 0.1,
+     "end": 0.867
+    },
+    {
+     "id": 1,
+     "text": "अक्टूबर",
+     "start": 0.878,
+     "end": 1.491
+    },
+    {
+     "id": 2,
+     "text": "मुरादाबाद",
+     "start": 1.621,
+     "end": 2.529
+    },
+    {
+     "id": 3,
+     "text": "और",
+     "start": 3.34,
+     "end": 3.67
+    },
+    {
+     "id": 4,
+     "text": "महराजगंज",
+     "start": 3.682,
+     "end": 4.661
+    }
+   ]
+  },
+  {
+   "frame": 10,
+   "path": "assets/voice/10.mp3",
+   "duration_s": 16.06,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "फिर",
+     "start": 0.1,
+     "end": 0.466
+    },
+    {
+     "id": 1,
+     "text": "बिजनौर",
+     "start": 0.477,
+     "end": 1.126
+    },
+    {
+     "id": 2,
+     "text": "बस्ती",
+     "start": 1.256,
+     "end": 1.892
+    },
+    {
+     "id": 3,
+     "text": "सहारनपुर",
+     "start": 2.093,
+     "end": 3.048
+    },
+    {
+     "id": 4,
+     "text": "प्रयागराज",
+     "start": 3.201,
+     "end": 4.18
+    },
+    {
+     "id": 5,
+     "text": "कानपुर",
+     "start": 4.345,
+     "end": 4.97
+    },
+    {
+     "id": 6,
+     "text": "झाँसी",
+     "start": 5.124,
+     "end": 5.819
+    },
+    {
+     "id": 7,
+     "text": "जनवरी",
+     "start": 6.63,
+     "end": 7.232
+    },
+    {
+     "id": 8,
+     "text": "में",
+     "start": 7.243,
+     "end": 7.361
+    },
+    {
+     "id": 9,
+     "text": "मेरठ",
+     "start": 7.373,
+     "end": 7.892
+    },
+    {
+     "id": 10,
+     "text": "आगरा",
+     "start": 7.998,
+     "end": 8.576
+    },
+    {
+     "id": 11,
+     "text": "वाराणसी",
+     "start": 8.765,
+     "end": 9.602
+    },
+    {
+     "id": 12,
+     "text": "लखनऊ",
+     "start": 9.708,
+     "end": 10.392
+    },
+    {
+     "id": 13,
+     "text": "और",
+     "start": 11.206,
+     "end": 11.5
+    },
+    {
+     "id": 14,
+     "text": "मार्च",
+     "start": 11.512,
+     "end": 11.925
+    },
+    {
+     "id": 15,
+     "text": "में",
+     "start": 11.937,
+     "end": 12.09
+    },
+    {
+     "id": 16,
+     "text": "cluster",
+     "start": 12.102,
+     "end": 12.55
+    },
+    {
+     "id": 17,
+     "text": "यात्राएं",
+     "start": 12.562,
+     "end": 13.293
+    },
+    {
+     "id": 18,
+     "text": "बुंदेलखंड",
+     "start": 13.505,
+     "end": 14.225
+    },
+    {
+     "id": 19,
+     "text": "से",
+     "start": 14.236,
+     "end": 14.449
+    },
+    {
+     "id": 20,
+     "text": "तराई",
+     "start": 14.46,
+     "end": 14.85
+    },
+    {
+     "id": 21,
+     "text": "तक",
+     "start": 14.861,
+     "end": 15.239
+    }
+   ]
+  },
+  {
+   "frame": 11,
+   "path": "assets/voice/11.mp3",
+   "duration_s": 7.49,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "हर",
+     "start": 0.1,
+     "end": 0.43
+    },
+    {
+     "id": 1,
+     "text": "ज़िला",
+     "start": 0.442,
+     "end": 0.89
+    },
+    {
+     "id": 2,
+     "text": "हर",
+     "start": 1.701,
+     "end": 2.019
+    },
+    {
+     "id": 3,
+     "text": "शहर",
+     "start": 2.031,
+     "end": 2.55
+    },
+    {
+     "id": 4,
+     "text": "हर",
+     "start": 3.352,
+     "end": 3.682
+    },
+    {
+     "id": 5,
+     "text": "pincode",
+     "start": 3.694,
+     "end": 4.366
+    },
+    {
+     "id": 6,
+     "text": "पूरे",
+     "start": 5.191,
+     "end": 5.651
+    },
+    {
+     "id": 7,
+     "text": "पचहत्तर",
+     "start": 5.663,
+     "end": 6.253
+    },
+    {
+     "id": 8,
+     "text": "ज़िले",
+     "start": 6.265,
+     "end": 6.677
+    }
+   ]
+  },
+  {
+   "frame": 12,
+   "path": "assets/voice/12.mp3",
+   "duration_s": 15.43,
+   "source": "host",
+   "words": [
+    {
+     "id": 0,
+     "text": "अपने",
+     "start": 0.1,
+     "end": 0.525
+    },
+    {
+     "id": 1,
+     "text": "ज़िले",
+     "start": 0.536,
+     "end": 0.819
+    },
+    {
+     "id": 2,
+     "text": "में",
+     "start": 0.831,
+     "end": 0.973
+    },
+    {
+     "id": 3,
+     "text": "गुणवत्ता",
+     "start": 0.984,
+     "end": 1.562
+    },
+    {
+     "id": 4,
+     "text": "यात्रा",
+     "start": 1.574,
+     "end": 2.105
+    },
+    {
+     "id": 5,
+     "text": "आए",
+     "start": 2.116,
+     "end": 2.529
+    },
+    {
+     "id": 6,
+     "text": "तो",
+     "start": 2.848,
+     "end": 2.989
+    },
+    {
+     "id": 7,
+     "text": "ज़रूर",
+     "start": 3.001,
+     "end": 3.355
+    },
+    {
+     "id": 8,
+     "text": "जुड़िए",
+     "start": 3.366,
+     "end": 3.85
+    },
+    {
+     "id": 9,
+     "text": "शाम",
+     "start": 4.05,
+     "end": 4.487
+    },
+    {
+     "id": 10,
+     "text": "चार",
+     "start": 4.499,
+     "end": 4.793
+    },
+    {
+     "id": 11,
+     "text": "से",
+     "start": 4.805,
+     "end": 5.088
+    },
+    {
+     "id": 12,
+     "text": "आठ",
+     "start": 5.1,
+     "end": 5.383
+    },
+    {
+     "id": 13,
+     "text": "बजे",
+     "start": 5.395,
+     "end": 5.796
+    },
+    {
+     "id": 14,
+     "text": "NABH",
+     "start": 5.937,
+     "end": 6.385
+    },
+    {
+     "id": 15,
+     "text": "workshop",
+     "start": 6.397,
+     "end": 7.058
+    },
+    {
+     "id": 16,
+     "text": "क्योंकि",
+     "start": 7.857,
+     "end": 8.317
+    },
+    {
+     "id": 17,
+     "text": "quality",
+     "start": 8.328,
+     "end": 8.835
+    },
+    {
+     "id": 18,
+     "text": "सिर्फ़",
+     "start": 8.847,
+     "end": 9.201
+    },
+    {
+     "id": 19,
+     "text": "एक",
+     "start": 9.213,
+     "end": 9.437
+    },
+    {
+     "id": 20,
+     "text": "certificate",
+     "start": 9.449,
+     "end": 10.144
+    },
+    {
+     "id": 21,
+     "text": "नहीं",
+     "start": 10.156,
+     "end": 10.663
+    },
+    {
+     "id": 22,
+     "text": "भरोसा",
+     "start": 10.864,
+     "end": 11.394
+    },
+    {
+     "id": 23,
+     "text": "है",
+     "start": 11.406,
+     "end": 11.654
+    },
+    {
+     "id": 24,
+     "text": "गुणवत्ता",
+     "start": 12.467,
+     "end": 13.305
+    },
+    {
+     "id": 25,
+     "text": "हर",
+     "start": 13.564,
+     "end": 13.859
+    },
+    {
+     "id": 26,
+     "text": "द्वार",
+     "start": 13.871,
+     "end": 14.201
+    },
+    {
+     "id": 27,
+     "text": "तक",
+     "start": 14.213,
+     "end": 14.614
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "frame": 1,
+   "file": "assets/sfx/heartbeat.wav",
+   "offset_s": 0.0,
+   "duration_s": 0.9,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 1,
+   "file": "assets/sfx/heartbeat.wav",
+   "offset_s": 4.0,
+   "duration_s": 0.9,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 1,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 7.1,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 2,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 0.0,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 2,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 6.3,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 3,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 0.3,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 3,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 3.3,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 3,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 3.7,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 3,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 4.1,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 4,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 0.0,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 4,
+   "file": "assets/sfx/stamp.wav",
+   "offset_s": 7.1,
+   "duration_s": 0.5,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 4,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 9.9,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 4,
+   "file": "assets/sfx/riser.wav",
+   "offset_s": 11.6,
+   "duration_s": 1.6,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 4,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 13.1,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 5,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 1.5,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 5,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 5.6,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 5,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 10.3,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/riser.wav",
+   "offset_s": 0.0,
+   "duration_s": 1.6,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/chime.wav",
+   "offset_s": 3.0,
+   "duration_s": 1.8,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 9.5,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 10.4,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 11.3,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 6,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 13.0,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 7,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 0.0,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 7,
+   "file": "assets/sfx/stamp.wav",
+   "offset_s": 0.9,
+   "duration_s": 0.5,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 7,
+   "file": "assets/sfx/chime.wav",
+   "offset_s": 2.3,
+   "duration_s": 1.8,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 8,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 1.4,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 8,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 2.6,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 8,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 4.5,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 9,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 0.6,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 9,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 1.7,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 9,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 3.6,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 0.5,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 1.4,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 2.3,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 3.2,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 5.6,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 6.5,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/tick.wav",
+   "offset_s": 7.4,
+   "duration_s": 0.05,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/whoosh.wav",
+   "offset_s": 11.0,
+   "duration_s": 0.7,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 10,
+   "file": "assets/sfx/riser.wav",
+   "offset_s": 14.4,
+   "duration_s": 1.6,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 11,
+   "file": "assets/sfx/stamp.wav",
+   "offset_s": 0.1,
+   "duration_s": 0.5,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 11,
+   "file": "assets/sfx/stamp.wav",
+   "offset_s": 1.7,
+   "duration_s": 0.5,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 11,
+   "file": "assets/sfx/stamp.wav",
+   "offset_s": 3.35,
+   "duration_s": 0.5,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 11,
+   "file": "assets/sfx/chime.wav",
+   "offset_s": 5.2,
+   "duration_s": 1.8,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 12,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 2.0,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 12,
+   "file": "assets/sfx/pop.wav",
+   "offset_s": 4.0,
+   "duration_s": 0.18,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 12,
+   "file": "assets/sfx/heartbeat.wav",
+   "offset_s": 9.5,
+   "duration_s": 0.9,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 12,
+   "file": "assets/sfx/chime.wav",
+   "offset_s": 12.3,
+   "duration_s": 1.8,
+   "volume": 0.4,
+   "source": "host"
+  },
+  {
+   "frame": 13,
+   "file": "assets/sfx/chime.wav",
+   "offset_s": 0.2,
+   "duration_s": 1.8,
+   "volume": 0.4,
+   "source": "host"
+  }
+ ]
 }
