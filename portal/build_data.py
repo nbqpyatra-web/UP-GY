@@ -36,6 +36,9 @@ INDEX = os.path.join(ROOT, "portal", "index.html")
 CACHE = os.path.join(ROOT, "portal", ".cache", "crm_events.json")
 
 CIRCULAR_DATE = "2026-05-15"
+PROGRAMME_START = "2026-10-09"   # UP GY launch (Gorakhpur); earlier events are history
+MATCH_DAYS = 3                   # a CRM event within this many days of the plan date matches
+IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 
 # CRM filters for "UP Gunvatta Yatra" events. State is matched on either state field.
 CRM_BASE = [
@@ -247,7 +250,7 @@ def crm_events():
             ev["status"][key] = count(rules + [{"attribute": "contact_status_id",
                                                 "operator": "is_in", "value": [str(sid)]}])
         recorded = ev["attendance"].get("Attended", 0) + ev["attendance"].get("Not Attended", 0)
-        if ev["registrations"] and not recorded and ev["date"] and ev["date"] < dt.date.today().isoformat():
+        if ev["registrations"] and not recorded and ev["date"] and ev["date"] < ist_today().isoformat():
             ev["flags"].append("attendance-missing")
         if ev["registrations"] < 5:
             ev["flags"].append("few-records")
@@ -258,59 +261,62 @@ def crm_events():
 
 # --------------------------------------------------------------------------- assemble
 
+def ist_today():
+    return dt.datetime.now(IST).date()
+
+
+def crm_record(e):
+    return {
+        "event": e["name"], "date": e["date"], "type": e["type"], "district": e["district"],
+        "city": e["city"], "partner": e["partner"], "model": e["model"], "mode": e["mode"],
+        "serviceLine": e["serviceLine"], "registrations": e["registrations"],
+        "attendance": e["attendance"], "status": e["status"], "flags": e["flags"],
+    }
+
+
 def assemble(districts, plan, events):
-    today = dt.date.today().isoformat()
+    """Planned UP GY yatras are the core; CRM events attach to them by district + date."""
+    today = ist_today()
+    events = [e for e in events
+              if not ("state-mismatch" in e["flags"] and e["stateText"] not in (None, "Uttar Pradesh"))]
     for e in events:
         # Prefer the city; the CRM district field is sometimes wrong (e.g. a Bihar district).
         city, field = canon(e["city"]), canon(e.get("districtField"))
         e["district"] = city if city in districts else field if field in districts else city
         if field and field != e["district"] and "district-mismatch" not in e["flags"]:
             e["flags"].append("district-mismatch")
-    by_district_date = {(e["district"], e["date"]): e for e in events}
-    for p in plan:
-        match = None
-        for d in p["districts"]:
-            match = by_district_date.get((d, p["date"])) or match
-        p["crmEvent"] = match["name"] if match else None
-        if match:
-            match["planId"] = p["id"]
+
+    current = [e for e in events if (e["date"] or "") >= PROGRAMME_START]
+    history = [crm_record(e) for e in events if (e["date"] or "") < PROGRAMME_START]
+    used = set()
     yatras = []
-    for e in events:
-        if "state-mismatch" in e["flags"] and e["stateText"] not in (None, "Uttar Pradesh"):
-            continue  # tagged UP in one field only, held elsewhere (e.g. Kurukshetra)
-        yatras.append({
-            "id": e["name"], "source": "crm", "planId": e.get("planId"),
-            "date": e["date"], "type": e["type"], "districts": [e["district"]],
-            "city": e["city"], "partner": e["partner"], "model": e["model"],
-            "mode": e["mode"], "serviceLine": e["serviceLine"],
-            "registrations": e["registrations"], "attendance": e["attendance"],
-            "status": e["status"], "flags": e["flags"],
-            "period": "upgy" if (e["date"] or "") >= CIRCULAR_DATE else "pre",
-        })
     for p in plan:
-        if p["crmEvent"]:
-            continue
+        pdate = dt.date.fromisoformat(p["date"])
+        best = None
+        for e in current:
+            if e["name"] in used or e["district"] not in p["districts"] or not e["date"]:
+                continue
+            gap = abs((dt.date.fromisoformat(e["date"]) - pdate).days)
+            if gap <= MATCH_DAYS and (best is None or gap < best[0]):
+                best = (gap, e)
+        crm = None
+        if best:
+            used.add(best[1]["name"])
+            crm = crm_record(best[1])
+            crm["dayShift"] = (dt.date.fromisoformat(best[1]["date"]) - pdate).days
+        held_on = dt.date.fromisoformat(crm["date"]) if crm else pdate
         yatras.append({
-            "id": p["id"], "source": "plan", "planId": p["id"], "date": p["date"],
-            "type": "Yatra", "districts": p["districts"], "city": p["districts"][0],
-            "partner": None, "model": "direct", "mode": "In-Person",
-            "serviceLine": "Entry Level Certification", "registrations": 0,
-            "attendance": {}, "status": {}, "flags": [], "period": "upgy",
+            "id": p["id"], "phase": p["phase"], "no": p["no"], "date": p["date"], "day": p["day"],
+            "time": p["time"], "rath": p["rath"], "cluster": p["cluster"],
+            "districts": p["districts"], "visitType": p["visitType"],
+            "state": "completed" if held_on < today else "today" if held_on == today else "upcoming",
+            "crm": crm,
         })
-    for y in yatras:
-        d = y["date"] or ""
-        y["state"] = "completed" if d and d < today else "today" if d == today else "upcoming"
-        if y["source"] == "plan":
-            p = next(p for p in plan if p["id"] == y["planId"])
-            y.update(phase=p["phase"], rath=p["rath"], cluster=p["cluster"], time=p["time"])
-        elif y["planId"]:
-            p = next(p for p in plan if p["id"] == y["planId"])
-            y.update(phase=p["phase"], rath=p["rath"], cluster=p["cluster"], time=p["time"])
-        else:
-            y.update(phase=None, rath=None, cluster=None, time=None)
-    yatras.sort(key=lambda y: (y["date"] or "9999", y["id"]))
-    unknown = sorted({d for y in yatras for d in y["districts"] if d not in districts})
-    return yatras, unknown
+    unplanned = [crm_record(e) for e in current if e["name"] not in used]
+    history.sort(key=lambda e: e["date"] or "")
+    names = {d for y in yatras for d in y["districts"]} | {e["district"] for e in history + unplanned}
+    unknown = sorted(d for d in names if d not in districts)
+    return yatras, history, unplanned, unknown
 
 
 def write_index(payload):
@@ -338,24 +344,28 @@ def main():
         os.makedirs(os.path.dirname(CACHE), exist_ok=True)
         with open(CACHE, "w") as f:
             json.dump(events, f)
-    yatras, unknown = assemble(districts, plan, events)
+    yatras, history, unplanned, unknown = assemble(districts, plan, events)
     with open(GEOJSON) as f:
         geo = json.load(f)
     for feat in geo["features"]:
         feat["properties"] = {"name": canon(feat["properties"]["dtname"])}
     missing = sorted(set(districts) - {f["properties"]["name"] for f in geo["features"]})
     payload = {
-        "generatedAt": dt.datetime.now(dt.timezone(dt.timedelta(hours=5, minutes=30))).isoformat(timespec="minutes"),
+        "generatedAt": dt.datetime.now(IST).isoformat(timespec="minutes"),
+        "today": ist_today().isoformat(),
         "crmLive": bool(events),
+        "programmeStart": PROGRAMME_START,
         "circularDate": CIRCULAR_DATE,
         "districts": list(districts.values()),
-        "plan": plan,
         "yatras": yatras,
+        "history": history,
+        "unplanned": unplanned,
         "geo": geo,
         "notes": {"unmatchedDistricts": unknown, "missingFromMap": missing},
     }
     write_index(payload)
-    print(f"Wrote {len(yatras)} yatras, {len(districts)} districts; "
+    print(f"Wrote {len(yatras)} planned yatras ({sum(1 for y in yatras if y['crm'])} with CRM data), "
+          f"{len(history)} past events, {len(unplanned)} unplanned; "
           f"{budget.total} CRM calls. Unmatched: {unknown}. Missing from map: {missing}",
           file=sys.stderr)
 

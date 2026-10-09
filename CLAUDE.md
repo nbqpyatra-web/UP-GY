@@ -299,10 +299,14 @@ denominator is canonical is open gating decision #1 above.
   (format `NABH_<CITY>_<DDMMYY>_Y`). Exclude the undated catch-all `NABH_ADDITIONAL_Y`.
 
 ## 15. Monitoring portal (`portal/`)
-- `portal/index.html` is a single-file portal (overview, yatras, districts, lead funnel,
-  readiness, reports, data checks), modelled on the reference "Gunvatta Yatra – UP"
-  dashboard screenshot. Data is embedded by `portal/build_data.py` (planner + live
-  Freshworks + district GeoJSON). See `portal/README.md` for rules and refresh commands.
-- Reports (delivery-approach comparison) is QCI-internal; the "District CMO" view hides it.
-- Readiness fields (CMO letter, hospital list, SPOC, venue) have no system of record yet
-  (gating decision #4) and show as "Not tracked".
+- `portal/index.html` is a single-file portal modelled on the reference "Gunvatta Yatra –
+  UP" dashboard screenshot. Published at https://claude.ai/artifact/Kk1fGwwPWRPzoBFVBdkEyd.
+  Data is embedded by `portal/build_data.py` (planner + live Freshworks + district GeoJSON).
+  See `portal/README.md` for rules and refresh commands.
+- Scope (decided 09 Oct 2026 by Rachit): the main pages show ONLY the 63 UP GY yatras
+  from 09 Oct 2026. Older yatras and the (VF) baseline appear only on the separate
+  "Past yatras" tab. CRM events link to planned yatras by district + date (±3 days).
+- Readiness is a shared, editable tracker (artifact `db` capability, collection
+  `readiness`, one doc per yatra id such as `P1-01`): CMO letter, hospital list, SPOC,
+  venue, SPOC name, venue name, notes, updatedBy, updatedAt.
+- Delivery-approach comparison is QCI-internal; the "District CMO" view hides it.
