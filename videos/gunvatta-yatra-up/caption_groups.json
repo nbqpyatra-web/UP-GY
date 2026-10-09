@@ -1,0 +1,2149 @@
+{
+  "total_duration_s": 149.47,
+  "width": 1920,
+  "height": 1080,
+  "groups": [
+    {
+      "id": "caption-group-0",
+      "frame": 1,
+      "start": 0.1,
+      "end": 1.114,
+      "text": "जब कोई अपने",
+      "words": [
+        {
+          "id": "caption-word-0-0",
+          "text": "जब",
+          "start": 0.1,
+          "end": 0.454
+        },
+        {
+          "id": "caption-word-0-1",
+          "text": "कोई",
+          "start": 0.466,
+          "end": 0.772
+        },
+        {
+          "id": "caption-word-0-2",
+          "text": "अपने",
+          "start": 0.784,
+          "end": 1.102
+        }
+      ]
+    },
+    {
+      "id": "caption-group-1",
+      "frame": 1,
+      "start": 1.114,
+      "end": 2.317,
+      "text": "परिवार को hospital",
+      "words": [
+        {
+          "id": "caption-word-1-0",
+          "text": "परिवार",
+          "start": 1.114,
+          "end": 1.574
+        },
+        {
+          "id": "caption-word-1-1",
+          "text": "को",
+          "start": 1.586,
+          "end": 1.739
+        },
+        {
+          "id": "caption-word-1-2",
+          "text": "hospital",
+          "start": 1.751,
+          "end": 2.305
+        }
+      ]
+    },
+    {
+      "id": "caption-group-2",
+      "frame": 1,
+      "start": 2.317,
+      "end": 3.38,
+      "text": "लेकर जाता है",
+      "words": [
+        {
+          "id": "caption-word-2-0",
+          "text": "लेकर",
+          "start": 2.317,
+          "end": 2.659
+        },
+        {
+          "id": "caption-word-2-1",
+          "text": "जाता",
+          "start": 2.671,
+          "end": 2.989
+        },
+        {
+          "id": "caption-word-2-2",
+          "text": "है",
+          "start": 3.001,
+          "end": 3.26
+        }
+      ]
+    },
+    {
+      "id": "caption-group-3",
+      "frame": 1,
+      "start": 4.071,
+      "end": 5.109,
+      "text": "तो उसे सबसे",
+      "words": [
+        {
+          "id": "caption-word-3-0",
+          "text": "तो",
+          "start": 4.071,
+          "end": 4.319
+        },
+        {
+          "id": "caption-word-3-1",
+          "text": "उसे",
+          "start": 4.331,
+          "end": 4.625
+        },
+        {
+          "id": "caption-word-3-2",
+          "text": "सबसे",
+          "start": 4.637,
+          "end": 5.097
+        }
+      ]
+    },
+    {
+      "id": "caption-group-4",
+      "frame": 1,
+      "start": 5.109,
+      "end": 6.408,
+      "text": "पहले क्या चाहिए",
+      "words": [
+        {
+          "id": "caption-word-4-0",
+          "text": "पहले",
+          "start": 5.109,
+          "end": 5.475
+        },
+        {
+          "id": "caption-word-4-1",
+          "text": "क्या",
+          "start": 5.486,
+          "end": 5.746
+        },
+        {
+          "id": "caption-word-4-2",
+          "text": "चाहिए",
+          "start": 5.758,
+          "end": 6.288
+        }
+      ]
+    },
+    {
+      "id": "caption-group-5",
+      "frame": 1,
+      "start": 7.102,
+      "end": 7.988,
+      "text": "भरोसा",
+      "words": [
+        {
+          "id": "caption-word-5-0",
+          "text": "भरोसा",
+          "start": 7.102,
+          "end": 7.868
+        }
+      ]
+    },
+    {
+      "id": "caption-group-6",
+      "frame": 1,
+      "start": 8.682,
+      "end": 11.041,
+      "text": "ऐसा इलाज जिसकी quality",
+      "words": [
+        {
+          "id": "caption-word-6-0",
+          "text": "ऐसा",
+          "start": 8.682,
+          "end": 9.166
+        },
+        {
+          "id": "caption-word-6-1",
+          "text": "इलाज",
+          "start": 9.177,
+          "end": 9.85
+        },
+        {
+          "id": "caption-word-6-2",
+          "text": "जिसकी",
+          "start": 10.026,
+          "end": 10.51
+        },
+        {
+          "id": "caption-word-6-3",
+          "text": "quality",
+          "start": 10.522,
+          "end": 11.029
+        }
+      ]
+    },
+    {
+      "id": "caption-group-7",
+      "frame": 1,
+      "start": 11.041,
+      "end": 12.222,
+      "text": "पर भरोसा हो",
+      "words": [
+        {
+          "id": "caption-word-7-0",
+          "text": "पर",
+          "start": 11.041,
+          "end": 11.229
+        },
+        {
+          "id": "caption-word-7-1",
+          "text": "भरोसा",
+          "start": 11.241,
+          "end": 11.666
+        },
+        {
+          "id": "caption-word-7-2",
+          "text": "हो",
+          "start": 11.677,
+          "end": 12.102
+        }
+      ]
+    },
+    {
+      "id": "caption-group-8",
+      "frame": 2,
+      "start": 13.94,
+      "end": 16.605,
+      "text": "आयुष्मान भारत प्रधानमंत्री जन",
+      "words": [
+        {
+          "id": "caption-word-8-0",
+          "text": "आयुष्मान",
+          "start": 13.94,
+          "end": 14.636
+        },
+        {
+          "id": "caption-word-8-1",
+          "text": "भारत",
+          "start": 14.648,
+          "end": 15.237
+        },
+        {
+          "id": "caption-word-8-2",
+          "text": "प्रधानमंत्री",
+          "start": 15.39,
+          "end": 16.298
+        },
+        {
+          "id": "caption-word-8-3",
+          "text": "जन",
+          "start": 16.31,
+          "end": 16.593
+        }
+      ]
+    },
+    {
+      "id": "caption-group-9",
+      "frame": 2,
+      "start": 16.605,
+      "end": 18.091,
+      "text": "आरोग्य योजना का मूल",
+      "words": [
+        {
+          "id": "caption-word-9-0",
+          "text": "आरोग्य",
+          "start": 16.605,
+          "end": 17.089
+        },
+        {
+          "id": "caption-word-9-1",
+          "text": "योजना",
+          "start": 17.1,
+          "end": 17.619
+        },
+        {
+          "id": "caption-word-9-2",
+          "text": "का",
+          "start": 17.631,
+          "end": 17.773
+        },
+        {
+          "id": "caption-word-9-3",
+          "text": "मूल",
+          "start": 17.784,
+          "end": 18.079
+        }
+      ]
+    },
+    {
+      "id": "caption-group-10",
+      "frame": 2,
+      "start": 18.091,
+      "end": 19.025,
+      "text": "उद्देश्य है",
+      "words": [
+        {
+          "id": "caption-word-10-0",
+          "text": "उद्देश्य",
+          "start": 18.091,
+          "end": 18.61
+        },
+        {
+          "id": "caption-word-10-1",
+          "text": "है",
+          "start": 18.622,
+          "end": 18.905
+        }
+      ]
+    },
+    {
+      "id": "caption-group-11",
+      "frame": 2,
+      "start": 19.188,
+      "end": 20.332,
+      "text": "हर लाभार्थी को",
+      "words": [
+        {
+          "id": "caption-word-11-0",
+          "text": "हर",
+          "start": 19.188,
+          "end": 19.471
+        },
+        {
+          "id": "caption-word-11-1",
+          "text": "लाभार्थी",
+          "start": 19.482,
+          "end": 20.143
+        },
+        {
+          "id": "caption-word-11-2",
+          "text": "को",
+          "start": 20.155,
+          "end": 20.32
+        }
+      ]
+    },
+    {
+      "id": "caption-group-12",
+      "frame": 2,
+      "start": 20.332,
+      "end": 21.688,
+      "text": "quality और standard",
+      "words": [
+        {
+          "id": "caption-word-12-0",
+          "text": "quality",
+          "start": 20.332,
+          "end": 20.909
+        },
+        {
+          "id": "caption-word-12-1",
+          "text": "और",
+          "start": 20.921,
+          "end": 21.169
+        },
+        {
+          "id": "caption-word-12-2",
+          "text": "standard",
+          "start": 21.181,
+          "end": 21.676
+        }
+      ]
+    },
+    {
+      "id": "caption-group-13",
+      "frame": 2,
+      "start": 21.688,
+      "end": 22.421,
+      "text": "healthcare",
+      "words": [
+        {
+          "id": "caption-word-13-0",
+          "text": "healthcare",
+          "start": 21.688,
+          "end": 22.301
+        }
+      ]
+    },
+    {
+      "id": "caption-group-14",
+      "frame": 3,
+      "start": 24.13,
+      "end": 25.698,
+      "text": "लेकिन inspection में पाया",
+      "words": [
+        {
+          "id": "caption-word-14-0",
+          "text": "लेकिन",
+          "start": 24.13,
+          "end": 24.59
+        },
+        {
+          "id": "caption-word-14-1",
+          "text": "inspection",
+          "start": 24.602,
+          "end": 25.203
+        },
+        {
+          "id": "caption-word-14-2",
+          "text": "में",
+          "start": 25.215,
+          "end": 25.309
+        },
+        {
+          "id": "caption-word-14-3",
+          "text": "पाया",
+          "start": 25.321,
+          "end": 25.687
+        }
+      ]
+    },
+    {
+      "id": "caption-group-15",
+      "frame": 3,
+      "start": 25.698,
+      "end": 26.149,
+      "text": "गया",
+      "words": [
+        {
+          "id": "caption-word-15-0",
+          "text": "गया",
+          "start": 25.698,
+          "end": 26.029
+        }
+      ]
+    },
+    {
+      "id": "caption-group-16",
+      "frame": 3,
+      "start": 26.229,
+      "end": 27.385,
+      "text": "कि कुछ hospitals",
+      "words": [
+        {
+          "id": "caption-word-16-0",
+          "text": "कि",
+          "start": 26.229,
+          "end": 26.453
+        },
+        {
+          "id": "caption-word-16-1",
+          "text": "कुछ",
+          "start": 26.465,
+          "end": 26.677
+        },
+        {
+          "id": "caption-word-16-2",
+          "text": "hospitals",
+          "start": 26.689,
+          "end": 27.373
+        }
+      ]
+    },
+    {
+      "id": "caption-group-17",
+      "frame": 3,
+      "start": 27.385,
+      "end": 27.845,
+      "text": "अभी भी",
+      "words": [
+        {
+          "id": "caption-word-17-0",
+          "text": "अभी",
+          "start": 27.385,
+          "end": 27.668
+        },
+        {
+          "id": "caption-word-17-1",
+          "text": "भी",
+          "start": 27.68,
+          "end": 27.833
+        }
+      ]
+    },
+    {
+      "id": "caption-group-18",
+      "frame": 3,
+      "start": 27.845,
+      "end": 29.189,
+      "text": "minimum standards पूरे",
+      "words": [
+        {
+          "id": "caption-word-18-0",
+          "text": "minimum",
+          "start": 27.845,
+          "end": 28.234
+        },
+        {
+          "id": "caption-word-18-1",
+          "text": "standards",
+          "start": 28.246,
+          "end": 28.823
+        },
+        {
+          "id": "caption-word-18-2",
+          "text": "पूरे",
+          "start": 28.835,
+          "end": 29.177
+        }
+      ]
+    },
+    {
+      "id": "caption-group-19",
+      "frame": 3,
+      "start": 29.189,
+      "end": 30.123,
+      "text": "नहीं कर रहे",
+      "words": [
+        {
+          "id": "caption-word-19-0",
+          "text": "नहीं",
+          "start": 29.189,
+          "end": 29.484
+        },
+        {
+          "id": "caption-word-19-1",
+          "text": "कर",
+          "start": 29.496,
+          "end": 29.602
+        },
+        {
+          "id": "caption-word-19-2",
+          "text": "रहे",
+          "start": 29.613,
+          "end": 30.003
+        }
+      ]
+    },
+    {
+      "id": "caption-group-20",
+      "frame": 4,
+      "start": 31.82,
+      "end": 33.483,
+      "text": "इसीलिए SACHIS ने तय",
+      "words": [
+        {
+          "id": "caption-word-20-0",
+          "text": "इसीलिए",
+          "start": 31.82,
+          "end": 32.445
+        },
+        {
+          "id": "caption-word-20-1",
+          "text": "SACHIS",
+          "start": 32.457,
+          "end": 33.011
+        },
+        {
+          "id": "caption-word-20-2",
+          "text": "ने",
+          "start": 33.023,
+          "end": 33.188
+        },
+        {
+          "id": "caption-word-20-3",
+          "text": "तय",
+          "start": 33.2,
+          "end": 33.471
+        }
+      ]
+    },
+    {
+      "id": "caption-group-21",
+      "frame": 4,
+      "start": 33.483,
+      "end": 33.968,
+      "text": "किया",
+      "words": [
+        {
+          "id": "caption-word-21-0",
+          "text": "किया",
+          "start": 33.483,
+          "end": 33.848
+        }
+      ]
+    },
+    {
+      "id": "caption-group-22",
+      "frame": 4,
+      "start": 34.096,
+      "end": 35.216,
+      "text": "योजना से जुड़े",
+      "words": [
+        {
+          "id": "caption-word-22-0",
+          "text": "योजना",
+          "start": 34.096,
+          "end": 34.65
+        },
+        {
+          "id": "caption-word-22-1",
+          "text": "से",
+          "start": 34.662,
+          "end": 34.874
+        },
+        {
+          "id": "caption-word-22-2",
+          "text": "जुड़े",
+          "start": 34.886,
+          "end": 35.204
+        }
+      ]
+    },
+    {
+      "id": "caption-group-23",
+      "frame": 4,
+      "start": 35.216,
+      "end": 36.785,
+      "text": "सभी private hospitals",
+      "words": [
+        {
+          "id": "caption-word-23-0",
+          "text": "सभी",
+          "start": 35.216,
+          "end": 35.594
+        },
+        {
+          "id": "caption-word-23-1",
+          "text": "private",
+          "start": 35.605,
+          "end": 36.089
+        },
+        {
+          "id": "caption-word-23-2",
+          "text": "hospitals",
+          "start": 36.101,
+          "end": 36.773
+        }
+      ]
+    },
+    {
+      "id": "caption-group-24",
+      "frame": 4,
+      "start": 36.785,
+      "end": 37.4,
+      "text": "के लिए",
+      "words": [
+        {
+          "id": "caption-word-24-0",
+          "text": "के",
+          "start": 36.785,
+          "end": 36.903
+        },
+        {
+          "id": "caption-word-24-1",
+          "text": "लिए",
+          "start": 36.914,
+          "end": 37.28
+        }
+      ]
+    },
+    {
+      "id": "caption-group-25",
+      "frame": 4,
+      "start": 37.528,
+      "end": 39.605,
+      "text": "NABH certification अनिवार्य",
+      "words": [
+        {
+          "id": "caption-word-25-0",
+          "text": "NABH",
+          "start": 37.528,
+          "end": 37.928
+        },
+        {
+          "id": "caption-word-25-1",
+          "text": "certification",
+          "start": 37.94,
+          "end": 38.801
+        },
+        {
+          "id": "caption-word-25-2",
+          "text": "अनिवार्य",
+          "start": 38.813,
+          "end": 39.485
+        }
+      ]
+    },
+    {
+      "id": "caption-group-26",
+      "frame": 4,
+      "start": 40.296,
+      "end": 41.593,
+      "text": "Quality अब सीधे",
+      "words": [
+        {
+          "id": "caption-word-26-0",
+          "text": "Quality",
+          "start": 40.296,
+          "end": 40.921
+        },
+        {
+          "id": "caption-word-26-1",
+          "text": "अब",
+          "start": 40.933,
+          "end": 41.098
+        },
+        {
+          "id": "caption-word-26-2",
+          "text": "सीधे",
+          "start": 41.11,
+          "end": 41.581
+        }
+      ]
+    },
+    {
+      "id": "caption-group-27",
+      "frame": 4,
+      "start": 41.593,
+      "end": 42.749,
+      "text": "incentive से जुड़ी",
+      "words": [
+        {
+          "id": "caption-word-27-0",
+          "text": "incentive",
+          "start": 41.593,
+          "end": 42.171
+        },
+        {
+          "id": "caption-word-27-1",
+          "text": "से",
+          "start": 42.183,
+          "end": 42.383
+        },
+        {
+          "id": "caption-word-27-2",
+          "text": "जुड़ी",
+          "start": 42.395,
+          "end": 42.737
+        }
+      ]
+    },
+    {
+      "id": "caption-group-28",
+      "frame": 4,
+      "start": 42.749,
+      "end": 43.081,
+      "text": "है",
+      "words": [
+        {
+          "id": "caption-word-28-0",
+          "text": "है",
+          "start": 42.749,
+          "end": 42.961
+        }
+      ]
+    },
+    {
+      "id": "caption-group-29",
+      "frame": 4,
+      "start": 43.786,
+      "end": 45.084,
+      "text": "और लक्ष्य दो",
+      "words": [
+        {
+          "id": "caption-word-29-0",
+          "text": "और",
+          "start": 43.786,
+          "end": 44.058
+        },
+        {
+          "id": "caption-word-29-1",
+          "text": "लक्ष्य",
+          "start": 44.07,
+          "end": 44.6
+        },
+        {
+          "id": "caption-word-29-2",
+          "text": "दो",
+          "start": 44.777,
+          "end": 45.072
+        }
+      ]
+    },
+    {
+      "id": "caption-group-30",
+      "frame": 4,
+      "start": 45.084,
+      "end": 46.218,
+      "text": "महीने के अंदर",
+      "words": [
+        {
+          "id": "caption-word-30-0",
+          "text": "महीने",
+          "start": 45.084,
+          "end": 45.414
+        },
+        {
+          "id": "caption-word-30-1",
+          "text": "के",
+          "start": 45.426,
+          "end": 45.579
+        },
+        {
+          "id": "caption-word-30-2",
+          "text": "अंदर",
+          "start": 45.591,
+          "end": 46.098
+        }
+      ]
+    },
+    {
+      "id": "caption-group-31",
+      "frame": 5,
+      "start": 47.94,
+      "end": 48.956,
+      "text": "इसका मतलब",
+      "words": [
+        {
+          "id": "caption-word-31-0",
+          "text": "इसका",
+          "start": 47.94,
+          "end": 48.329
+        },
+        {
+          "id": "caption-word-31-1",
+          "text": "मतलब",
+          "start": 48.341,
+          "end": 48.836
+        }
+      ]
+    },
+    {
+      "id": "caption-group-32",
+      "frame": 5,
+      "start": 49.647,
+      "end": 51.569,
+      "text": "एक स्वास्थ्य सेवाओं की",
+      "words": [
+        {
+          "id": "caption-word-32-0",
+          "text": "एक",
+          "start": 49.647,
+          "end": 50.131
+        },
+        {
+          "id": "caption-word-32-1",
+          "text": "स्वास्थ्य",
+          "start": 50.296,
+          "end": 50.921
+        },
+        {
+          "id": "caption-word-32-2",
+          "text": "सेवाओं",
+          "start": 50.932,
+          "end": 51.416
+        },
+        {
+          "id": "caption-word-32-3",
+          "text": "की",
+          "start": 51.428,
+          "end": 51.557
+        }
+      ]
+    },
+    {
+      "id": "caption-group-33",
+      "frame": 5,
+      "start": 51.569,
+      "end": 52.88,
+      "text": "quality में सुधार",
+      "words": [
+        {
+          "id": "caption-word-33-0",
+          "text": "quality",
+          "start": 51.569,
+          "end": 52.041
+        },
+        {
+          "id": "caption-word-33-1",
+          "text": "में",
+          "start": 52.053,
+          "end": 52.194
+        },
+        {
+          "id": "caption-word-33-2",
+          "text": "सुधार",
+          "start": 52.206,
+          "end": 52.76
+        }
+      ]
+    },
+    {
+      "id": "caption-group-34",
+      "frame": 5,
+      "start": 53.586,
+      "end": 54.201,
+      "text": "दो",
+      "words": [
+        {
+          "id": "caption-word-34-0",
+          "text": "दो",
+          "start": 53.586,
+          "end": 54.081
+        }
+      ]
+    },
+    {
+      "id": "caption-group-35",
+      "frame": 5,
+      "start": 54.281,
+      "end": 55.781,
+      "text": "मरीज़ों का इलाज",
+      "words": [
+        {
+          "id": "caption-word-35-0",
+          "text": "मरीज़ों",
+          "start": 54.281,
+          "end": 54.8
+        },
+        {
+          "id": "caption-word-35-1",
+          "text": "का",
+          "start": 54.812,
+          "end": 54.977
+        },
+        {
+          "id": "caption-word-35-2",
+          "text": "इलाज",
+          "start": 54.989,
+          "end": 55.661
+        }
+      ]
+    },
+    {
+      "id": "caption-group-36",
+      "frame": 5,
+      "start": 55.85,
+      "end": 56.876,
+      "text": "तय standards के",
+      "words": [
+        {
+          "id": "caption-word-36-0",
+          "text": "तय",
+          "start": 55.85,
+          "end": 56.098
+        },
+        {
+          "id": "caption-word-36-1",
+          "text": "standards",
+          "start": 56.109,
+          "end": 56.687
+        },
+        {
+          "id": "caption-word-36-2",
+          "text": "के",
+          "start": 56.699,
+          "end": 56.864
+        }
+      ]
+    },
+    {
+      "id": "caption-group-37",
+      "frame": 5,
+      "start": 56.876,
+      "end": 57.656,
+      "text": "अनुसार",
+      "words": [
+        {
+          "id": "caption-word-37-0",
+          "text": "अनुसार",
+          "start": 56.876,
+          "end": 57.536
+        }
+      ]
+    },
+    {
+      "id": "caption-group-38",
+      "frame": 5,
+      "start": 58.338,
+      "end": 60.531,
+      "text": "तीन लाभार्थियों को बेहतर",
+      "words": [
+        {
+          "id": "caption-word-38-0",
+          "text": "तीन",
+          "start": 58.338,
+          "end": 58.94
+        },
+        {
+          "id": "caption-word-38-1",
+          "text": "लाभार्थियों",
+          "start": 59.069,
+          "end": 59.954
+        },
+        {
+          "id": "caption-word-38-2",
+          "text": "को",
+          "start": 59.965,
+          "end": 60.095
+        },
+        {
+          "id": "caption-word-38-3",
+          "text": "बेहतर",
+          "start": 60.107,
+          "end": 60.52
+        }
+      ]
+    },
+    {
+      "id": "caption-group-39",
+      "frame": 5,
+      "start": 60.531,
+      "end": 62.373,
+      "text": "और पारदर्शी सेवाएं",
+      "words": [
+        {
+          "id": "caption-word-39-0",
+          "text": "और",
+          "start": 60.531,
+          "end": 60.767
+        },
+        {
+          "id": "caption-word-39-1",
+          "text": "पारदर्शी",
+          "start": 60.779,
+          "end": 61.392
+        },
+        {
+          "id": "caption-word-39-2",
+          "text": "सेवाएं",
+          "start": 61.404,
+          "end": 62.253
+        }
+      ]
+    },
+    {
+      "id": "caption-group-40",
+      "frame": 6,
+      "start": 64.08,
+      "end": 65.165,
+      "text": "और इस बदलाव",
+      "words": [
+        {
+          "id": "caption-word-40-0",
+          "text": "और",
+          "start": 64.08,
+          "end": 64.41
+        },
+        {
+          "id": "caption-word-40-1",
+          "text": "इस",
+          "start": 64.422,
+          "end": 64.622
+        },
+        {
+          "id": "caption-word-40-2",
+          "text": "बदलाव",
+          "start": 64.634,
+          "end": 65.153
+        }
+      ]
+    },
+    {
+      "id": "caption-group-41",
+      "frame": 6,
+      "start": 65.165,
+      "end": 66.226,
+      "text": "को हर hospital",
+      "words": [
+        {
+          "id": "caption-word-41-0",
+          "text": "को",
+          "start": 65.165,
+          "end": 65.33
+        },
+        {
+          "id": "caption-word-41-1",
+          "text": "हर",
+          "start": 65.342,
+          "end": 65.566
+        },
+        {
+          "id": "caption-word-41-2",
+          "text": "hospital",
+          "start": 65.578,
+          "end": 66.214
+        }
+      ]
+    },
+    {
+      "id": "caption-group-42",
+      "frame": 6,
+      "start": 66.226,
+      "end": 67.311,
+      "text": "तक पहुँचाने निकली",
+      "words": [
+        {
+          "id": "caption-word-42-0",
+          "text": "तक",
+          "start": 66.226,
+          "end": 66.415
+        },
+        {
+          "id": "caption-word-42-1",
+          "text": "पहुँचाने",
+          "start": 66.427,
+          "end": 66.91
+        },
+        {
+          "id": "caption-word-42-2",
+          "text": "निकली",
+          "start": 66.922,
+          "end": 67.299
+        }
+      ]
+    },
+    {
+      "id": "caption-group-43",
+      "frame": 6,
+      "start": 67.311,
+      "end": 67.632,
+      "text": "है",
+      "words": [
+        {
+          "id": "caption-word-43-0",
+          "text": "है",
+          "start": 67.311,
+          "end": 67.512
+        }
+      ]
+    },
+    {
+      "id": "caption-group-44",
+      "frame": 6,
+      "start": 67.736,
+      "end": 69.106,
+      "text": "गुणवत्ता यात्रा",
+      "words": [
+        {
+          "id": "caption-word-44-0",
+          "text": "गुणवत्ता",
+          "start": 67.736,
+          "end": 68.349
+        },
+        {
+          "id": "caption-word-44-1",
+          "text": "यात्रा",
+          "start": 68.361,
+          "end": 68.986
+        }
+      ]
+    },
+    {
+      "id": "caption-group-45",
+      "frame": 6,
+      "start": 69.796,
+      "end": 71.4,
+      "text": "Quality Council of India",
+      "words": [
+        {
+          "id": "caption-word-45-0",
+          "text": "Quality",
+          "start": 69.796,
+          "end": 70.327
+        },
+        {
+          "id": "caption-word-45-1",
+          "text": "Council",
+          "start": 70.339,
+          "end": 70.822
+        },
+        {
+          "id": "caption-word-45-2",
+          "text": "of",
+          "start": 70.834,
+          "end": 71.023
+        },
+        {
+          "id": "caption-word-45-3",
+          "text": "India",
+          "start": 71.035,
+          "end": 71.388
+        }
+      ]
+    },
+    {
+      "id": "caption-group-46",
+      "frame": 6,
+      "start": 71.4,
+      "end": 72.228,
+      "text": "की पहल",
+      "words": [
+        {
+          "id": "caption-word-46-0",
+          "text": "की",
+          "start": 71.4,
+          "end": 71.589
+        },
+        {
+          "id": "caption-word-46-1",
+          "text": "पहल",
+          "start": 71.601,
+          "end": 72.108
+        }
+      ]
+    },
+    {
+      "id": "caption-group-47",
+      "frame": 6,
+      "start": 72.921,
+      "end": 74.36,
+      "text": "दो रथ तिरसठ",
+      "words": [
+        {
+          "id": "caption-word-47-0",
+          "text": "दो",
+          "start": 72.921,
+          "end": 73.264
+        },
+        {
+          "id": "caption-word-47-1",
+          "text": "रथ",
+          "start": 73.275,
+          "end": 73.7
+        },
+        {
+          "id": "caption-word-47-2",
+          "text": "तिरसठ",
+          "start": 73.853,
+          "end": 74.348
+        }
+      ]
+    },
+    {
+      "id": "caption-group-48",
+      "frame": 6,
+      "start": 74.36,
+      "end": 75.235,
+      "text": "यात्राएं",
+      "words": [
+        {
+          "id": "caption-word-48-0",
+          "text": "यात्राएं",
+          "start": 74.36,
+          "end": 75.115
+        }
+      ]
+    },
+    {
+      "id": "caption-group-49",
+      "frame": 6,
+      "start": 75.315,
+      "end": 76.532,
+      "text": "पचहत्तर ज़िले",
+      "words": [
+        {
+          "id": "caption-word-49-0",
+          "text": "पचहत्तर",
+          "start": 75.315,
+          "end": 75.999
+        },
+        {
+          "id": "caption-word-49-1",
+          "text": "ज़िले",
+          "start": 76.011,
+          "end": 76.412
+        }
+      ]
+    },
+    {
+      "id": "caption-group-50",
+      "frame": 6,
+      "start": 76.624,
+      "end": 77.827,
+      "text": "NABH Entry Level",
+      "words": [
+        {
+          "id": "caption-word-50-0",
+          "text": "NABH",
+          "start": 76.624,
+          "end": 77.096
+        },
+        {
+          "id": "caption-word-50-1",
+          "text": "Entry",
+          "start": 77.108,
+          "end": 77.473
+        },
+        {
+          "id": "caption-word-50-2",
+          "text": "Level",
+          "start": 77.485,
+          "end": 77.815
+        }
+      ]
+    },
+    {
+      "id": "caption-group-51",
+      "frame": 6,
+      "start": 77.827,
+      "end": 80.657,
+      "text": "Certification workshops सीधे आपके",
+      "words": [
+        {
+          "id": "caption-word-51-0",
+          "text": "Certification",
+          "start": 77.827,
+          "end": 78.653
+        },
+        {
+          "id": "caption-word-51-1",
+          "text": "workshops",
+          "start": 78.664,
+          "end": 79.525
+        },
+        {
+          "id": "caption-word-51-2",
+          "text": "सीधे",
+          "start": 79.643,
+          "end": 80.245
+        },
+        {
+          "id": "caption-word-51-3",
+          "text": "आपके",
+          "start": 80.256,
+          "end": 80.646
+        }
+      ]
+    },
+    {
+      "id": "caption-group-52",
+      "frame": 6,
+      "start": 80.657,
+      "end": 81.343,
+      "text": "ज़िले में",
+      "words": [
+        {
+          "id": "caption-word-52-0",
+          "text": "ज़िले",
+          "start": 80.657,
+          "end": 80.917
+        },
+        {
+          "id": "caption-word-52-1",
+          "text": "में",
+          "start": 80.929,
+          "end": 81.223
+        }
+      ]
+    },
+    {
+      "id": "caption-group-53",
+      "frame": 7,
+      "start": 83.05,
+      "end": 85.104,
+      "text": "शुरुआत गोरखपुर से",
+      "words": [
+        {
+          "id": "caption-word-53-0",
+          "text": "शुरुआत",
+          "start": 83.05,
+          "end": 83.911
+        },
+        {
+          "id": "caption-word-53-1",
+          "text": "गोरखपुर",
+          "start": 84.041,
+          "end": 84.642
+        },
+        {
+          "id": "caption-word-53-2",
+          "text": "से",
+          "start": 84.654,
+          "end": 84.984
+        }
+      ]
+    },
+    {
+      "id": "caption-group-54",
+      "frame": 7,
+      "start": 85.795,
+      "end": 87.163,
+      "text": "नौ अक्टूबर को",
+      "words": [
+        {
+          "id": "caption-word-54-0",
+          "text": "नौ",
+          "start": 85.795,
+          "end": 86.196
+        },
+        {
+          "id": "caption-word-54-1",
+          "text": "अक्टूबर",
+          "start": 86.208,
+          "end": 86.703
+        },
+        {
+          "id": "caption-word-54-2",
+          "text": "को",
+          "start": 86.715,
+          "end": 87.057
+        }
+      ]
+    },
+    {
+      "id": "caption-group-55",
+      "frame": 7,
+      "start": 87.163,
+      "end": 88.45,
+      "text": "launch के साथ",
+      "words": [
+        {
+          "id": "caption-word-55-0",
+          "text": "launch",
+          "start": 87.163,
+          "end": 87.623
+        },
+        {
+          "id": "caption-word-55-1",
+          "text": "के",
+          "start": 87.634,
+          "end": 87.788
+        },
+        {
+          "id": "caption-word-55-2",
+          "text": "साथ",
+          "start": 87.8,
+          "end": 88.33
+        }
+      ]
+    },
+    {
+      "id": "caption-group-56",
+      "frame": 8,
+      "start": 90.14,
+      "end": 91.581,
+      "text": "चौदह अक्टूबर",
+      "words": [
+        {
+          "id": "caption-word-56-0",
+          "text": "चौदह",
+          "start": 90.14,
+          "end": 90.8
+        },
+        {
+          "id": "caption-word-56-1",
+          "text": "अक्टूबर",
+          "start": 90.812,
+          "end": 91.461
+        }
+      ]
+    },
+    {
+      "id": "caption-group-57",
+      "frame": 8,
+      "start": 91.661,
+      "end": 92.675,
+      "text": "Rath A पहुँचेगा",
+      "words": [
+        {
+          "id": "caption-word-57-0",
+          "text": "Rath",
+          "start": 91.661,
+          "end": 92.003
+        },
+        {
+          "id": "caption-word-57-1",
+          "text": "A",
+          "start": 92.015,
+          "end": 92.133
+        },
+        {
+          "id": "caption-word-57-2",
+          "text": "पहुँचेगा",
+          "start": 92.145,
+          "end": 92.664
+        }
+      ]
+    },
+    {
+      "id": "caption-group-58",
+      "frame": 8,
+      "start": 92.675,
+      "end": 93.902,
+      "text": "बरेली और Rath",
+      "words": [
+        {
+          "id": "caption-word-58-0",
+          "text": "बरेली",
+          "start": 92.675,
+          "end": 93.206
+        },
+        {
+          "id": "caption-word-58-1",
+          "text": "और",
+          "start": 93.383,
+          "end": 93.619
+        },
+        {
+          "id": "caption-word-58-2",
+          "text": "Rath",
+          "start": 93.631,
+          "end": 93.89
+        }
+      ]
+    },
+    {
+      "id": "caption-group-59",
+      "frame": 8,
+      "start": 93.902,
+      "end": 94.352,
+      "text": "B",
+      "words": [
+        {
+          "id": "caption-word-59-0",
+          "text": "B",
+          "start": 93.902,
+          "end": 94.232
+        }
+      ]
+    },
+    {
+      "id": "caption-group-60",
+      "frame": 8,
+      "start": 94.432,
+      "end": 95.307,
+      "text": "कुशीनगर",
+      "words": [
+        {
+          "id": "caption-word-60-0",
+          "text": "कुशीनगर",
+          "start": 94.432,
+          "end": 95.187
+        }
+      ]
+    },
+    {
+      "id": "caption-group-61",
+      "frame": 9,
+      "start": 97.02,
+      "end": 99.569,
+      "text": "सोलह अक्टूबर मुरादाबाद",
+      "words": [
+        {
+          "id": "caption-word-61-0",
+          "text": "सोलह",
+          "start": 97.02,
+          "end": 97.787
+        },
+        {
+          "id": "caption-word-61-1",
+          "text": "अक्टूबर",
+          "start": 97.798,
+          "end": 98.411
+        },
+        {
+          "id": "caption-word-61-2",
+          "text": "मुरादाबाद",
+          "start": 98.541,
+          "end": 99.449
+        }
+      ]
+    },
+    {
+      "id": "caption-group-62",
+      "frame": 9,
+      "start": 100.26,
+      "end": 101.701,
+      "text": "और महराजगंज",
+      "words": [
+        {
+          "id": "caption-word-62-0",
+          "text": "और",
+          "start": 100.26,
+          "end": 100.59
+        },
+        {
+          "id": "caption-word-62-1",
+          "text": "महराजगंज",
+          "start": 100.602,
+          "end": 101.581
+        }
+      ]
+    },
+    {
+      "id": "caption-group-63",
+      "frame": 10,
+      "start": 103.39,
+      "end": 105.302,
+      "text": "फिर बिजनौर बस्ती",
+      "words": [
+        {
+          "id": "caption-word-63-0",
+          "text": "फिर",
+          "start": 103.39,
+          "end": 103.756
+        },
+        {
+          "id": "caption-word-63-1",
+          "text": "बिजनौर",
+          "start": 103.767,
+          "end": 104.416
+        },
+        {
+          "id": "caption-word-63-2",
+          "text": "बस्ती",
+          "start": 104.546,
+          "end": 105.182
+        }
+      ]
+    },
+    {
+      "id": "caption-group-64",
+      "frame": 10,
+      "start": 105.383,
+      "end": 109.229,
+      "text": "सहारनपुर प्रयागराज कानपुर झाँसी",
+      "words": [
+        {
+          "id": "caption-word-64-0",
+          "text": "सहारनपुर",
+          "start": 105.383,
+          "end": 106.338
+        },
+        {
+          "id": "caption-word-64-1",
+          "text": "प्रयागराज",
+          "start": 106.491,
+          "end": 107.47
+        },
+        {
+          "id": "caption-word-64-2",
+          "text": "कानपुर",
+          "start": 107.635,
+          "end": 108.26
+        },
+        {
+          "id": "caption-word-64-3",
+          "text": "झाँसी",
+          "start": 108.414,
+          "end": 109.109
+        }
+      ]
+    },
+    {
+      "id": "caption-group-65",
+      "frame": 10,
+      "start": 109.92,
+      "end": 111.288,
+      "text": "जनवरी में मेरठ",
+      "words": [
+        {
+          "id": "caption-word-65-0",
+          "text": "जनवरी",
+          "start": 109.92,
+          "end": 110.522
+        },
+        {
+          "id": "caption-word-65-1",
+          "text": "में",
+          "start": 110.533,
+          "end": 110.651
+        },
+        {
+          "id": "caption-word-65-2",
+          "text": "मेरठ",
+          "start": 110.663,
+          "end": 111.182
+        }
+      ]
+    },
+    {
+      "id": "caption-group-66",
+      "frame": 10,
+      "start": 111.288,
+      "end": 111.986,
+      "text": "आगरा",
+      "words": [
+        {
+          "id": "caption-word-66-0",
+          "text": "आगरा",
+          "start": 111.288,
+          "end": 111.866
+        }
+      ]
+    },
+    {
+      "id": "caption-group-67",
+      "frame": 10,
+      "start": 112.055,
+      "end": 113.802,
+      "text": "वाराणसी लखनऊ",
+      "words": [
+        {
+          "id": "caption-word-67-0",
+          "text": "वाराणसी",
+          "start": 112.055,
+          "end": 112.892
+        },
+        {
+          "id": "caption-word-67-1",
+          "text": "लखनऊ",
+          "start": 112.998,
+          "end": 113.682
+        }
+      ]
+    },
+    {
+      "id": "caption-group-68",
+      "frame": 10,
+      "start": 114.496,
+      "end": 115.227,
+      "text": "और मार्च",
+      "words": [
+        {
+          "id": "caption-word-68-0",
+          "text": "और",
+          "start": 114.496,
+          "end": 114.79
+        },
+        {
+          "id": "caption-word-68-1",
+          "text": "मार्च",
+          "start": 114.802,
+          "end": 115.215
+        }
+      ]
+    },
+    {
+      "id": "caption-group-69",
+      "frame": 10,
+      "start": 115.227,
+      "end": 116.703,
+      "text": "में cluster यात्राएं",
+      "words": [
+        {
+          "id": "caption-word-69-0",
+          "text": "में",
+          "start": 115.227,
+          "end": 115.38
+        },
+        {
+          "id": "caption-word-69-1",
+          "text": "cluster",
+          "start": 115.392,
+          "end": 115.84
+        },
+        {
+          "id": "caption-word-69-2",
+          "text": "यात्राएं",
+          "start": 115.852,
+          "end": 116.583
+        }
+      ]
+    },
+    {
+      "id": "caption-group-70",
+      "frame": 10,
+      "start": 116.795,
+      "end": 118.151,
+      "text": "बुंदेलखंड से तराई",
+      "words": [
+        {
+          "id": "caption-word-70-0",
+          "text": "बुंदेलखंड",
+          "start": 116.795,
+          "end": 117.515
+        },
+        {
+          "id": "caption-word-70-1",
+          "text": "से",
+          "start": 117.526,
+          "end": 117.739
+        },
+        {
+          "id": "caption-word-70-2",
+          "text": "तराई",
+          "start": 117.75,
+          "end": 118.14
+        }
+      ]
+    },
+    {
+      "id": "caption-group-71",
+      "frame": 10,
+      "start": 118.151,
+      "end": 118.649,
+      "text": "तक",
+      "words": [
+        {
+          "id": "caption-word-71-0",
+          "text": "तक",
+          "start": 118.151,
+          "end": 118.529
+        }
+      ]
+    },
+    {
+      "id": "caption-group-72",
+      "frame": 11,
+      "start": 120.35,
+      "end": 121.26,
+      "text": "हर ज़िला",
+      "words": [
+        {
+          "id": "caption-word-72-0",
+          "text": "हर",
+          "start": 120.35,
+          "end": 120.68
+        },
+        {
+          "id": "caption-word-72-1",
+          "text": "ज़िला",
+          "start": 120.692,
+          "end": 121.14
+        }
+      ]
+    },
+    {
+      "id": "caption-group-73",
+      "frame": 11,
+      "start": 121.951,
+      "end": 122.92,
+      "text": "हर शहर",
+      "words": [
+        {
+          "id": "caption-word-73-0",
+          "text": "हर",
+          "start": 121.951,
+          "end": 122.269
+        },
+        {
+          "id": "caption-word-73-1",
+          "text": "शहर",
+          "start": 122.281,
+          "end": 122.8
+        }
+      ]
+    },
+    {
+      "id": "caption-group-74",
+      "frame": 11,
+      "start": 123.602,
+      "end": 124.736,
+      "text": "हर pincode",
+      "words": [
+        {
+          "id": "caption-word-74-0",
+          "text": "हर",
+          "start": 123.602,
+          "end": 123.932
+        },
+        {
+          "id": "caption-word-74-1",
+          "text": "pincode",
+          "start": 123.944,
+          "end": 124.616
+        }
+      ]
+    },
+    {
+      "id": "caption-group-75",
+      "frame": 11,
+      "start": 125.441,
+      "end": 127.047,
+      "text": "पूरे पचहत्तर ज़िले",
+      "words": [
+        {
+          "id": "caption-word-75-0",
+          "text": "पूरे",
+          "start": 125.441,
+          "end": 125.901
+        },
+        {
+          "id": "caption-word-75-1",
+          "text": "पचहत्तर",
+          "start": 125.913,
+          "end": 126.503
+        },
+        {
+          "id": "caption-word-75-2",
+          "text": "ज़िले",
+          "start": 126.515,
+          "end": 126.927
+        }
+      ]
+    },
+    {
+      "id": "caption-group-76",
+      "frame": 12,
+      "start": 128.74,
+      "end": 129.471,
+      "text": "अपने ज़िले",
+      "words": [
+        {
+          "id": "caption-word-76-0",
+          "text": "अपने",
+          "start": 128.74,
+          "end": 129.165
+        },
+        {
+          "id": "caption-word-76-1",
+          "text": "ज़िले",
+          "start": 129.176,
+          "end": 129.459
+        }
+      ]
+    },
+    {
+      "id": "caption-group-77",
+      "frame": 12,
+      "start": 129.471,
+      "end": 130.756,
+      "text": "में गुणवत्ता यात्रा",
+      "words": [
+        {
+          "id": "caption-word-77-0",
+          "text": "में",
+          "start": 129.471,
+          "end": 129.613
+        },
+        {
+          "id": "caption-word-77-1",
+          "text": "गुणवत्ता",
+          "start": 129.624,
+          "end": 130.202
+        },
+        {
+          "id": "caption-word-77-2",
+          "text": "यात्रा",
+          "start": 130.214,
+          "end": 130.745
+        }
+      ]
+    },
+    {
+      "id": "caption-group-78",
+      "frame": 12,
+      "start": 130.756,
+      "end": 131.289,
+      "text": "आए",
+      "words": [
+        {
+          "id": "caption-word-78-0",
+          "text": "आए",
+          "start": 130.756,
+          "end": 131.169
+        }
+      ]
+    },
+    {
+      "id": "caption-group-79",
+      "frame": 12,
+      "start": 131.488,
+      "end": 132.61,
+      "text": "तो ज़रूर जुड़िए",
+      "words": [
+        {
+          "id": "caption-word-79-0",
+          "text": "तो",
+          "start": 131.488,
+          "end": 131.629
+        },
+        {
+          "id": "caption-word-79-1",
+          "text": "ज़रूर",
+          "start": 131.641,
+          "end": 131.995
+        },
+        {
+          "id": "caption-word-79-2",
+          "text": "जुड़िए",
+          "start": 132.006,
+          "end": 132.49
+        }
+      ]
+    },
+    {
+      "id": "caption-group-80",
+      "frame": 12,
+      "start": 132.69,
+      "end": 133.74,
+      "text": "शाम चार से",
+      "words": [
+        {
+          "id": "caption-word-80-0",
+          "text": "शाम",
+          "start": 132.69,
+          "end": 133.127
+        },
+        {
+          "id": "caption-word-80-1",
+          "text": "चार",
+          "start": 133.139,
+          "end": 133.433
+        },
+        {
+          "id": "caption-word-80-2",
+          "text": "से",
+          "start": 133.445,
+          "end": 133.728
+        }
+      ]
+    },
+    {
+      "id": "caption-group-81",
+      "frame": 12,
+      "start": 133.74,
+      "end": 135.037,
+      "text": "आठ बजे NABH",
+      "words": [
+        {
+          "id": "caption-word-81-0",
+          "text": "आठ",
+          "start": 133.74,
+          "end": 134.023
+        },
+        {
+          "id": "caption-word-81-1",
+          "text": "बजे",
+          "start": 134.035,
+          "end": 134.436
+        },
+        {
+          "id": "caption-word-81-2",
+          "text": "NABH",
+          "start": 134.577,
+          "end": 135.025
+        }
+      ]
+    },
+    {
+      "id": "caption-group-82",
+      "frame": 12,
+      "start": 135.037,
+      "end": 135.818,
+      "text": "workshop",
+      "words": [
+        {
+          "id": "caption-word-82-0",
+          "text": "workshop",
+          "start": 135.037,
+          "end": 135.698
+        }
+      ]
+    },
+    {
+      "id": "caption-group-83",
+      "frame": 12,
+      "start": 136.497,
+      "end": 137.853,
+      "text": "क्योंकि quality सिर्फ़",
+      "words": [
+        {
+          "id": "caption-word-83-0",
+          "text": "क्योंकि",
+          "start": 136.497,
+          "end": 136.957
+        },
+        {
+          "id": "caption-word-83-1",
+          "text": "quality",
+          "start": 136.968,
+          "end": 137.475
+        },
+        {
+          "id": "caption-word-83-2",
+          "text": "सिर्फ़",
+          "start": 137.487,
+          "end": 137.841
+        }
+      ]
+    },
+    {
+      "id": "caption-group-84",
+      "frame": 12,
+      "start": 137.853,
+      "end": 139.423,
+      "text": "एक certificate नहीं",
+      "words": [
+        {
+          "id": "caption-word-84-0",
+          "text": "एक",
+          "start": 137.853,
+          "end": 138.077
+        },
+        {
+          "id": "caption-word-84-1",
+          "text": "certificate",
+          "start": 138.089,
+          "end": 138.784
+        },
+        {
+          "id": "caption-word-84-2",
+          "text": "नहीं",
+          "start": 138.796,
+          "end": 139.303
+        }
+      ]
+    },
+    {
+      "id": "caption-group-85",
+      "frame": 12,
+      "start": 139.504,
+      "end": 140.414,
+      "text": "भरोसा है",
+      "words": [
+        {
+          "id": "caption-word-85-0",
+          "text": "भरोसा",
+          "start": 139.504,
+          "end": 140.034
+        },
+        {
+          "id": "caption-word-85-1",
+          "text": "है",
+          "start": 140.046,
+          "end": 140.294
+        }
+      ]
+    },
+    {
+      "id": "caption-group-86",
+      "frame": 12,
+      "start": 141.107,
+      "end": 142.065,
+      "text": "गुणवत्ता",
+      "words": [
+        {
+          "id": "caption-word-86-0",
+          "text": "गुणवत्ता",
+          "start": 141.107,
+          "end": 141.945
+        }
+      ]
+    },
+    {
+      "id": "caption-group-87",
+      "frame": 12,
+      "start": 142.204,
+      "end": 143.374,
+      "text": "हर द्वार तक",
+      "words": [
+        {
+          "id": "caption-word-87-0",
+          "text": "हर",
+          "start": 142.204,
+          "end": 142.499
+        },
+        {
+          "id": "caption-word-87-1",
+          "text": "द्वार",
+          "start": 142.511,
+          "end": 142.841
+        },
+        {
+          "id": "caption-word-87-2",
+          "text": "तक",
+          "start": 142.853,
+          "end": 143.254
+        }
+      ]
+    }
+  ]
+}

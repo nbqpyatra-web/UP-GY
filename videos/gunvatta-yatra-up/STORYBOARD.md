@@ -28,7 +28,7 @@ captions: enabled
 - duration: 13.84s
 - poster: 11.1s
 - transition_in: cut
-- status: outline
+- status: animated
 - beat: Recognition + warmth
 - voiceover: "जब कोई अपने परिवार को hospital लेकर जाता है... तो उसे सबसे पहले क्या चाहिए? भरोसा। ऐसा इलाज, जिसकी quality पर भरोसा हो।"
 - src: compositions/frames/01-hook.html
@@ -50,7 +50,7 @@ Scene 4 (8.6–end): under it, "ऐसा इलाज, जिसकी quality 
 - duration: 10.19s
 - poster: 8.2s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - beat: Orientation
 - voiceover: "आयुष्मान भारत, प्रधानमंत्री जन आरोग्य योजना का मूल उद्देश्य है — हर लाभार्थी को quality और standard healthcare."
 - src: compositions/frames/02-pmjay.html
@@ -71,7 +71,7 @@ Scene 3 (5.6–end): on "हर लाभार्थी" (~5.8s) a big line "�
 - duration: 7.69s
 - poster: 6.2s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - beat: Concern
 - voiceover: "लेकिन inspection में पाया गया, कि कुछ hospitals अभी भी minimum standards पूरे नहीं कर रहे।"
 - src: compositions/frames/03-gap.html
@@ -93,7 +93,7 @@ Scene 4 (5.0–end): right column: "minimum standards" (Space Grotesk 600, 64px)
 - duration: 16.12s
 - poster: 12.9s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - beat: Resolve + urgency
 - voiceover: "इसीलिए SACHIS ने तय किया — योजना से जुड़े सभी private hospitals के लिए, NABH certification अनिवार्य। Quality अब सीधे incentive से जुड़ी है... और लक्ष्य — दो महीने के अंदर!"
 - src: compositions/frames/04-directive.html
@@ -116,7 +116,7 @@ Scene 5 (12.0–end): on "दो महीने" (13.1s) a big countdown chip "
 - duration: 16.14s
 - poster: 12.9s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - beat: Clarity
 - voiceover: "इसका मतलब? एक — स्वास्थ्य सेवाओं की quality में सुधार। दो — मरीज़ों का इलाज, तय standards के अनुसार। तीन — लाभार्थियों को बेहतर और पारदर्शी सेवाएं।"
 - src: compositions/frames/05-benefits.html
@@ -139,7 +139,7 @@ Scene 4 (10.2–end): on "तीन" (~10.3s) card 3 (right): "3", "बेहत
 - duration: 18.97s
 - poster: 15.2s
 - transition_in: blur-crossfade
-- status: outline
+- status: animated
 - beat: Excitement
 - voiceover: "और इस बदलाव को हर hospital तक पहुँचाने निकली है — गुणवत्ता यात्रा! Quality Council of India की पहल। दो रथ, तिरसठ यात्राएं, पचहत्तर ज़िले — NABH Entry Level Certification workshops, सीधे आपके ज़िले में।"
 - src: compositions/frames/06-yatra.html
@@ -163,7 +163,7 @@ Scene 5 (12.5–end): on "NABH Entry Level Certification workshops" (~13.0s) a w
 - duration: 7.09s
 - poster: 5.7s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - beat: Momentum
 - voiceover: "शुरुआत — गोरखपुर से! नौ अक्टूबर को, launch के साथ।"
 - src: compositions/frames/07-gorakhpur.html
@@ -184,7 +184,7 @@ Scene 3 (3.0–end): right card: "#1" big cobalt numeral, "09 Oct 2026" (Space G
 - duration: 6.88s
 - poster: 5.5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - beat: Momentum
 - voiceover: "चौदह अक्टूबर — Rath A पहुँचेगा बरेली, और Rath B — कुशीनगर।"
 - src: compositions/frames/08-bareilly-kushinagar.html
@@ -206,7 +206,7 @@ Scene 3 (3.0–end): on "Rath B" (~3.6s) a second dashed route draws from Gorakh
 - duration: 6.37s
 - poster: 5.1s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - beat: Momentum
 - voiceover: "सोलह अक्टूबर — मुरादाबाद... और महराजगंज।"
 - src: compositions/frames/09-moradabad-maharajganj.html
@@ -228,7 +228,7 @@ Scene 3 (2.6–end): on "महराजगंज" (~3.6s) route extends Kushina
 - duration: 16.96s
 - poster: 13.6s
 - transition_in: cut
-- status: outline
+- status: animated
 - beat: Momentum → awe
 - voiceover: "फिर बिजनौर, बस्ती, सहारनपुर, प्रयागराज, कानपुर, झाँसी... जनवरी में मेरठ, आगरा, वाराणसी, लखनऊ... और मार्च में cluster यात्राएं — बुंदेलखंड से तराई तक।"
 - src: compositions/frames/10-all-districts.html
@@ -251,7 +251,7 @@ Scene 4 (15.0–end): counter lands on "75 / 75" with a scale pop; the whole map
 - duration: 8.39s
 - poster: 6.7s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - beat: Pride
 - voiceover: "हर ज़िला। हर शहर। हर pincode। पूरे पचहत्तर ज़िले!"
 - src: compositions/frames/11-every-pincode.html
@@ -274,7 +274,7 @@ Scene 4 (5.0–end): "पूरे 75 ज़िले" (Space Grotesk/Hindi 60px
 - duration: 16.33s
 - poster: 13.1s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - beat: Resolve
 - voiceover: "अपने ज़िले में गुणवत्ता यात्रा आए, तो ज़रूर जुड़िए — शाम चार से आठ बजे, NABH workshop। क्योंकि quality सिर्फ़ एक certificate नहीं — भरोसा है। गुणवत्ता — हर द्वार तक।"
 - src: compositions/frames/12-cta.html
@@ -296,7 +296,7 @@ Scene 4 (11.5–end): on "गुणवत्ता — हर द्वार �
 - duration: 4.5s
 - poster: 3.6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - beat: Closure
 - voiceover: ""
 - src: compositions/frames/13-endcard.html
