@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "youtube",
+      "confirmed_in": [
+        "gunvatta-yatra-up"
+      ],
+      "updated_at": "2026-10-09T13:01:16.980Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "gunvatta-yatra-up"
+      ],
+      "updated_at": "2026-10-09T13:01:17.034Z"
+    },
+    "language": {
+      "value": "hi-en",
+      "confirmed_in": [
+        "gunvatta-yatra-up"
+      ],
+      "updated_at": "2026-10-09T13:01:17.108Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "gunvatta-yatra-up"
+      ],
+      "updated_at": "2026-10-09T13:01:17.178Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "gunvatta-yatra-up"
+      ],
+      "updated_at": "2026-10-09T13:01:17.233Z"
+    },
+    "style_preset.faceless-explainer": {
+      "value": "blue-professional",
+      "confirmed_in": [
+        "gunvatta-yatra-up"
+      ],
+      "updated_at": "2026-10-09T13:01:26.098Z"
+    }
+  },
+  "sightings": {}
+}
