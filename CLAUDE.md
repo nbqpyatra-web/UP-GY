@@ -142,6 +142,38 @@ Kanpur Nagar & Chandauli (25 Nov); Jhansi & Mau (27 Nov).
 different districts: 6/8/13/15/20/22/27/29 Jan; 3/5/10/12/17/19/24/26 Feb;
 3/5/12/17/19/24/31 Mar (10 Mar dropped).
 
+### Master planner — `data/Planned_Yatras_All_Phases.xlsx` (received 09 Oct 2026)
+Sheets: `All Yatras` (one row per district, TOTAL row at top), `Phase 1 (Oct-Nov 2026)`,
+`Phase 2 (Jan-Mar 2027)`, `Phase 3 Clusters (Mar 2027)`, `Summary`. Hospital/lead columns
+are copied from `(VF) Final Sheet`. Every session: NABH Entry Level Certification
+workshop, 4 PM – 8 PM. "Visit Type": Follow-up = district already had a yatra; New = first visit.
+
+| Phase | Window | Yatras | Districts | PM-JAY | NABH | Gap | Hot / AIP / Warm |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Total** | 09 Oct 2026 – 24 Mar 2027 | 63 | 75 | 3,650 | 1,404 | 2,246 | 71 / 22 / 25 |
+| Phase 1 | 09 Oct – 27 Nov 2026 | 23 | 23 | 1,854 | 588 | 1,266 | 46 / 17 / 5 |
+| Phase 2 | 06 Jan – 03 Mar 2027 | 33 | 33 | 1,645 | 794 | 851 | 25 / 5 / 20 |
+| Phase 3 | 05 – 24 Mar 2027 | 7 clusters | 19 | 151 | 22 | 129 | 0 / 0 / 0 |
+
+**Phase 2 (Rath A & Rath B):** 06 Jan Jaunpur & Meerut · 08 Jan Deoria & Agra ·
+13 Jan Ambedkar Nagar & Mathura · 15 Jan Ayodhya & Pilibhit · 20 Jan Sultanpur &
+Shahjahanpur · 22 Jan Amethi & Rampur · 27 Jan Gonda & Amroha · 29 Jan Varanasi & Baghpat ·
+03 Feb Lucknow & Hardoi · 05 Feb Azamgarh & Sitapur · 10 Feb Ghazipur & Kanpur Dehat ·
+12 Feb Ballia & Etawah · 17 Feb Sonbhadra & Mainpuri · 19 Feb Bahraich & Firozabad ·
+24 Feb Siddharth Nagar (Rath A only) · 26 Feb Fatehpur & Ghaziabad ·
+03 Mar Unnao & Gautam Buddha Nagar.
+
+**Phase 3 cluster yatras (host listed first):** 05 Mar Hathras + Etah + Kasganj ·
+05 Mar Pratapgarh + Rae Bareli + Kaushambi · 12 Mar Farrukhabad + Kannauj + Auraiya ·
+12 Mar Balrampur + Shravasti · 17 Mar Budaun + Sambhal · 19 Mar Jalaun (Orai) + Lalitpur ·
+24 Mar Banda + Chitrakoot + Mahoba + Hamirpur. 31 Mar 2027 = reserve date / state-level
+Gunvatta Manthan and certification ceremony.
+
+Planner quirks to keep in mind: its Summary note defines Won as "already NABH
+certified/accredited", which conflicts with the locked definition in §4 (fee paid /
+application submitted) — §4 wins. Its gap column shows Ghaziabad −55 and Gautam Buddha
+Nagar −69 rather than flooring at 0.
+
 Earlier phased framing (plan-of-action doc): Phase I Central UP (Lucknow, Kanpur,
 Ayodhya); Phase II East UP (Gorakhpur, Basti, Azamgarh, Varanasi, Prayagraj, Mirzapur);
 Phase III North UP / Devipatan (Bahraich, Gonda, Balrampur, Shrawasti);
@@ -240,7 +272,8 @@ angles** — the UP circular is NABH-for-PM-JAY only.
 `Districtwise data.xlsx` · `Updated District List data.xlsx` (CURRENT) ·
 `UPGY_Tentative_Schedule_VF.pdf` / `.pptx` · `Accreditation Pathway_Template_15072026.pdf` ·
 `MP_NABH_Meeting_03072026_v3.pdf` · `MP_QCI_NABH_Note_09062026_v2.docx` ·
-`NABH_NABL Order Draft_MP_10072026.docx`
+`NABH_NABL Order Draft_MP_10072026.docx` ·
+`data/Planned_Yatras_All_Phases.xlsx` (master yatra planner, all 3 phases — in this repo)
 
 Note on two number sets: the earlier 12 June 2026 pull showed a 2,543-hospital PM-JAY
 universe with 811 NABH covered and 1,801 potential leads. The current and authoritative
