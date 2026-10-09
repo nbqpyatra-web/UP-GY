@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
     <style>
       * {
         margin: 0;
@@ -12,44 +12,82 @@
       }
       html,
       body {
-        margin: 0;
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #0a0a0a;
+        background: #000;
       }
       #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #fdfae7;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
       }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div data-hf-id="hf-qbnw" id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-c0nz" id="el-01-hook" class="scene" data-composition-id="01-hook" data-composition-src="compositions/frames/01-hook.html" data-start="0" data-duration="6.5" data-track-index="0"></div>
+
+      <div data-hf-id="hf-yww2" id="el-02-intro" class="scene" data-composition-id="02-intro" data-composition-src="compositions/frames/02-intro.html" data-start="6" data-duration="8.5" data-track-index="1"></div>
+
+      <div data-hf-id="hf-vhvw" id="el-03-agra" class="scene" data-composition-id="03-agra" data-composition-src="compositions/frames/03-agra.html" data-start="14" data-duration="7" data-track-index="0"></div>
+
+      <div data-hf-id="hf-br0s" id="el-04-kanpur" class="scene" data-composition-id="04-kanpur" data-composition-src="compositions/frames/04-kanpur.html" data-start="20.5" data-duration="7" data-track-index="1"></div>
+
+      <div data-hf-id="hf-dqpa" id="el-05-lucknow" class="scene" data-composition-id="05-lucknow" data-composition-src="compositions/frames/05-lucknow.html" data-start="27" data-duration="7" data-track-index="0"></div>
+
+      <div data-hf-id="hf-lqmy" id="el-06-varanasi" class="scene" data-composition-id="06-varanasi" data-composition-src="compositions/frames/06-varanasi.html" data-start="33.5" data-duration="7" data-track-index="1"></div>
+
+      <div data-hf-id="hf-3npm" id="el-07-gorakhpur" class="scene" data-composition-id="07-gorakhpur" data-composition-src="compositions/frames/07-gorakhpur.html" data-start="40" data-duration="7.1" data-track-index="0"></div>
+
+      <div data-hf-id="hf-hhlp" id="el-08-vision" class="scene" data-composition-id="08-vision" data-composition-src="compositions/frames/08-vision.html" data-start="46.5" data-duration="7" data-track-index="1"></div>
+
+      <div data-hf-id="hf-lzhk" id="el-09-cta" class="scene" data-composition-id="09-cta" data-composition-src="compositions/frames/09-cta.html" data-start="53" data-duration="7" data-track-index="0"></div>
+
+      <!-- BGM -->
+      <audio data-hf-id="hf-sl3y" id="el-bgm" src="assets/bgm.mp3" data-start="0" data-duration="60" data-track-index="11" data-volume="0.9"></audio>
+
     </div>
+
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      // ── frame transitions (injected by transitions.mjs) ──
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01-hook", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 6);
+        tl.fromTo("#el-02-intro", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 6);
+        tl.addLabel("hf:transition:01-hook:02-intro:crossfade", 6);
+        tl.to("#el-02-intro", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 14);
+        tl.fromTo("#el-03-agra", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 14);
+        tl.addLabel("hf:transition:02-intro:03-agra:push-slide", 14);
+        tl.to("#el-03-agra", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 20.5);
+        tl.fromTo("#el-04-kanpur", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 20.5);
+        tl.addLabel("hf:transition:03-agra:04-kanpur:push-slide", 20.5);
+        tl.to("#el-04-kanpur", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 27);
+        tl.fromTo("#el-05-lucknow", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 27);
+        tl.addLabel("hf:transition:04-kanpur:05-lucknow:push-slide", 27);
+        tl.to("#el-05-lucknow", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 33.5);
+        tl.fromTo("#el-06-varanasi", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 33.5);
+        tl.addLabel("hf:transition:05-lucknow:06-varanasi:push-slide", 33.5);
+        tl.to("#el-06-varanasi", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 40);
+        tl.fromTo("#el-07-gorakhpur", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 40);
+        tl.addLabel("hf:transition:06-varanasi:07-gorakhpur:push-slide", 40);
+        tl.to("#el-07-gorakhpur", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 46.5);
+        tl.fromTo("#el-08-vision", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 46.5);
+        tl.addLabel("hf:transition:07-gorakhpur:08-vision:blur-crossfade", 46.5);
+        tl.to("#el-08-vision", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 53);
+        tl.fromTo("#el-09-cta", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 53);
+        tl.addLabel("hf:transition:08-vision:09-cta:crossfade", 53);
+        tl.to({}, { duration: 60 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+      })();
     </script>
   </body>
 </html>

@@ -26,7 +26,7 @@ captions: skipped (no narration — on-screen text carries the story)
 - duration: 6s
 - poster: 4.5s
 - transition_in: cut
-- status: outline
+- status: animated
 - persuasion: Rhetorical question + direct address
 - beat: Curiosity + recognition
 - voiceover: "क्या गुणवत्ता हर ज़िले तक पहुँच सकती है? — What if quality reached every district of UP?"
@@ -51,7 +51,7 @@ Scene 4 (4.6–6.0s): held read; the dot slides to the line's left edge and hold
 - duration: 8s
 - poster: 6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - persuasion: Concept announcement + frame-then-fill (show the whole route before visiting each stop)
 - beat: Clarity + anticipation
 - voiceover: "गुणवत्ता यात्रा — a quality journey across Uttar Pradesh, by the Quality Council of India."
@@ -77,7 +77,7 @@ NOTE: frame 03 starts with the route reset to only the Agra pin lit — that is 
 - duration: 6.5s
 - poster: 4.5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - persuasion: Signposting (numbered stops) + concretization
 - beat: Momentum
 - voiceover: "पड़ाव 1 · आगरा — कौशल. Skilled people deliver quality services."
@@ -102,7 +102,7 @@ Scene 4 (5.0–6.5s): held read, still.
 - duration: 6.5s
 - poster: 4.5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - persuasion: Signposting + coined term (Zero Effect, Zero Defect)
 - beat: Comprehension
 - voiceover: "पड़ाव 2 · कानपुर — उद्योग. MSMEs adopt ZED and LEAN: zero defect, zero effect."
@@ -127,7 +127,7 @@ Scene 4 (5.0–6.5s): held read, still.
 - duration: 6.5s
 - poster: 4.5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - persuasion: Signposting + concretization
 - beat: Confidence
 - voiceover: "पड़ाव 3 · लखनऊ — स्वास्थ्य. Quality care, patient safety first."
@@ -152,7 +152,7 @@ Scene 4 (5.0–6.5s): held read, still.
 - duration: 6.5s
 - poster: 4.5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - persuasion: Signposting + concretization
 - beat: Foresight
 - voiceover: "पड़ाव 4 · वाराणसी — शिक्षा. Quality institutions shape quality futures."
@@ -177,7 +177,7 @@ Scene 4 (5.0–6.5s): held read, still.
 - duration: 6.5s
 - poster: 4.5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - persuasion: Signposting + build-up (all stops lit = the whole state)
 - beat: Momentum + delight
 - voiceover: "पड़ाव 5 · गोरखपुर — नागरिक. Quality is every citizen's right."
@@ -202,7 +202,7 @@ Scene 4 (5.0–6.5s): held read, still.
 - duration: 6.5s
 - poster: 5s
 - transition_in: blur-crossfade
-- status: outline
+- status: animated
 - persuasion: Before/after + distillation
 - beat: Inspiration
 - voiceover: "आत्मनिर्भर प्रदेश से दाता प्रदेश तक — from self-reliant to a state that gives back to the nation."
@@ -227,7 +227,7 @@ Scene 4 (5.0–6.5s): held breather, still.
 - duration: 7s
 - poster: 5s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - persuasion: Callback (route mark from frame 2) + direct ask
 - beat: Resolve
 - voiceover: "यात्रा से जुड़ें — Join the Gunvatta Yatra. गुणवत्ता, हर द्वार तक."
