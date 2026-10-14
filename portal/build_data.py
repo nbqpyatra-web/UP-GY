@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Build the data snapshot for the UP Gunvatta Yatra portal.
 
-Combines three sources and writes them into portal/index.html (between the
-PORTAL-DATA markers) so the portal is a single self-contained file:
+Combines four sources and writes them into portal/index.html (in the portal-data
+script block) so the portal is a single self-contained file:
 
-  1. data/Planned_Yatras_All_Phases.xlsx  - 75 districts, 63 planned yatras
-  2. Freshworks CRM (live)                - held / upcoming events, registrations,
-                                            attendance and lead status per event
-  3. portal/up_districts.geojson          - simplified district boundaries
+  1. data/Gunvatta_Yatra_UP_Route_Plan.xlsx - the 4-team route plan: 63 Friday yatras,
+                                              10 reserve slots, holidays, weekly rhythm,
+                                              notes & risks
+  2. data/Planned_Yatras_All_Phases.xlsx    - hospital figures per district ((VF) Final
+                                              Sheet copy: PM-JAY, NABH, gap, baseline)
+  3. Freshworks CRM (live)                  - registrations, attendance and lead status
+                                              per event
+  4. portal/up_districts.geojson            - simplified district boundaries
 
 Only aggregate counts leave the CRM; no contact names, emails or phone numbers.
 
@@ -30,13 +34,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "freshworks_mcp"))
 import server as fw  # noqa: E402
 
-PLANNER = os.path.join(ROOT, "data", "Planned_Yatras_All_Phases.xlsx")
+ROUTE_PLAN = os.path.join(ROOT, "data", "Gunvatta_Yatra_UP_Route_Plan.xlsx")
+PLANNER = os.path.join(ROOT, "data", "Planned_Yatras_All_Phases.xlsx")  # hospital figures only
 GEOJSON = os.path.join(ROOT, "portal", "up_districts.geojson")
 INDEX = os.path.join(ROOT, "portal", "index.html")
 CACHE = os.path.join(ROOT, "portal", ".cache", "crm_events.json")
 
 CIRCULAR_DATE = "2026-05-15"
-PROGRAMME_START = "2026-10-09"   # UP GY launch (Gorakhpur); earlier events are history
+PROGRAMME_START = "2026-10-23"   # UP GY launch (Lucknow, joint); earlier events are history
 MATCH_DAYS = 3                   # a CRM event within this many days of the plan date matches
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 
@@ -91,51 +96,108 @@ def canon(name):
     return DISTRICT_ALIASES.get(name, name)
 
 
-# --------------------------------------------------------------------------- planner
+# --------------------------------------------------------------------------- plan
 
-def load_planner():
-    wb = openpyxl.load_workbook(PLANNER, data_only=True)
-    ws = wb["All Yatras"]
+def iso(v):
+    return v.date().isoformat() if hasattr(v, "date") else v
+
+
+def sheet_rows(ws, first_header):
+    """Rows below the header row whose first cell is `first_header`, as dicts."""
     rows = list(ws.iter_rows(values_only=True))
-    head = rows[0]
-    idx = {h: i for i, h in enumerate(head)}
-    districts, plan = {}, []
-    for r in rows[1:]:
-        if not r[0] or r[0] == "TOTAL":
+    hi = next(i for i, r in enumerate(rows) if r[0] == first_header)
+    head = rows[hi]
+    out = []
+    for r in rows[hi + 1:]:
+        if not any(v is not None for v in r):
             continue
-        g = lambda k: r[idx[k]]  # noqa: E731
-        name = canon(g("District"))
-        date = g("Event Date")
-        date = date.date().isoformat() if hasattr(date, "date") else None
-        phase = int(str(g("Phase")).split()[-1])
+        out.append({h: iso(v) for h, v in zip(head, r) if h})
+    return out
+
+
+def load_districts():
+    """Hospital figures per district, from the (VF) Final Sheet copy in the earlier planner."""
+    wb = openpyxl.load_workbook(PLANNER, data_only=True)
+    districts = {}
+    for g in sheet_rows(wb["All Yatras"], "Phase"):
+        if g["Phase"] == "TOTAL":
+            continue
+        name = canon(g["District"])
         districts[name] = {
-            "name": name, "mandal": g("Mandal"), "zone": g("Zone"), "tier": g("Tier"),
-            "universe": g("PM-JAY Universe") or 0, "nabh": g("NABH Total") or 0,
-            "cert": g("Certified") or 0, "accr": g("Accredited") or 0,
-            "gap": max(0, g("Potential Gap") or 0),  # floored at 0 (project rule)
-            "gapRaw": g("Potential Gap") or 0,
-            "phase": phase, "planDate": date, "rath": g("Rath / Mode"),
-            "cluster": g("Cluster"), "role": g("Role"), "visitType": g("Visit Type"),
+            "name": name, "mandal": g["Mandal"], "zone": g["Zone"], "tier": g["Tier"],
+            "universe": g["PM-JAY Universe"] or 0, "nabh": g["NABH Total"] or 0,
+            "cert": g["Certified"] or 0, "accr": g["Accredited"] or 0,
+            "gap": max(0, g["Potential Gap"] or 0),  # floored at 0 (project rule)
+            "gapRaw": g["Potential Gap"] or 0,
             "baseline": {  # (VF) Final Sheet figures as of 06 Oct 2026
-                "yatras": g("Yatras Conducted") or 0, "attended": g("Attended") or 0,
-                "won": g("Won") or 0, "aip": g("Application in Progress") or 0,
-                "hot": g("Hot") or 0, "warm": g("Warm") or 0,
+                "yatras": g["Yatras Conducted"] or 0, "attended": g["Attended"] or 0,
+                "won": g["Won"] or 0, "aip": g["Application in Progress"] or 0,
+                "hot": g["Hot"] or 0, "warm": g["Warm"] or 0,
             },
         }
-        key = (phase, g("Yatra #"))
-        existing = next((p for p in plan if p["key"] == key), None)
-        if existing:
-            existing["districts"].append(name)
-        else:
-            plan.append({
-                "key": key, "phase": phase, "no": g("Yatra #"), "date": date,
-                "day": g("Day"), "time": g("Time"), "rath": g("Rath / Mode"),
-                "cluster": g("Cluster"), "districts": [name], "visitType": g("Visit Type"),
-            })
-    for p in plan:
-        p["id"] = f"P{p['phase']}-{p['no']:02d}"
-        del p["key"]
-    return districts, plan
+    return districts
+
+
+TEAM_KEYS = {"Joint (All 4)": "J", "Team 1 – West": "T1", "Team 2 – East": "T2",
+             "Team 3 – Central": "T3", "Team 4 – South-West & Bundelkhand": "T4"}
+
+
+def blank(v):
+    return None if v in (None, "", "—", "-") else v
+
+
+def load_route():
+    wb = openpyxl.load_workbook(ROUTE_PLAN, data_only=True)
+    yatras, reserves = [], []
+    for r in sheet_rows(wb["Route Plan"], "S.No"):
+        if not isinstance(r["S.No"], int):
+            continue
+        team = TEAM_KEYS[r["Team"]]
+        leg = r["Leg"]
+        base = {
+            "id": leg if team == "J" else f"{team}-{leg}", "sno": r["S.No"], "team": team, "teamName": r["Team"],
+            "teamZone": r["Zone"], "circuit": r["Phase / Circuit"], "leg": leg,
+            "date": r["Yatra Date"], "day": r["Day"], "onGround": r["Team on ground by"],
+            "calendar": r["Calendar check"], "remarks": blank(r["Remarks"]),
+        }
+        if r["Status"] == "Reserve":
+            reserves.append(base)
+            continue
+        base.update({
+            "mandal": r["Mandal"], "host": canon(r["District / Cluster (Host)"].replace(" Cluster", "")),
+            "label": r["District / Cluster (Host)"],
+            "districts": [canon(d) for d in str(r["Districts covered"]).split(",")],
+            "travelFrom": blank(r["Travel from"]), "km": blank(r["Approx. road km"]),
+            "earlier": blank(r["Earlier GY visit"]), "venue": blank(r["Venue (Primary)"]),
+            "fallback": blank(r["Fallback"]), "refreshAV": blank(r["Refreshment & AV"]),
+            "faculty": blank(r["NABH Faculty"]), "spoc": blank(r["District SPOC (CMO office)"]),
+            "turnout": blank(r["Turnout target"]), "planStatus": r["Status"],
+        })
+        base["cluster"] = r["District / Cluster (Host)"] if len(base["districts"]) > 1 else None
+        yatras.append(base)
+
+    teams = []
+    for r in sheet_rows(wb["Summary"], "Team"):
+        if r["Team"] in TEAM_KEYS:
+            teams.append({"key": TEAM_KEYS[r["Team"]], "name": r["Team"], "zone": r["Zone"],
+                          "member": blank(r["Team member (1 person)"]), "base": blank(r["Home base"])})
+        if r["Team"] == "TOTAL":
+            break
+
+    holidays = [{"date": r["Date"], "day": r["Day"], "name": r["Holiday / Festival"],
+                 "type": r["Type"], "blocks": r["Blocks Yatra?"], "note": blank(r["Note"])}
+                for r in sheet_rows(wb["UP Holidays"], "Date")]
+    fridays = [{"friday": r["Friday"], "status": r["FINAL STATUS"], "date": r["Yatra date to use"],
+                "count": r["Yatras scheduled"], "override": blank(r["Planning override"])}
+               for r in sheet_rows(wb["Friday Calendar"], "Friday") if r["Friday"] != "TOTAL"]
+    rhythm = [{"when": r["When"], "activity": r["Activity"], "output": r["Output / check"], "with": r["With"]}
+              for r in sheet_rows(wb["Weekly Rhythm"], "When")]
+    risks = [{"no": r["#"], "item": r["Item"], "detail": r["Detail / Action"], "level": r["Level"]}
+             for r in sheet_rows(wb["Notes & Risks"], "#")]
+    rules = [str(r[0]) for r in wb["Summary"].iter_rows(values_only=True)
+             if r[0] and re.match(r"^\d+\. ", str(r[0]))]
+    return {"yatras": yatras, "reserves": reserves, "teams": teams, "holidays": holidays,
+            "fridays": fridays, "rhythm": rhythm, "risks": risks, "rules": rules}
 
 
 # --------------------------------------------------------------------------- CRM
@@ -305,13 +367,8 @@ def assemble(districts, plan, events):
             crm = crm_record(best[1])
             crm["dayShift"] = (dt.date.fromisoformat(best[1]["date"]) - pdate).days
         held_on = dt.date.fromisoformat(crm["date"]) if crm else pdate
-        yatras.append({
-            "id": p["id"], "phase": p["phase"], "no": p["no"], "date": p["date"], "day": p["day"],
-            "time": p["time"], "rath": p["rath"], "cluster": p["cluster"],
-            "districts": p["districts"], "visitType": p["visitType"],
-            "state": "completed" if held_on < today else "today" if held_on == today else "upcoming",
-            "crm": crm,
-        })
+        yatras.append({**p, "crm": crm,
+                       "state": "completed" if held_on < today else "today" if held_on == today else "upcoming"})
     unplanned = [crm_record(e) for e in current if e["name"] not in used]
     history.sort(key=lambda e: e["date"] or "")
     names = {d for y in yatras for d in y["districts"]} | {e["district"] for e in history + unplanned}
@@ -333,7 +390,13 @@ def write_index(payload):
 
 def main():
     fw.load_env_file()
-    districts, plan = load_planner()
+    districts = load_districts()
+    route = load_route()
+    covered = [d for y in route["yatras"] for d in y["districts"]]
+    if sorted(set(covered)) != sorted(districts) or len(covered) != len(set(covered)):
+        sys.exit(f"Route plan districts do not match the 75 districts: "
+                 f"missing {sorted(set(districts) - set(covered))}, "
+                 f"unknown {sorted(set(covered) - set(districts))}")
     if "--no-crm" in sys.argv:
         events = []
     elif "--cached" in sys.argv:
@@ -344,7 +407,7 @@ def main():
         os.makedirs(os.path.dirname(CACHE), exist_ok=True)
         with open(CACHE, "w") as f:
             json.dump(events, f)
-    yatras, history, unplanned, unknown = assemble(districts, plan, events)
+    yatras, history, unplanned, unknown = assemble(districts, route["yatras"], events)
     with open(GEOJSON) as f:
         geo = json.load(f)
     for feat in geo["features"]:
@@ -358,6 +421,13 @@ def main():
         "circularDate": CIRCULAR_DATE,
         "districts": list(districts.values()),
         "yatras": yatras,
+        "reserves": route["reserves"],
+        "teams": route["teams"],
+        "holidays": route["holidays"],
+        "fridays": route["fridays"],
+        "rhythm": route["rhythm"],
+        "risks": route["risks"],
+        "rules": route["rules"],
         "history": history,
         "unplanned": unplanned,
         "geo": geo,

@@ -128,6 +128,37 @@ PM-JAY count — potential is floored at 0.
   into a single combined yatra.
 
 ## 6. Schedule
+
+### CURRENT: 4-team route plan — `data/Gunvatta_Yatra_UP_Route_Plan.xlsx` (received 14 Oct 2026)
+Supersedes the Phase 1/2/3 schedule and `Planned_Yatras_All_Phases.xlsx` below (that file is
+now used only for its hospital figures). Sheets: Summary, UP Holidays, Route Plan, Friday
+Calendar, Route Matrix, Weekly Rhythm, Notes & Risks.
+- 63 yatras + 10 reserve slots, all 75 districts, 23 Oct 2026 – 19 Mar 2027. Every yatra on a
+  FRIDAY, 4–8 PM; team member on the ground from the Monday before.
+- Four single-person teams: Team 1 West (Bareilly, Moradabad, Saharanpur, Meerut/NCR; 16
+  yatras), Team 2 East (Gorakhpur, Basti, Devipatan, Azamgarh, Varanasi; 16; member "Pankaj
+  (confirm)"), Team 3 Central (Lucknow belt, Ayodhya, Jaunpur–Vindhyachal, Prayagraj; 15),
+  Team 4 South-West & Bundelkhand (Kanpur, Agra, Aligarh, Jhansi, Chitrakoot; 15). Other
+  members not yet named.
+- Joint launch: Lucknow, Fri 23 Oct 2026, all four members. First solo yatras Fri 30 Oct:
+  Bareilly (T1), Gorakhpur (T2), Barabanki (T3), Kanpur Nagar (T4).
+- Circuits of 4 neighbouring districts on 4 consecutive Fridays: Circuit 1 20 Nov–11 Dec,
+  Circuit 2 Jan, Circuit 3 Feb, Circuit 4 Mar. Legs are named C<circuit>-L<n>; reserves R-n.
+- Skipped Fridays: 6 Nov (Dhanteras), 13 Nov (Bhai Dooj), 25 Dec (Christmas), 1 Jan (year-end
+  break). Rule: Wed/Thu holiday skips the week; Friday holiday moves to Saturday (26 Mar Good
+  Friday → Sat 27 Mar, reserve). Reserve slots: 18 Dec, 27 Mar (all teams), 26 Feb (T4),
+  19 Mar (T3).
+- 7 cluster yatras (host + neighbours): Budaun (+Sambhal, T1), Balrampur (+Shravasti, T2),
+  Pratapgarh (+Rae Bareli, Kaushambi, T3), Farrukhabad (+Kannauj, Auraiya, T4), Hathras
+  (+Etah, Kasganj, T4), Orai/Jalaun (+Lalitpur, T4), Banda (+Chitrakoot, Mahoba, Hamirpur, T4).
+- Weekly rhythm: T-30 CMO letter, T-15 target list, T-10 venue + AV, T-7 NABH faculty, Monday
+  SPOC + hospital list, Tuesday CRM link, Saturday CRM update within 24 hrs. Up to 4 parallel
+  yatras per Friday → 4 distinct NABH faculty.
+- Key risks: 30 Oct lead time, Dussehra date, Chhath, Eid-ul-Fitr (~9 Mar), UP Assembly election
+  2027 (MCC), Dec–Feb fog, single-person teams, faculty pool; Gunvatta Manthan suggested
+  mid-April 2027.
+
+### SUPERSEDED: original Phase 1/2/3 schedule (kept for reference)
 **Phase 1 — 23 districts, 09 Oct – 27 Nov 2026**, 4 PM – 8 PM, Wednesdays and Fridays,
 two raths in parallel after the Gorakhpur launch. Takes coverage to 38 of 75 districts
 (20 already covered).
@@ -301,12 +332,14 @@ denominator is canonical is open gating decision #1 above.
 ## 15. Monitoring portal (`portal/`)
 - `portal/index.html` is a single-file portal modelled on the reference "Gunvatta Yatra –
   UP" dashboard screenshot. Published at https://claude.ai/artifact/Kk1fGwwPWRPzoBFVBdkEyd.
-  Data is embedded by `portal/build_data.py` (planner + live Freshworks + district GeoJSON).
-  See `portal/README.md` for rules and refresh commands.
-- Scope (decided 09 Oct 2026 by Rachit): the main pages show ONLY the 63 UP GY yatras
-  from 09 Oct 2026. Older yatras and the (VF) baseline appear only on the separate
-  "Past yatras" tab. CRM events link to planned yatras by district + date (±3 days).
-- Readiness is a shared, editable tracker (artifact `db` capability, collection
-  `readiness`, one doc per yatra id such as `P1-01`): CMO letter, hospital list, SPOC,
-  venue, SPOC name, venue name, notes, updatedBy, updatedAt.
+  Data is embedded by `portal/build_data.py` (4-team route plan + hospital figures + live
+  Freshworks + district GeoJSON). See `portal/README.md` for rules and refresh commands.
+- Built on the 4-team route plan (since 14 Oct 2026). Main pages show ONLY the 63 UP GY
+  yatras from the 23 Oct 2026 launch; older yatras and the (VF) baseline appear only on the
+  separate "Past yatras" tab. CRM events link to planned yatras by district + date (±3 days).
+- Yatra ids: `J-1` for the joint launch, otherwise `<team>-<leg>` (e.g. `T2-C1-L3`).
+- Shared db (artifact `db` capability): `readiness/<yatra id>` with checks letter, list,
+  venue, faculty, spoc (Not started / In progress / Done / Not needed; due dates follow the
+  weekly rhythm), plus spocName, venueName, facultyName, notes, updatedBy, updatedAt; and
+  `teams/<T1..T4>` with member and base (team member names entered in the portal).
 - Delivery-approach comparison is QCI-internal; the "District CMO" view hides it.
