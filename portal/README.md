@@ -65,4 +65,5 @@ district boundaries). Only aggregate counts are taken from the CRM.
 `portal/assets/` holds the logos embedded in the page header and sidebar (resized copies;
 the page itself carries them as data URIs). QCI, NABH and Gunvatta Pathshala come from
 nabh.co (`qci-full-logo.png`, `cropped-nabh-logo-1.png`, `GUNVATTAPATHSHALA_Logo.png`).
-SACHIS has a text label until an official logo file is supplied.
+The Ayushman Bharat PM-JAY logo (`pmjay-logo.png`) was supplied by Rachit on 14 Oct 2026 and sits
+beside the SACHIS label. A separate SACHIS logo can replace or join it when supplied.
